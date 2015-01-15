@@ -6,4 +6,12 @@
 	* If using commandline, configure to always pull with rebase using `git config --global pull.rebase true`
 	* The `master` branch will only ever be used on the production EC2 instance. We're going to work off the `development` branch and do weekly merges from `development` to `master`
 	* No task is too small for a branch
-	
+	* General workflow should be something to the effect of (this will be changed once we actually start working):
+		* Move task on trello board to "In Progress"
+		* Update development branch with `git checkout development` and then `git pull`
+		* Create feature branch with `git checkout -b new-feature-branch`
+		* Work and make commits
+		* Update development branch again (`git checkout development` and then `git pull`)
+		* Checkout feature branch and rebase interactively on development (`git checkout new-feature-branch` and `git rebase -i development`)
+		* Merge `new-feature-branch` into `development` with `git checkout development` followed by `git merge new-feature-branch`
+		* Move task on trello board to completed
