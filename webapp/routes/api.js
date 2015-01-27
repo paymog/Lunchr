@@ -6,7 +6,7 @@ var express = require('express');
 var database = require('../database')
 var router = express.Router();
 
-router.get('/', function(req, res) {
+router.post('/', function(req, res) {
 
     var db_res = database.createUser(req.query.usr)
     res.send('res: ' + db_res);
