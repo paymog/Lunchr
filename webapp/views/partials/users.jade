@@ -1,0 +1,8 @@
+extends ../layout
+
+block content
+    div(class='container')
+        h1 Users page
+
+        p(ng-repeat='user in users') Username: {{user.email}} Password: {{user.password}}
+

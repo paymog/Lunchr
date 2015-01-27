@@ -1,8 +1,8 @@
 extends layout
 
 block content
-  div(class='container')
-    h1 Welcome to #{title}
-    h3 Are you hungry?
-    div(class='text-center')
-      button(class='btn ') Hells yes!
+    div(ng-view)
+
+    script(src='javascripts/angular/angular.js')
+    script(src='javascripts/angular-app.js')
+    script(src='javascripts/controllers.js')
