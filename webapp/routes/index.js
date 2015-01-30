@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Lunchr' });
+  res.render('index');
 });
 
 // black magic
@@ -14,7 +14,7 @@ router.get('/partials/:name', function (req, res) {
 
 router.get('*', function(req, res){
   console.log("HITTING UNREGISTERED ROUTE");
-  res.render('index', {title: 'Lunchr'});
+  res.render('index');
 });
 
 module.exports = router;
