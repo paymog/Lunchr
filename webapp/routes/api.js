@@ -21,7 +21,9 @@ router.post('/users/register', function (req, res, next) {
         }
 
         // create and save the user
-        var user = new User({email: req.body.email, password: req.body.password})
+        var user = new User({
+            email: req.body.email, password: req.body.password,
+            firstname: req.body.firstname, lastname: req.body.lastname})
 
         user.save(function (error, user) {
             if (error) {
