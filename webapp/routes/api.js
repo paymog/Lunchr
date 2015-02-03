@@ -12,14 +12,26 @@ router.get('/users', function (req, res) {
 });
 
 router.post('/users/register', function (req, res, next) {
-    var user = new User({email: req.body.email, password: req.body.password})
-
-    user.save(function (error, user) {
-        if (error) {
+    User.find({email: req.body.email}, function(error, users){
+        if(error){
             return next(error)
         }
-        res.json(user);
-    });
+        if(users.length > 0){
+            return next(Error("Username already exists"));
+        }
+
+        // create and save the user
+        var user = new User({email: req.body.email, password: req.body.password})
+
+        user.save(function (error, user) {
+            if (error) {
+                return next(error)
+            }
+            res.json(user);
+        });
+    })
+
+
 });
 
 router.post('/users/authenticate', function (req, res, next) {

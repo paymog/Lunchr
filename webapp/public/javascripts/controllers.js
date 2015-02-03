@@ -6,7 +6,9 @@ function MainPageController($scope, $http, $location){
                 $location.path('/users')
             }).
             error(function(data, status, headers, config) {
-                alert("Something went wrong :(");
+                $scope.errorsMessages = data;
+                $scope.email = "";
+                $scope.password = "";
             });
     };
 
