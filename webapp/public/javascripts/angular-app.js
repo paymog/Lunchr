@@ -1,16 +1,17 @@
 'use strict';
 
-// Declare app level module which depends on filters, and services
-angular.module('lunchr', []).
-    config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider ) {
+var lunchrApp = angular.module('lunchr', ['ngRoute', 'lunchrControllers']);
+
+lunchrApp.config(['$routeProvider', '$locationProvider',
+    function ($routeProvider, $locationProvider) {
         $routeProvider.
             when('/', {
-                templateUrl : 'partials/index',
-                controller : MainPageController
+                templateUrl: '/partials/main.jade',
+                controller: 'MainPageController'
             })
             .when('/users', {
-                templateUrl : 'partials/users',
-                controller : UserController
+                templateUrl: '/partials/users.jade',
+                controller: 'UserController'
             })
             .otherwise({
                 redirectTo: '/'
