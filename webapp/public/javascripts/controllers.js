@@ -18,7 +18,6 @@ function MainPageController($scope, $http, $location){
             }).
             error(function(data, status, headers, config){
                 $scope.errorsMessages = data;
-                $scope.email = "";
                 $scope.password = "";
             })
     }
