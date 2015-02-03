@@ -1,8 +1,12 @@
 div(class='container')
-   h1 Welcome to #{title}
+   h1 Welcome to Lunchr
    h3 Are you hungry?
 
+
    div(class='text-center')
+      div(ng-show='errorsMessages', class='alert alert-danger')
+         p {{errorsMessages}}
+
       input(type='text', id='inputEmail', class='form-control', placeholder="Enter your email", ng-model='email', required, autofocus)
       input(type='password', class='form-control', placeholder="What's your password", ng-model='password', required)
 

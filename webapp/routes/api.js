@@ -11,7 +11,7 @@ router.get('/users', function (req, res) {
     })
 });
 
-router.post('/users', function (req, res, next) {
+router.post('/users/register', function (req, res, next) {
     var user = new User({email: req.body.email, password: req.body.password})
 
     user.save(function (error, user) {
@@ -22,5 +22,18 @@ router.post('/users', function (req, res, next) {
     });
 });
 
+router.post('/users/authenticate', function (req, res, next) {
+    User.find({email: req.body.email, password: req.body.password}, function(error, users){
+        if(error){
+            return next(error);
+        }
+
+        if(users.length === 0){
+            return next(new Error("User not found"));
+        }
+
+        res.json(users);
+    })
+});
 
 module.exports = router;
