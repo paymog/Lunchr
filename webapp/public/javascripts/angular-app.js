@@ -14,8 +14,8 @@ lunchrApp.config(['$routeProvider', '$locationProvider',
                 controller: 'UserController'
             })
             .when('/register', {
-                templateUrl : 'partials/register',
-                controller : RegisterController
+                templateUrl: 'partials/register.jade',
+                controller: 'RegisterController'
             })
             .otherwise({
                 redirectTo: '/'

@@ -1,9 +1,9 @@
-var mongoose = require( 'mongoose' );
+var mongoose = require('mongoose');
 
-mongoose.model( 'User', {
-    email : String,
+mongoose.model('User', {
+    email: String,
     password: String,
     firstname: String,
     lastname: String
-} );
-mongoose.connect( 'mongodb://localhost:27017/lunchr' );
+});
+mongoose.connect('mongodb://localhost:27017/lunchr');

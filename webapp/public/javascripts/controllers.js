@@ -17,7 +17,7 @@ lunchrControllers.controller('MainPageController', ['$scope', '$http', '$locatio
                 error(function (data, status, headers, config) {
                     $scope.errorsMessages = data;
                     $scope.password = "";
-            })
+                })
         }
     }]);
 
@@ -47,6 +47,6 @@ lunchrControllers.controller('RegisterController', ['$scope', '$http', '$locatio
                 }).
                 error(function (data, status, headers, config) {
                     $scope.errorMessages = data;
-            })
+                })
         }
     }]);
