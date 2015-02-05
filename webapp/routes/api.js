@@ -33,8 +33,6 @@ router.post('/users/register', function (req, res, next) {
             res.json(user);
         });
     })
-
-
 });
 
 router.post('/users/authenticate', function (req, res, next) {
