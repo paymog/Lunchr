@@ -1,6 +1,6 @@
 div(class='container')
     h1 Welcome
 
-    p(ng-repeat='user in users')
-        content1 Username: {{user.email}} Password: {{user.password}}
-        content2 Firstname: {{user.firstname}} Lastname {{user.lastname}}
+    p(ng-repeat='user in users').
+        Username: {{user.email}} Password: {{user.password}}
+        Firstname: {{user.firstname}} Lastname {{user.lastname}}
