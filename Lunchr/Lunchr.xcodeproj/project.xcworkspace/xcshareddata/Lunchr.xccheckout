@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>18C2808A-E360-4091-972C-9C3166430947</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Lunchr</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>26E1F1B3A511B447541D9A56E19BBA4015325496</key>
+		<string>https://github.com/paymog/Lunchr.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Lunchr/Lunchr.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>26E1F1B3A511B447541D9A56E19BBA4015325496</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/paymog/Lunchr.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>26E1F1B3A511B447541D9A56E19BBA4015325496</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>26E1F1B3A511B447541D9A56E19BBA4015325496</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Lunchr</string>
+		</dict>
+	</array>
+</dict>
+</plist>
