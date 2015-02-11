@@ -25,6 +25,20 @@ a {
 .angular-google-map-container {
     height: 400px;
 }
+        
+.regboxLeft {
+    width: 500px;
+    float: left;
+}
+
+.regboxRight {
+    width: 500px;
+    float: right;
+}
+
+.regButton {
+    clear: both;
+}
 
 .div-center-circleBtn {
     margin-left: auto;
