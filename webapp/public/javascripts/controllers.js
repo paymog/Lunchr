@@ -9,7 +9,7 @@ lunchrControllers.controller('MainPageController', ['$scope', '$http', '$locatio
         }
 
         $scope.logIn = function () {
-            $scope.errorsMessages = null;
+            $scope.errorMessages = null;
 
             if(!$scope.email || !$scope.password) {
                 return;
@@ -20,7 +20,7 @@ lunchrControllers.controller('MainPageController', ['$scope', '$http', '$locatio
                     $location.path('/users');
                 }).
                 error(function (data, status, headers, config) {
-                    $scope.errorsMessages = data;
+                    $scope.errorMessages = data;
                     $scope.password = "";
                 })
         }

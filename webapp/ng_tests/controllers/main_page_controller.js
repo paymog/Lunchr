@@ -1,5 +1,4 @@
-
-describe('MainPageController', function() {
+describe('MainPageController', function () {
     beforeEach(module('lunchr'));
 
     var DEFAULT_USERNAME = 'user';
@@ -7,7 +6,7 @@ describe('MainPageController', function() {
 
     var $controller, $httpBackend, $rootScope, $location;
 
-    beforeEach(inject(function($injector) {
+    beforeEach(inject(function ($injector) {
         // Set up the mock http service responses
         $httpBackend = $injector.get('$httpBackend');
 
@@ -17,45 +16,79 @@ describe('MainPageController', function() {
         $location = $injector.get('$location');
 
         // The $controller service is used to create instances of controllers
-        var $controller = $injector.get('$controller');
+        $controller = $injector.get('$controller');
 
-        createController = function() {
-            return $controller('MainPageController', {'$scope' : $rootScope });
+        createController = function () {
+            return $controller('MainPageController', {'$scope': $rootScope});
         };
     }));
 
-    afterEach(function() {
+    afterEach(function () {
         $httpBackend.verifyNoOutstandingExpectation();
         $httpBackend.verifyNoOutstandingRequest();
     });
 
-    describe('$scope.logIn', function() {
-        it('redirects user to /users on success', function() {
-            $httpBackend.expectPOST('/api/users/authenticate').respond(200, '');
+    describe('$scope.logIn', function () {
+        it('redirects user to /users on success', function () {
 
             var controller = createController();
             $rootScope.email = DEFAULT_USERNAME;
             $rootScope.password = DEFAULT_PASSWORD;
 
             $rootScope.logIn();
+            $httpBackend.expectPOST('/api/users/authenticate').respond(200, '');
             $httpBackend.flush();
 
             expect($location.path()).toBe('/users');
         });
 
-        it('sets error message on 500', function(){
+        it('sets error message on 500', function () {
             var errorMessage = "error Message";
-            $httpBackend.expectPOST('/api/users/authenticate').respond(500, errorMessage);
-
             var controller = createController();
+
             $rootScope.email = DEFAULT_USERNAME;
             $rootScope.password = DEFAULT_PASSWORD;
 
             $rootScope.logIn();
+            $httpBackend.expectPOST('/api/users/authenticate').respond(500, errorMessage);
             $httpBackend.flush();
 
             expect($rootScope.errorsMessages).toBe(errorMessage);
             expect($location.path()).toBe('/')
+        });
+
+        it('does not make post without email', function () {
+            var controller = createController();
+            $rootScope.email = DEFAULT_PASSWORD;
+
+            $rootScope.logIn();
+
+            //note do not expectPOST
+
+            expect($location.path()).toBe('/');
+            expect($rootScope.errorsMessages).toBeFalsy();
+        });
+
+        it('does not make post without password', function () {
+            var controller = createController();
+            $rootScope.password = DEFAULT_PASSWORD;
+
+            $rootScope.logIn();
+
+            //note do not expectPOST
+
+            expect($location.path()).toBe('/');
+            expect($rootScope.errorsMessages).toBeFalsy();
         })
     });
+
+    describe('$scope.createAccount', function() {
+        it('should always redirect to /register', function() {
+            createController();
+
+            $rootScope.createAccount();
+
+            expect($location.path()).toBe('/register')
+        })
+    })
 });

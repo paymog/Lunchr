@@ -4,8 +4,8 @@ div(class='container')
 
 
     div(class='text-center')
-        div(ng-show='errorsMessages', class='alert alert-danger')
-            p {{errorsMessages}}
+        div(ng-show='errorMessages', class='alert alert-danger')
+            p {{errorMessages}}
 
         form
             input(type='text', id='inputEmail', class='form-control', placeholder="Enter your email", ng-model='email', required, autofocus)
