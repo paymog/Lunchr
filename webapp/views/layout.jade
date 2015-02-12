@@ -1,13 +1,18 @@
 doctype html
-html(lang='en' ng-app='lunchr')
+html(lang='en', ng-app='lunchr')
     head
         meta(charset="utf-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name='viewport' content="width=device-width, initial-scale=1")
         title Lunchr
+        base(href='/')
 
-        link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+        link(rel='stylesheet', href='bower_components/bootstrap/dist/css/bootstrap.css')
         link(rel='stylesheet', href='/stylesheets/style.css')
-        script(src='/bootstrap/js/bootstrap.min.js')
+        script(src='/bower_components/angular/angular.js')
+        script(src='bower_components/angular-route/angular-route.js')
+        script(src='javascripts/angular-app.js')
+        script(src='javascripts/controllers.js')
 
+    body
         block content

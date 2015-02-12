@@ -1,0 +1,15 @@
+div(class='container')
+    h1 Greatness awaits...
+
+    h3 But first, tell us a bit about yourself
+
+    div(class='text-center')
+        div(ng-show='errorMessages', class='alert alert-danger')
+            p {{errorMessages}}
+
+        input(type='text', id='inputEmail', class='form-control', placeholder="Enter your email", ng-model='email', required, autofocus)
+        input(type='text', id='firstName', class='form-control', placeholder="Enter your first name", ng-model='firstname', required)
+        input(type='text', id='lastName', class='form-control', placeholder="Enter your last name", ng-model='lastname', required)
+        input(type='password', class='form-control', placeholder="Enter a password", ng-model='password', required)
+
+        button(type='button', class='btn btn-default btn-block btn-primary', ng-click='register()') Register
