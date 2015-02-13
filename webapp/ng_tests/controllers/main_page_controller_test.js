@@ -31,7 +31,7 @@ describe('MainPageController', function () {
     describe('$scope.logIn', function () {
         it('redirects user to /users on success', function () {
 
-            var controller = createController();
+            createController();
             $rootScope.email = DEFAULT_USERNAME;
             $rootScope.password = DEFAULT_PASSWORD;
 
@@ -58,7 +58,7 @@ describe('MainPageController', function () {
         });
 
         it('does not make post without email', function () {
-            var controller = createController();
+            createController();
             $rootScope.email = DEFAULT_PASSWORD;
 
             $rootScope.logIn();
@@ -70,7 +70,7 @@ describe('MainPageController', function () {
         });
 
         it('does not make post without password', function () {
-            var controller = createController();
+            createController();
             $rootScope.password = DEFAULT_PASSWORD;
 
             $rootScope.logIn();

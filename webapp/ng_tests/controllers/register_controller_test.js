@@ -1,4 +1,4 @@
-describe('Register Controller', function () {
+describe('RegisterController', function () {
     beforeEach(module('lunchr'));
 
     var DEFAULT_EMAIL = 'email';
