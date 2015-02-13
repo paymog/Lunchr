@@ -1,3 +1,5 @@
+'use strict';
+
 describe('MainPageController', function () {
     beforeEach(module('lunchr'));
 
@@ -5,6 +7,10 @@ describe('MainPageController', function () {
     var DEFAULT_PASSWORD = 'password';
 
     var $controller, $httpBackend, $rootScope, $location;
+
+    function createController() {
+        return $controller('MainPageController', {'$scope': $rootScope});
+    }
 
     beforeEach(inject(function ($injector) {
         // Set up the mock http service responses
@@ -17,10 +23,6 @@ describe('MainPageController', function () {
 
         // The $controller service is used to create instances of controllers
         $controller = $injector.get('$controller');
-
-        createController = function () {
-            return $controller('MainPageController', {'$scope': $rootScope});
-        };
     }));
 
     afterEach(function () {
@@ -53,7 +55,7 @@ describe('MainPageController', function () {
             $httpBackend.expectPOST('/api/users/authenticate').respond(500, errorMessage);
             $httpBackend.flush();
 
-            expect($rootScope.errorsMessages).toBe(errorMessage);
+            expect($rootScope.errorMessages).toBe(errorMessage);
             expect($location.path()).toBe('/')
         });
 
@@ -66,7 +68,7 @@ describe('MainPageController', function () {
             //note do not expectPOST
 
             expect($location.path()).toBe('/');
-            expect($rootScope.errorsMessages).toBeFalsy();
+            expect($rootScope.errorMessages).toBeFalsy();
         });
 
         it('does not make post without password', function () {
@@ -78,7 +80,7 @@ describe('MainPageController', function () {
             //note do not expectPOST
 
             expect($location.path()).toBe('/');
-            expect($rootScope.errorsMessages).toBeFalsy();
+            expect($rootScope.errorMessages).toBeFalsy();
         })
     });
 

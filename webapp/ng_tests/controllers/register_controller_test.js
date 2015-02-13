@@ -1,3 +1,5 @@
+'use strict'
+
 describe('RegisterController', function () {
     beforeEach(module('lunchr'));
 
@@ -7,6 +9,10 @@ describe('RegisterController', function () {
     var DEFAULT_LAST_NAME = 'johnson';
 
     var $controller, $httpBackend, $rootScope, $location;
+
+    function createController() {
+        return $controller('RegisterController', {'$scope': $rootScope});
+    }
 
     beforeEach(inject(function ($injector) {
         // Set up the mock http service responses
@@ -19,10 +25,6 @@ describe('RegisterController', function () {
 
         // The $controller service is used to create instances of controllers
         $controller = $injector.get('$controller');
-
-        createController = function () {
-            return $controller('RegisterController', {'$scope': $rootScope});
-        };
     }));
 
     afterEach(function () {
