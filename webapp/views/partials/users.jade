@@ -4,3 +4,9 @@ div(class='container')
     p(ng-repeat='user in users').
         Username: {{user.email}} Password: {{user.password}}
         Firstname: {{user.firstname}} Lastname {{user.lastname}}
+
+    a(ui-sref='.matching', class='btn btn-default') Start matching me!
+    a(ui-sref='.matched', class='btn btn-default') Simulate a match!
+    //this should actually be "div(ui-view)" but for some reason that doesn't work...
+    //See http://goo.gl/TVBKXO
+    ui-view
