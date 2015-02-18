@@ -3,7 +3,7 @@
 describe('MainPageController', function () {
     beforeEach(module('lunchr'));
 
-    var DEFAULT_USERNAME = 'user';
+    var DEFAULT_EMAIL = 'user';
     var DEFAULT_PASSWORD = 'password';
 
     var $controller, $httpBackend, $rootScope, $location;
@@ -34,7 +34,7 @@ describe('MainPageController', function () {
         it('redirects user to /users on success', function () {
 
             createController();
-            $rootScope.email = DEFAULT_USERNAME;
+            $rootScope.email = DEFAULT_EMAIL;
             $rootScope.password = DEFAULT_PASSWORD;
 
             $rootScope.logIn();
@@ -46,9 +46,9 @@ describe('MainPageController', function () {
 
         it('sets error message on 500', function () {
             var errorMessage = "error Message";
-            var controller = createController();
+            createController();
 
-            $rootScope.email = DEFAULT_USERNAME;
+            $rootScope.email = DEFAULT_EMAIL;
             $rootScope.password = DEFAULT_PASSWORD;
 
             $rootScope.logIn();
@@ -59,9 +59,9 @@ describe('MainPageController', function () {
             expect($location.path()).toBe('/')
         });
 
-        it('does not make post without email', function () {
+        it('does not make post without password', function () {
             createController();
-            $rootScope.email = DEFAULT_PASSWORD;
+            $rootScope.email = DEFAULT_EMAIL;
 
             $rootScope.logIn();
 
@@ -71,7 +71,7 @@ describe('MainPageController', function () {
             expect($rootScope.errorMessages).toBeFalsy();
         });
 
-        it('does not make post without password', function () {
+        it('does not make post without email', function () {
             createController();
             $rootScope.password = DEFAULT_PASSWORD;
 
