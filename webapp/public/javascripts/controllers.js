@@ -9,13 +9,18 @@ lunchrControllers.controller('MainPageController', ['$scope', '$http', '$locatio
         }
 
         $scope.logIn = function () {
-            $scope.errorsMessages = null;
+            $scope.errorMessages = null;
+
+            if(!$scope.email || !$scope.password) {
+                return;
+            }
+
             $http.post('/api/users/authenticate', {email: $scope.email, password: $scope.password}).
                 success(function (data, status, headers, config) {
                     $location.path('/users');
                 }).
                 error(function (data, status, headers, config) {
-                    $scope.errorsMessages = data;
+                    $scope.errorMessages = data;
                     $scope.password = "";
                 })
         }
@@ -36,6 +41,12 @@ lunchrControllers.controller('RegisterController', ['$scope', '$http', '$locatio
     function ($scope, $http, $location) {
 
         $scope.register = function () {
+            $scope.errorMessages = null;
+
+            if(!$scope.email || !$scope.password || !$scope.firstname || !$scope.lastname) {
+                return;
+            }
+
             $http.post('/api/users/register', {
                 email: $scope.email,
                 password: $scope.password,
