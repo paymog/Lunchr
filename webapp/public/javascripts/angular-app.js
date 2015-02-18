@@ -1,24 +1,34 @@
 'use strict';
 
-var lunchrApp = angular.module('lunchr', ['ngRoute', 'lunchrControllers']);
+var lunchrApp = angular.module('lunchr', ['ui.router', 'lunchrControllers']);
 
-lunchrApp.config(['$routeProvider', '$locationProvider',
-    function ($routeProvider, $locationProvider) {
-        $routeProvider.
-            when('/', {
+lunchrApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
+    function ($stateProvider, $urlRouterProvider, $locationProvider) {
+        $urlRouterProvider.otherwise('/');
+
+        $stateProvider.
+            state('mainPage', {
+                url: '/',
                 templateUrl: '/partials/main.jade',
                 controller: 'MainPageController'
             })
-            .when('/users', {
+            .state('users', {
+                url: '/users',
                 templateUrl: '/partials/users.jade',
                 controller: 'UserController'
             })
-            .when('/register', {
+            .state('users.matching', {
+                url: '/matching',
+                templateUrl: '/partials/users.matching.jade'
+            })
+            .state('users.matched', {
+                url: '/matched',
+                templateUrl: '/partials/users.matched.jade'
+            })
+            .state('register', {
+                url:'/register',
                 templateUrl: 'partials/register.jade',
                 controller: 'RegisterController'
-            })
-            .otherwise({
-                redirectTo: '/'
             });
         $locationProvider.html5Mode(true);
     }]);
