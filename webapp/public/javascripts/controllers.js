@@ -55,7 +55,9 @@ lunchrControllers.controller('RegisterController', ['$scope', '$http', '$state',
                 email: $scope.email,
                 password: $scope.password,
                 firstname: $scope.firstname,
-                lastname: $scope.lastname
+                lastname: $scope.lastname,
+                age: $scope.age,
+                radius: Number($scope.radius)
             })
                 .success(function (data, status, headers, config) {
                     authService.login($scope.email);

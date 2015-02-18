@@ -4,6 +4,8 @@ mongoose.model('User', {
     email: String,
     password: String,
     firstname: String,
-    lastname: String
+    lastname: String,
+    age: Number,
+    radius: String
 });
 mongoose.connect('mongodb://localhost:27017/lunchr');
