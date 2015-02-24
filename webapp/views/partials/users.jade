@@ -3,7 +3,7 @@ div(class='container')
 
     p(ng-repeat='user in users').
         Username: {{user.email}} Password: {{user.password}}
-        Firstname: {{user.firstname}} Lastname {{user.lastname}}
+        Firstname: {{user.firstname}} Lastname: {{user.lastname}}
         Age: {{user.age}} Radius: {{user.radius}}
 
     a(class='btn btn-default', ng-click='match()') Start matching me!
