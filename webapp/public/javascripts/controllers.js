@@ -61,3 +61,10 @@ lunchrControllers.controller('RegisterController', ['$scope', '$http', '$state',
                 })
         }
     }]);
+
+lunchrControllers.controller('MapController', ['$scope', '$http', '$state',
+    function ($scope, $http, $state) {
+
+        $scope.map = { center: { latitude: 49.8651559, longitude: -97.11077669999997 }, zoom: 14 };
+
+    }]);
