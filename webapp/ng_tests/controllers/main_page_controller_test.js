@@ -2,11 +2,12 @@
 
 describe('MainPageController', function () {
     beforeEach(module('lunchr'));
+    beforeEach(module('stateMock')); //mock the $state service of ui-router
 
     var DEFAULT_EMAIL = 'user';
     var DEFAULT_PASSWORD = 'password';
 
-    var $controller, $httpBackend, $rootScope, $location;
+    var $controller, $httpBackend, $rootScope, $state;
 
     function createController() {
         return $controller('MainPageController', {'$scope': $rootScope});
@@ -19,15 +20,17 @@ describe('MainPageController', function () {
         // Get hold of a scope (i.e. the root scope)
         $rootScope = $injector.get('$rootScope');
 
-        $location = $injector.get('$location');
+        $state = $injector.get('$state');
 
         // The $controller service is used to create instances of controllers
         $controller = $injector.get('$controller');
+
     }));
 
     afterEach(function () {
         $httpBackend.verifyNoOutstandingExpectation();
         $httpBackend.verifyNoOutstandingRequest();
+        $state.ensureAllTransitionsHappened();
     });
 
     describe('$scope.logIn', function () {
@@ -37,11 +40,12 @@ describe('MainPageController', function () {
             $rootScope.email = DEFAULT_EMAIL;
             $rootScope.password = DEFAULT_PASSWORD;
 
-            $rootScope.logIn();
             $httpBackend.expectPOST('/api/users/authenticate').respond(200, '');
+            $state.expectTransitionTo('users');
+
+            $rootScope.logIn();
             $httpBackend.flush();
 
-            expect($location.path()).toBe('/users');
         });
 
         it('sets error message on 500', function () {
@@ -56,7 +60,6 @@ describe('MainPageController', function () {
             $httpBackend.flush();
 
             expect($rootScope.errorMessages).toBe(errorMessage);
-            expect($location.path()).toBe('/')
         });
 
         it('does not make post without password', function () {
@@ -67,7 +70,6 @@ describe('MainPageController', function () {
 
             //note do not expectPOST
 
-            expect($location.path()).toBe('/');
             expect($rootScope.errorMessages).toBeFalsy();
         });
 
@@ -79,7 +81,6 @@ describe('MainPageController', function () {
 
             //note do not expectPOST
 
-            expect($location.path()).toBe('/');
             expect($rootScope.errorMessages).toBeFalsy();
         })
     });
@@ -87,10 +88,9 @@ describe('MainPageController', function () {
     describe('$scope.createAccount', function() {
         it('should always redirect to /register', function() {
             createController();
+            $state.expectTransitionTo('register');
 
             $rootScope.createAccount();
-
-            expect($location.path()).toBe('/register')
         })
     })
 });
