@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "140F39C01A84287300F3C705"
+               BlueprintIdentifier = "1473E6361A95373300E9DD33"
                BuildableName = "Lunchr.app"
                BlueprintName = "Lunchr"
                ReferencedContainer = "container:Lunchr.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "140F39DC1A84287300F3C705"
+               BlueprintIdentifier = "1473E64F1A95373300E9DD33"
                BuildableName = "LunchrTests.xctest"
                BlueprintName = "LunchrTests"
                ReferencedContainer = "container:Lunchr.xcodeproj">
@@ -46,7 +46,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "140F39DC1A84287300F3C705"
+               BlueprintIdentifier = "1473E64F1A95373300E9DD33"
                BuildableName = "LunchrTests.xctest"
                BlueprintName = "LunchrTests"
                ReferencedContainer = "container:Lunchr.xcodeproj">
@@ -56,7 +56,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "140F39C01A84287300F3C705"
+            BlueprintIdentifier = "1473E6361A95373300E9DD33"
             BuildableName = "Lunchr.app"
             BlueprintName = "Lunchr"
             ReferencedContainer = "container:Lunchr.xcodeproj">
@@ -75,7 +75,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "140F39C01A84287300F3C705"
+            BlueprintIdentifier = "1473E6361A95373300E9DD33"
             BuildableName = "Lunchr.app"
             BlueprintName = "Lunchr"
             ReferencedContainer = "container:Lunchr.xcodeproj">
@@ -93,7 +93,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "140F39C01A84287300F3C705"
+            BlueprintIdentifier = "1473E6361A95373300E9DD33"
             BuildableName = "Lunchr.app"
             BlueprintName = "Lunchr"
             ReferencedContainer = "container:Lunchr.xcodeproj">
