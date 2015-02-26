@@ -23,13 +23,17 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <datePicker contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="lbH-mt-xBx">
+                                <rect key="frame" x="0.0" y="386" width="600" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="446671654.94271702">
+                                    <!--2015-02-26 19:27:34 +0000-->
+                                </date>
+                            </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5z-Ff-lH1">
-                                <rect key="frame" x="128" y="169" width="345" height="345"/>
+                                <rect key="frame" x="195" y="154" width="210" height="210"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="345" id="12k-xk-zgK"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="345" id="1ff-8X-seV"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="345" id="eBS-MP-pdq"/>
-                                    <constraint firstAttribute="width" constant="345" id="oxr-dI-AB3"/>
+                                    <constraint firstAttribute="height" constant="210" id="1VA-5s-uDC"/>
+                                    <constraint firstAttribute="width" constant="210" id="WEp-qX-FPG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="38"/>
                                 <state key="normal" title="Lunch" backgroundImage="Button.png">
@@ -43,11 +47,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="A5z-Ff-lH1" secondAttribute="centerX" id="Nnl-1O-SMm"/>
-                            <constraint firstItem="A5z-Ff-lH1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="112" id="OBW-RH-ECi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ctw-Mf-M57" secondAttribute="trailing" constant="181" id="XhI-de-alB"/>
                             <constraint firstItem="Ctw-Mf-M57" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="181" id="auG-cI-ioQ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="A5z-Ff-lH1" secondAttribute="trailing" constant="111" id="mrJ-R4-qJT"/>
+                            <constraint firstAttribute="centerX" secondItem="lbH-mt-xBx" secondAttribute="centerX" id="cD8-gh-jjk"/>
+                            <constraint firstAttribute="centerX" secondItem="A5z-Ff-lH1" secondAttribute="centerX" id="gV2-uw-BgM"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -149,6 +152,7 @@
                         <outlet property="emailField" destination="s1V-cY-PCs" id="ENa-NU-R6a"/>
                         <outlet property="errorLabel" destination="oT1-4m-rKb" id="tfO-sz-h4r"/>
                         <outlet property="passField" destination="bZz-R3-Z93" id="f9L-2z-ecx"/>
+                        <segue destination="h9c-Wh-NmB" kind="presentation" identifier="loginSegue" id="qn4-aj-cME"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wlw-Gm-jmT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -349,4 +353,7 @@
     <resources>
         <image name="Button.png" width="1008" height="1008"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="qn4-aj-cME"/>
+    </inferredMetricsTieBreakers>
 </document>
