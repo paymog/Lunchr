@@ -2,20 +2,25 @@
 
 var lunchrControllers = angular.module('lunchrControllers', []);
 
-lunchrControllers.controller('MainPageController', ['$scope', '$http', '$location',
-    function ($scope, $http, $location) {
+lunchrControllers.controller('MainPageController', ['$scope', '$http', '$state',
+    function ($scope, $http, $state) {
         $scope.createAccount = function () {
-            $location.path('/register')
-        }
+            $state.go('register')
+        };
 
         $scope.logIn = function () {
-            $scope.errorsMessages = null;
+            $scope.errorMessages = null;
+
+            if(!$scope.email || !$scope.password) {
+                return;
+            }
+
             $http.post('/api/users/authenticate', {email: $scope.email, password: $scope.password}).
                 success(function (data, status, headers, config) {
-                    $location.path('/users');
+                    $state.go('users');
                 }).
                 error(function (data, status, headers, config) {
-                    $scope.errorsMessages = data;
+                    $scope.errorMessages = data;
                     $scope.password = "";
                 })
         }
@@ -31,11 +36,17 @@ lunchrControllers.controller('UserController', ['$scope', '$http',
 
     }]);
 
-lunchrControllers.controller('RegisterController', ['$scope', '$http', '$location',
+lunchrControllers.controller('RegisterController', ['$scope', '$http', '$state',
 
-    function ($scope, $http, $location) {
+    function ($scope, $http, $state) {
 
         $scope.register = function () {
+            $scope.errorMessages = null;
+
+            if(!$scope.email || !$scope.password || !$scope.firstname || !$scope.lastname) {
+                return;
+            }
+
             $http.post('/api/users/register', {
                 email: $scope.email,
                 password: $scope.password,
@@ -43,7 +54,7 @@ lunchrControllers.controller('RegisterController', ['$scope', '$http', '$locatio
                 lastname: $scope.lastname
             })
                 .success(function (data, status, headers, config) {
-                    $location.path('/users')
+                    $state.go('users')
                 }).
                 error(function (data, status, headers, config) {
                     $scope.errorMessages = data;
