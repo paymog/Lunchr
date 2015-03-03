@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "HttpUtils.h"
 
 @implementation LoginViewController
 
@@ -28,7 +29,7 @@
     
     // Show error label when input is incorrect
     // Validate login info and attempt to login user
-    if (![self validateLogin] || ![self loginUser]) {
+    if (![self validateLogin] || ![HttpUtils loginUser:emailField.text toPassword:passField.text]) {
         
         [self.errorLabel setHidden:FALSE];
         [self.passField setText:@""];
@@ -55,43 +56,5 @@
     }
 }
 
-- (bool)loginUser {
-    
-    @try {
-        
-//        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://54.200.225.219/api/users/authenticate"]];
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:3000/api/users/authenticate"]];
-        NSDictionary *jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                                        emailField.text, @"email",
-                                        passField.text, @"password",
-                                        nil];
-        NSError *error = nil;
-
-        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonDictionary options:NSJSONWritingPrettyPrinted error:&error];
-        NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-        NSUInteger postLength = [jsonString length];
-        
-        [request setHTTPMethod:@"POST"];
-        [request setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
-        [request setValue:[NSString stringWithFormat:@"%d", (int)postLength] forHTTPHeaderField:@"Content-length"];
-        [request setHTTPBody:[jsonString dataUsingEncoding:NSUTF8StringEncoding]];
-        
-        NSHTTPURLResponse *resp;
-        [NSURLConnection sendSynchronousRequest:request returningResponse:&resp error:&error];
-        
-        if (resp != nil && [resp statusCode] == 200) {
-            
-            return true;
-            
-        } else {
-        
-            return false;
-        }
-    
-    } @catch (NSException *e) {
-        
-        return false;
-    }
-}
 
 @end
