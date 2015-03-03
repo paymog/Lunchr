@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1411DCA01A9FC40800693DC8 /* HttpUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1411DC9F1A9FC40800693DC8 /* HttpUtils.m */; };
 		142339481A9D130D00C8C264 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 142339471A9D130D00C8C264 /* RegisterViewController.m */; };
+		146AD4621AA66878007B4A4E /* LoginTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 146AD4611AA66878007B4A4E /* LoginTests.m */; };
+		146AD4651AA668AC007B4A4E /* RegisterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 146AD4641AA668AC007B4A4E /* RegisterTests.m */; };
 		1473E63D1A95373300E9DD33 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1473E63C1A95373300E9DD33 /* main.m */; };
 		1473E6401A95373300E9DD33 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1473E63F1A95373300E9DD33 /* AppDelegate.m */; };
 		1473E6431A95373300E9DD33 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1473E6421A95373300E9DD33 /* ViewController.m */; };
@@ -31,8 +34,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1411DC9F1A9FC40800693DC8 /* HttpUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpUtils.m; sourceTree = "<group>"; };
+		1411DCA21A9FC60100693DC8 /* HttpUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HttpUtils.h; sourceTree = "<group>"; };
 		142339461A9D130D00C8C264 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		142339471A9D130D00C8C264 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		146AD4611AA66878007B4A4E /* LoginTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTests.m; sourceTree = "<group>"; };
+		146AD4641AA668AC007B4A4E /* RegisterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterTests.m; sourceTree = "<group>"; };
 		1473E6371A95373300E9DD33 /* Lunchr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lunchr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1473E63B1A95373300E9DD33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1473E63C1A95373300E9DD33 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -71,6 +78,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1411DCA11A9FC42500693DC8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1473E6411A95373300E9DD33 /* ViewController.h */,
+				1473E6421A95373300E9DD33 /* ViewController.m */,
+				1473E67C1A95856200E9DD33 /* LoginViewController.h */,
+				1473E67D1A95856200E9DD33 /* LoginViewController.m */,
+				142339461A9D130D00C8C264 /* RegisterViewController.h */,
+				142339471A9D130D00C8C264 /* RegisterViewController.m */,
+				1473E6791A95853200E9DD33 /* MapViewController.h */,
+				1473E67A1A95853200E9DD33 /* MapViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		1411DCA31A9FCD2D00693DC8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1473E6621A95411700E9DD33 /* Button.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		1473E62E1A95373300E9DD33 = {
 			isa = PBXGroup;
 			children = (
@@ -94,30 +124,25 @@
 			children = (
 				1473E63E1A95373300E9DD33 /* AppDelegate.h */,
 				1473E63F1A95373300E9DD33 /* AppDelegate.m */,
-				1473E6411A95373300E9DD33 /* ViewController.h */,
-				1473E6421A95373300E9DD33 /* ViewController.m */,
-				1473E67C1A95856200E9DD33 /* LoginViewController.h */,
-				1473E67D1A95856200E9DD33 /* LoginViewController.m */,
-				142339461A9D130D00C8C264 /* RegisterViewController.h */,
-				142339471A9D130D00C8C264 /* RegisterViewController.m */,
-				1473E6791A95853200E9DD33 /* MapViewController.h */,
-				1473E67A1A95853200E9DD33 /* MapViewController.m */,
+				1411DCA11A9FC42500693DC8 /* Controllers */,
 				1473E6441A95373300E9DD33 /* Main.storyboard */,
 				1473E6471A95373300E9DD33 /* Images.xcassets */,
 				1473E6491A95373300E9DD33 /* LaunchScreen.xib */,
-				1473E63A1A95373300E9DD33 /* Supporting Files */,
+				1411DCA31A9FCD2D00693DC8 /* Resources */,
+				1473E63A1A95373300E9DD33 /* Support */,
 			);
 			path = Lunchr;
 			sourceTree = "<group>";
 		};
-		1473E63A1A95373300E9DD33 /* Supporting Files */ = {
+		1473E63A1A95373300E9DD33 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				1473E6621A95411700E9DD33 /* Button.png */,
 				1473E63B1A95373300E9DD33 /* Info.plist */,
+				1411DCA21A9FC60100693DC8 /* HttpUtils.h */,
+				1411DC9F1A9FC40800693DC8 /* HttpUtils.m */,
 				1473E63C1A95373300E9DD33 /* main.m */,
 			);
-			name = "Supporting Files";
+			name = Support;
 			sourceTree = "<group>";
 		};
 		1473E6531A95373300E9DD33 /* LunchrTests */ = {
@@ -125,6 +150,8 @@
 			children = (
 				1473E6561A95373300E9DD33 /* LunchrTests.m */,
 				1473E6541A95373300E9DD33 /* Supporting Files */,
+				146AD4611AA66878007B4A4E /* LoginTests.m */,
+				146AD4641AA668AC007B4A4E /* RegisterTests.m */,
 			);
 			path = LunchrTests;
 			sourceTree = "<group>";
@@ -243,6 +270,7 @@
 				1473E67B1A95853200E9DD33 /* MapViewController.m in Sources */,
 				1473E63D1A95373300E9DD33 /* main.m in Sources */,
 				1473E67E1A95856200E9DD33 /* LoginViewController.m in Sources */,
+				1411DCA01A9FC40800693DC8 /* HttpUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +279,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1473E6571A95373300E9DD33 /* LunchrTests.m in Sources */,
+				146AD4621AA66878007B4A4E /* LoginTests.m in Sources */,
+				146AD4651AA668AC007B4A4E /* RegisterTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
