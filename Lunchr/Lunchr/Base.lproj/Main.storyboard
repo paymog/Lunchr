@@ -210,7 +210,6 @@
                                 </state>
                                 <connections>
                                     <action selector="registerButtonTapped:" destination="iON-oU-HT0" eventType="touchUpInside" id="MRF-YY-GHa"/>
-                                    <segue destination="h9c-Wh-NmB" kind="presentation" id="LRP-2j-LUO"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Tell us about yourself" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="itG-Mv-X0Y">
@@ -249,10 +248,12 @@
                     </view>
                     <connections>
                         <outlet property="emailField" destination="6b0-9B-Wwq" id="X4X-dc-qMt"/>
+                        <outlet property="errorLabel" destination="Cny-hy-3br" id="PcK-DY-WjO"/>
                         <outlet property="firstField" destination="1hQ-wT-vZF" id="4EY-im-pdN"/>
                         <outlet property="lastField" destination="rNA-rS-iH9" id="t5j-xw-iOY"/>
                         <outlet property="passField" destination="csM-Bg-jnc" id="ApC-4r-3Bt"/>
                         <outlet property="verifyField" destination="TRc-1q-gRP" id="o5O-vv-Jkx"/>
+                        <segue destination="h9c-Wh-NmB" kind="presentation" identifier="loginSegue" id="afr-lP-jaH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QbU-Uq-Gsv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -354,6 +355,6 @@
         <image name="Button.png" width="1008" height="1008"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qn4-aj-cME"/>
+        <segue reference="afr-lP-jaH"/>
     </inferredMetricsTieBreakers>
 </document>
