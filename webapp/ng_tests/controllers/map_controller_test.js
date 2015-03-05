@@ -33,7 +33,23 @@ describe( 'MapController', function( )
     {
         it ( "executes the function onSuccess with valid data", function( )
         {
+            createController( );
+            var jasmineSuccess = jasmine.createSpy( );
+            var jasmineError = jasmine.createSpy( );
 
+            spyOn( navigator.geolocation,"getCurrentPosition" ).and.callFake( function( )
+            {
+                var position = { coords: { latitude: 12.3456, longitude: -12.3456 } };
+                arguments[ 0 ]( position );
+            } );
+            
+            $rootScope.getUserLocation( jasmineSuccess, jasmineError );
+
+            setTimeout( function( )
+            {
+                expect( jasmineSuccess ).wasCalled( );
+                done( );
+            }, 500 );
         } );
     } );
 } );

@@ -62,13 +62,11 @@ lunchrControllers.controller('RegisterController', ['$scope', '$http', '$state',
         }
     }]);
 
-lunchrControllers.controller('MapController', ['$scope', '$http', '$state',
-    function ($scope, $http, $state) {
+lunchrControllers.controller('MapController', ['$scope',
+    function ($scope) {
+
         $scope.map = { center: { latitude: 49.8651559, longitude: -97.11077669999997 }, zoom: 14 };
-
-        getUserLocation( onSuccess, onError );
-
-        function getUserLocation( onSuccess, onError )
+        $scope.getUserLocation = function ( onSuccess, onError )
         {
             if ( navigator.geolocation )
             {
@@ -112,4 +110,6 @@ lunchrControllers.controller('MapController', ['$scope', '$http', '$state',
                 alert( "Geolocation failed - Location is unavailable." );
             }
         }
+        
+        $scope.getUserLocation( onSuccess, onError );
     }]);
