@@ -101,14 +101,25 @@ lunchrControllers.controller('MapController', ['$scope',
         
         function onError( error )
         {
-            if ( error.code == 1 )
+            var errorMessage = "";
+            
+            switch( error.code )
             {
-                alert( "Geolocation failed - Access is denied." );
+                case error.PERMISSION_DENIED:
+                    errorMessage = "User denied the request for Geolocation.";
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    errorMessage = "Location information is unavailable.";
+                    break;
+                case error.TIMEOUT:
+                    errorMessage = "The request to get user location timed out.";
+                    break;
+                default:
+                    errorMessage = "An unknown error occurred.";
+                    break;
             }
-            else if ( error.code == 2 )
-            {
-                alert( "Geolocation failed - Location is unavailable." );
-            }
+            
+            alert( errorMessage );
         }
         
         $scope.getUserLocation( onSuccess, onError );

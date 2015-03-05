@@ -28,8 +28,17 @@ describe( 'MapController', function( )
         $httpBackend.verifyNoOutstandingExpectation( );
         $httpBackend.verifyNoOutstandingRequest( );
     } );
+    
+    describe( "$scope.map", function( )
+    {
+        it ( "Ensure map exists" , function( )
+        {
+            createController( );
+            expect( $rootScope.map ).toBeTruthy( );
+        } );
+    } );
 
-    describe ( "$scope.map and geolocation", function( )
+    describe( "Test HTML5 Geolocation", function( )
     {
         it ( "executes the function onSuccess with valid data", function( )
         {
