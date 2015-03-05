@@ -64,10 +64,7 @@ lunchrControllers.controller('RegisterController', ['$scope', '$http', '$state',
 
 lunchrControllers.controller('MapController', ['$scope', '$http', '$state',
     function ($scope, $http, $state) {
-
         $scope.map = { center: { latitude: 49.8651559, longitude: -97.11077669999997 }, zoom: 14 };
-
-
         if ( navigator.geolocation )
         {
             navigator.geolocation.getCurrentPosition( function ( position )
@@ -75,9 +72,8 @@ lunchrControllers.controller('MapController', ['$scope', '$http', '$state',
                 $scope.$apply( function( )
                 {
                     $scope.position = position;
-
                     $scope.map = { center: { latitude: position.coords.latitude, longitude: position.coords.longitude }, zoom: 14 };
-                    $scope.marker = {id: 0, coords: { latitude: position.coords.latitude, longitude: position.coords.longitude }};
+                    $scope.marker = {id: 0, coords:{ latitude: position.coords.latitude, longitude: position.coords.longitude }};
                 } );
             } );
         }
