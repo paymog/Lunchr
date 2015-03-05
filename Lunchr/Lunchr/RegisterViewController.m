@@ -58,11 +58,11 @@
 
 - (bool)validateLogin {
     
-    if (   (self.emailField.text && self.emailField.text.length == 0)
-        || (self.passwordField.text && self.passwordField.text.length == 0)
-        || !([self.passwordField.text isEqualToString:self.verifyField.text])
-        || (self.firstNameField.text && self.firstNameField.text.length == 0)
-        || (self.lastNameField.text && self.lastNameField.text.length == 0)) {
+    if (   (![self.emailField hasText])
+        || (![self.passwordField hasText])
+        || (![self.passwordField.text isEqualToString:self.verifyField.text])
+        || (![self.firstNameField hasText])
+        || (![self.lastNameField hasText])) {
         
         return false;
         
