@@ -1,7 +1,7 @@
 
 // taken from https://github.com/hackify/hackify-server/blob/master/test/controllers.test.js
 // at the bottom of the file
-var sockMock = function($rootScope){
+var socketMock = function($rootScope){
     this.events = {};
     this.emits = {};
 

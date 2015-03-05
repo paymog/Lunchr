@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 describe('RegisterController', function () {
     beforeEach(module('lunchr'));
@@ -9,10 +9,10 @@ describe('RegisterController', function () {
     var DEFAULT_FIRST_NAME = 'bob';
     var DEFAULT_LAST_NAME = 'johnson';
 
-    var $controller, $httpBackend, $rootScope, $state;
+    var $controller, $httpBackend, $rootScope, $state, authService;
 
     function createController() {
-        return $controller('RegisterController', {'$scope': $rootScope});
+        return $controller('RegisterController', {'$scope': $rootScope, 'authService':authService});
     }
 
     beforeEach(inject(function ($injector) {
@@ -26,6 +26,8 @@ describe('RegisterController', function () {
 
         // The $controller service is used to create instances of controllers
         $controller = $injector.get('$controller');
+
+        authService = jasmine.createSpyObj('authService', ['login']);
     }));
 
     afterEach(function () {
@@ -42,7 +44,7 @@ describe('RegisterController', function () {
     }
 
     describe('$scope.register', function () {
-        it('redirects to /users on success', function () {
+        it('redirects to /users on success and logs in user', function () {
             createController();
             setDefaultScopeValues();
 
@@ -57,6 +59,7 @@ describe('RegisterController', function () {
             $httpBackend.flush();
 
             expect($rootScope.errorMessages).toBeFalsy();
+            expect(authService.login).toHaveBeenCalledWith(DEFAULT_EMAIL);
         });
 
         it('does not post with missing email', function() {
@@ -70,6 +73,7 @@ describe('RegisterController', function () {
             //do not expectPOST
 
             expect($rootScope.errorMessages).toBeFalsy();
+            expect(authService.login.calls.any()).toBeFalsy();
         });
 
         it('does not post with missing password', function() {
@@ -83,6 +87,7 @@ describe('RegisterController', function () {
             //do not expectPOST
 
             expect($rootScope.errorMessages).toBeFalsy();
+            expect(authService.login.calls.any()).toBeFalsy();
         });
 
         it('does not post with missing first name', function() {
@@ -96,6 +101,7 @@ describe('RegisterController', function () {
             //do not expectPOST
 
             expect($rootScope.errorMessages).toBeFalsy();
+            expect(authService.login.calls.any()).toBeFalsy();
         });
 
         it('does not post with missing last name', function() {
@@ -109,6 +115,7 @@ describe('RegisterController', function () {
             //do not expectPOST
 
             expect($rootScope.errorMessages).toBeFalsy();
+            expect(authService.login.calls.any()).toBeFalsy();
         });
 
         it('should display an error message on 500', function() {
@@ -121,7 +128,8 @@ describe('RegisterController', function () {
             $httpBackend.expectPOST('/api/users/register').respond(500, errorMessage);
             $httpBackend.flush();
 
-            expect($rootScope.errorMessages).toBe(errorMessage)
+            expect($rootScope.errorMessages).toBe(errorMessage);
+            expect(authService.login.calls.any()).toBeFalsy();
         })
 
     })
