@@ -36,26 +36,33 @@
 
     // Show error label when input is incorrect
     // Validate login info and attempt to login user
-    if (![self validateLogin] || ![HttpUtils registerUser:emailField.text toPassword:passwordField.text toFirstName:firstNameField.text toLastName:lastNameField.text]) {
-        
+    if (![self validateLogin]) {
+
         [self.errorLabel setHidden:FALSE];
-        
+
     } else {
+
+        if (![HttpUtils registerUser:emailField.text toPassword:passwordField.text toFirstName:firstNameField.text toLastName:lastNameField.text]) {
+
+            [self.errorLabel setHidden:FALSE];
+            
+        } else {
+
+            [self.errorLabel setHidden:TRUE];
         
-        [self.errorLabel setHidden:TRUE];
-        
-        // Move to next view
-        [self performSegueWithIdentifier:@"loginSegue" sender:sender];
+            // Move to next view
+            [self performSegueWithIdentifier:@"loginSegue" sender:sender];
+        }
     }
 }
 
 - (bool)validateLogin {
     
-    if (!(   (self.emailField.text && self.emailField.text.length > 0)
-          || (self.passwordField.text && self.passwordField.text.length > 0)
-          || (self.passwordField.text != self.verifyField.text)
-          || (self.firstNameField.text && self.firstNameField.text.length > 0)
-          || (self.lastNameField.text && self.lastNameField.text.length > 0))) {
+    if (   (self.emailField.text && self.emailField.text.length == 0)
+        || (self.passwordField.text && self.passwordField.text.length == 0)
+        || !([self.passwordField.text isEqualToString:self.verifyField.text])
+        || (self.firstNameField.text && self.firstNameField.text.length == 0)
+        || (self.lastNameField.text && self.lastNameField.text.length == 0)) {
         
         return false;
         

@@ -45,8 +45,8 @@
 
 - (bool)validateLogin {
     
-    if (!((self.emailField.text && self.emailField.text.length > 0)
-          || (self.passwordField.text && self.passwordField.text.length > 0))) {
+    if (!( (self.emailField.text && self.emailField.text.length > 0)
+        || (self.passwordField.text && self.passwordField.text.length > 0))) {
         
         return false;
     
