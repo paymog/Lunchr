@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 describe('UserMatchedController', function () {
     beforeEach(module('lunchr'));
@@ -22,9 +22,9 @@ describe('UserMatchedController', function () {
 
     describe('on initialization', function() {
         it('sets $scope.name based on $stateParams', function() {
-            createController({name: DEFAULT_NAME})
+            createController({name: DEFAULT_NAME});
 
-            expect($rootScope.name).toBe(DEFAULT_NAME)
+            expect($rootScope.name).toBe(DEFAULT_NAME);
         })
     })
 });
