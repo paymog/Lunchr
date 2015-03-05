@@ -151,7 +151,7 @@
                     <connections>
                         <outlet property="emailField" destination="s1V-cY-PCs" id="ENa-NU-R6a"/>
                         <outlet property="errorLabel" destination="oT1-4m-rKb" id="tfO-sz-h4r"/>
-                        <outlet property="passField" destination="bZz-R3-Z93" id="f9L-2z-ecx"/>
+                        <outlet property="passwordField" destination="bZz-R3-Z93" id="LWw-eL-KFH"/>
                         <segue destination="h9c-Wh-NmB" kind="presentation" identifier="loginSegue" id="qn4-aj-cME"/>
                     </connections>
                 </viewController>
@@ -249,9 +249,9 @@
                     <connections>
                         <outlet property="emailField" destination="6b0-9B-Wwq" id="X4X-dc-qMt"/>
                         <outlet property="errorLabel" destination="Cny-hy-3br" id="PcK-DY-WjO"/>
-                        <outlet property="firstField" destination="1hQ-wT-vZF" id="4EY-im-pdN"/>
-                        <outlet property="lastField" destination="rNA-rS-iH9" id="t5j-xw-iOY"/>
-                        <outlet property="passField" destination="csM-Bg-jnc" id="ApC-4r-3Bt"/>
+                        <outlet property="firstNameField" destination="1hQ-wT-vZF" id="HwU-js-7Zp"/>
+                        <outlet property="lastNameField" destination="rNA-rS-iH9" id="fEL-vb-qcR"/>
+                        <outlet property="passwordField" destination="csM-Bg-jnc" id="NPm-NA-IO4"/>
                         <outlet property="verifyField" destination="TRc-1q-gRP" id="o5O-vv-Jkx"/>
                         <segue destination="h9c-Wh-NmB" kind="presentation" identifier="loginSegue" id="afr-lP-jaH"/>
                     </connections>

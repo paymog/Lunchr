@@ -12,7 +12,7 @@
 @implementation LoginViewController
 
 @synthesize emailField;
-@synthesize passField;
+@synthesize passwordField;
 @synthesize errorLabel;
 
 - (void)viewDidLoad {
@@ -29,10 +29,10 @@
     
     // Show error label when input is incorrect
     // Validate login info and attempt to login user
-    if (![self validateLogin] || ![HttpUtils loginUser:emailField.text toPassword:passField.text]) {
+    if (![self validateLogin] || ![HttpUtils loginUser:emailField.text toPassword:passwordField.text]) {
         
         [self.errorLabel setHidden:FALSE];
-        [self.passField setText:@""];
+        [self.passwordField setText:@""];
     
     } else {
         
@@ -46,7 +46,7 @@
 - (bool)validateLogin {
     
     if (!((self.emailField.text && self.emailField.text.length > 0)
-          || (self.passField.text && self.passField.text.length > 0))) {
+          || (self.passwordField.text && self.passwordField.text.length > 0))) {
         
         return false;
     

@@ -13,7 +13,7 @@
 - (IBAction)loginButtonTapped:(UIButton *)sender;
 
 @property (strong, nonatomic) IBOutlet UITextField *emailField;
-@property (strong, nonatomic) IBOutlet UITextField *passField;
+@property (strong, nonatomic) IBOutlet UITextField *passwordField;
 @property (strong, nonatomic) IBOutlet UILabel *errorLabel;
 
 @end

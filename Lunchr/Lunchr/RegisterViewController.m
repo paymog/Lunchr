@@ -15,10 +15,10 @@
 
 @implementation RegisterViewController
 
-@synthesize firstField;
-@synthesize lastField;
+@synthesize firstNameField;
+@synthesize lastNameField;
 @synthesize emailField;
-@synthesize passField;
+@synthesize passwordField;
 @synthesize verifyField;
 @synthesize errorLabel;
 
@@ -36,7 +36,7 @@
 
     // Show error label when input is incorrect
     // Validate login info and attempt to login user
-    if (![self validateLogin] || ![HttpUtils registerUser:emailField.text toPassword:passField.text toFirstName:firstField.text toLastName:lastField.text]) {
+    if (![self validateLogin] || ![HttpUtils registerUser:emailField.text toPassword:passwordField.text toFirstName:firstNameField.text toLastName:lastNameField.text]) {
         
         [self.errorLabel setHidden:FALSE];
         
@@ -52,10 +52,10 @@
 - (bool)validateLogin {
     
     if (!(   (self.emailField.text && self.emailField.text.length > 0)
-          || (self.passField.text && self.passField.text.length > 0)
-          || (self.passField.text != self.verifyField.text)
-          || (self.firstField.text && self.firstField.text.length > 0)
-          || (self.lastField.text && self.lastField.text.length > 0))) {
+          || (self.passwordField.text && self.passwordField.text.length > 0)
+          || (self.passwordField.text != self.verifyField.text)
+          || (self.firstNameField.text && self.firstNameField.text.length > 0)
+          || (self.lastNameField.text && self.lastNameField.text.length > 0))) {
         
         return false;
         

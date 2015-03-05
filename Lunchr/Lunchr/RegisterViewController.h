@@ -10,10 +10,10 @@
 
 @interface RegisterViewController : UIViewController
 
-@property (strong, nonatomic) IBOutlet UITextField *firstField;
-@property (strong, nonatomic) IBOutlet UITextField *lastField;
+@property (strong, nonatomic) IBOutlet UITextField *firstNameField;
+@property (strong, nonatomic) IBOutlet UITextField *lastNameField;
 @property (strong, nonatomic) IBOutlet UITextField *emailField;
-@property (strong, nonatomic) IBOutlet UITextField *passField;
+@property (strong, nonatomic) IBOutlet UITextField *passwordField;
 @property (strong, nonatomic) IBOutlet UITextField *verifyField;
 @property (strong, nonatomic) IBOutlet UILabel *errorLabel;
 
