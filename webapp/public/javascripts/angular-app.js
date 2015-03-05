@@ -1,6 +1,6 @@
 'use strict';
 
-var lunchrApp = angular.module('lunchr', ['ui.router', 'lunchrControllers']);
+var lunchrApp = angular.module('lunchr', ['ui.router', 'lunchrControllers', 'uiGmapgoogle-maps']);
 
 lunchrApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
     function ($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -24,6 +24,11 @@ lunchrApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
             .state('users.matched', {
                 url: '/matched',
                 templateUrl: '/partials/users.matched.jade'
+            })
+            .state('map', {
+                url: '/map',
+                templateUrl: '/partials/map.jade',
+                controller: 'MapController'
             })
             .state('register', {
                 url:'/register',

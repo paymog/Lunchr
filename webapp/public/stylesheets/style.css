@@ -21,3 +21,7 @@ input {
 a {
   color: #00B7FF;
 }
+
+.angular-google-map-container {
+    height: 400px;
+}

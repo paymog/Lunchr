@@ -61,3 +61,66 @@ lunchrControllers.controller('RegisterController', ['$scope', '$http', '$state',
                 })
         }
     }]);
+
+lunchrControllers.controller('MapController', ['$scope',
+    function ($scope) {
+
+        $scope.map = { center: { latitude: 49.8651559, longitude: -97.11077669999997 }, zoom: 14 };
+        $scope.getUserLocation = function ( onSuccess, onError )
+        {
+            if ( navigator.geolocation )
+            {
+                navigator.geolocation.getCurrentPosition( function ( position )
+                {
+                    $scope.position = position;
+                    $scope.map = { center: { latitude: position.coords.latitude, longitude: position.coords.longitude }, zoom: 14 };
+                    $scope.marker = {id: 0, coords:{ latitude: position.coords.latitude, longitude: position.coords.longitude }};
+
+                    $scope.$apply( function( )
+                    {
+                        $scope.position = position;
+                        onSuccess( position );
+                    } );
+                },
+                function( error )
+                {
+                    onError( error );
+                } );
+            }
+            else
+            {
+                alert( "Your browser does not support geolocation." );
+            }
+        }
+        
+        function onSuccess( position )
+        {
+            $scope.map = { center: { latitude: position.coords.latitude, longitude: position.coords.longitude }, zoom: 14 };
+            $scope.marker = {id: 0, coords: { latitude: position.coords.latitude, longitude: position.coords.longitude }};
+        }
+        
+        function onError( error )
+        {
+            var errorMessage = "";
+            
+            switch( error.code )
+            {
+                case error.PERMISSION_DENIED:
+                    errorMessage = "User denied the request for Geolocation.";
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    errorMessage = "Location information is unavailable.";
+                    break;
+                case error.TIMEOUT:
+                    errorMessage = "The request to get user location timed out.";
+                    break;
+                default:
+                    errorMessage = "An unknown error occurred.";
+                    break;
+            }
+            
+            alert( errorMessage );
+        }
+        
+        $scope.getUserLocation( onSuccess, onError );
+    }]);
