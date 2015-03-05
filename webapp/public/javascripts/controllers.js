@@ -11,7 +11,7 @@ lunchrControllers.controller('MainPageController', ['$scope', '$http', '$state',
         $scope.logIn = function () {
             $scope.errorMessages = null;
 
-            if(!$scope.email || !$scope.password) {
+            if (!$scope.email || !$scope.password) {
                 return;
             }
 
@@ -26,14 +26,17 @@ lunchrControllers.controller('MainPageController', ['$scope', '$http', '$state',
         }
     }]);
 
-lunchrControllers.controller('UserController', ['$scope', '$http',
-    function ($scope, $http) {
+lunchrControllers.controller('UserController', ['$scope', '$http', '$state', 'socket',
+    function ($scope, $http, $state, socket) {
 
         $http.get('/api/users')
             .success(function (data, status, headers, config) {
                 $scope.users = data;
-            })
+            });
 
+        $scope.match = function () {
+            $state.go('users.matching');
+        };
     }]);
 
 lunchrControllers.controller('RegisterController', ['$scope', '$http', '$state',
@@ -43,7 +46,7 @@ lunchrControllers.controller('RegisterController', ['$scope', '$http', '$state',
         $scope.register = function () {
             $scope.errorMessages = null;
 
-            if(!$scope.email || !$scope.password || !$scope.firstname || !$scope.lastname) {
+            if (!$scope.email || !$scope.password || !$scope.firstname || !$scope.lastname) {
                 return;
             }
 
@@ -60,4 +63,18 @@ lunchrControllers.controller('RegisterController', ['$scope', '$http', '$state',
                     $scope.errorMessages = data;
                 })
         }
+    }]);
+
+lunchrControllers.controller('UserMatchingController', ['$state', 'socket',
+    function ($state, socket) {
+        socket.emit('match');
+
+        socket.on('matched', function (data) {
+            $state.go('users.matched', {name: data.name})
+        });
+    }]);
+
+lunchrControllers.controller('UserMatchedController', ['$scope', '$stateParams',
+    function ($scope, $stateParams) {
+        $scope.name = $stateParams.name;
     }]);
