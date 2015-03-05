@@ -65,16 +65,51 @@ lunchrControllers.controller('RegisterController', ['$scope', '$http', '$state',
 lunchrControllers.controller('MapController', ['$scope', '$http', '$state',
     function ($scope, $http, $state) {
         $scope.map = { center: { latitude: 49.8651559, longitude: -97.11077669999997 }, zoom: 14 };
-        if ( navigator.geolocation )
+
+        getUserLocation( onSuccess, onError );
+
+        function getUserLocation( onSuccess, onError )
         {
-            navigator.geolocation.getCurrentPosition( function ( position )
+            if ( navigator.geolocation )
             {
-                $scope.$apply( function( )
+                navigator.geolocation.getCurrentPosition( function ( position )
                 {
                     $scope.position = position;
                     $scope.map = { center: { latitude: position.coords.latitude, longitude: position.coords.longitude }, zoom: 14 };
                     $scope.marker = {id: 0, coords:{ latitude: position.coords.latitude, longitude: position.coords.longitude }};
+
+                    $scope.$apply( function( )
+                    {
+                        $scope.position = position;
+                        onSuccess( position );
+                    } );
+                },
+                function( error )
+                {
+                    onError( error );
                 } );
-            } );
+            }
+            else
+            {
+                alert( "Your browser does not support geolocation." );
+            }
+        }
+        
+        function onSuccess( position )
+        {
+            $scope.map = { center: { latitude: position.coords.latitude, longitude: position.coords.longitude }, zoom: 14 };
+            $scope.marker = {id: 0, coords: { latitude: position.coords.latitude, longitude: position.coords.longitude }};
+        }
+        
+        function onError( error )
+        {
+            if ( error.code == 1 )
+            {
+                alert( "Geolocation failed - Access is denied." );
+            }
+            else if ( error.code == 2 )
+            {
+                alert( "Geolocation failed - Location is unavailable." );
+            }
         }
     }]);
