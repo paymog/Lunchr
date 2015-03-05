@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		1411DCA01A9FC40800693DC8 /* HttpUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1411DC9F1A9FC40800693DC8 /* HttpUtils.m */; };
 		142339481A9D130D00C8C264 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 142339471A9D130D00C8C264 /* RegisterViewController.m */; };
-		146AD4621AA66878007B4A4E /* LoginTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 146AD4611AA66878007B4A4E /* LoginTests.m */; };
-		146AD4651AA668AC007B4A4E /* RegisterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 146AD4641AA668AC007B4A4E /* RegisterTests.m */; };
 		1473E63D1A95373300E9DD33 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1473E63C1A95373300E9DD33 /* main.m */; };
 		1473E6401A95373300E9DD33 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1473E63F1A95373300E9DD33 /* AppDelegate.m */; };
 		1473E6431A95373300E9DD33 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1473E6421A95373300E9DD33 /* ViewController.m */; };
@@ -38,8 +36,6 @@
 		1411DCA21A9FC60100693DC8 /* HttpUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HttpUtils.h; sourceTree = "<group>"; };
 		142339461A9D130D00C8C264 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		142339471A9D130D00C8C264 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
-		146AD4611AA66878007B4A4E /* LoginTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTests.m; sourceTree = "<group>"; };
-		146AD4641AA668AC007B4A4E /* RegisterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterTests.m; sourceTree = "<group>"; };
 		1473E6371A95373300E9DD33 /* Lunchr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lunchr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1473E63B1A95373300E9DD33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1473E63C1A95373300E9DD33 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -150,8 +146,6 @@
 			children = (
 				1473E6561A95373300E9DD33 /* LunchrTests.m */,
 				1473E6541A95373300E9DD33 /* Supporting Files */,
-				146AD4611AA66878007B4A4E /* LoginTests.m */,
-				146AD4641AA668AC007B4A4E /* RegisterTests.m */,
 			);
 			path = LunchrTests;
 			sourceTree = "<group>";
@@ -279,8 +273,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1473E6571A95373300E9DD33 /* LunchrTests.m in Sources */,
-				146AD4621AA66878007B4A4E /* LoginTests.m in Sources */,
-				146AD4651AA668AC007B4A4E /* RegisterTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
