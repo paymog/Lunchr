@@ -5,7 +5,7 @@ var lunchrControllers = angular.module('lunchrControllers', []);
 lunchrControllers.controller('MainPageController', ['$scope', '$http', '$state', 'authService',
     function ($scope, $http, $state, authService) {
         $scope.createAccount = function () {
-            $state.go('register')
+            $state.go('register');
         };
 
         $scope.logIn = function () {
@@ -15,12 +15,12 @@ lunchrControllers.controller('MainPageController', ['$scope', '$http', '$state',
                 return;
             }
 
-            $http.post('/api/users/authenticate', {email: $scope.email, password: $scope.password}).
-                success(function (data, status, headers, config) {
-                    authService.login($scope.email);
-                    $state.go('users');
-                }).
-                error(function (data, status, headers, config) {
+            $http.post('/api/users/authenticate', {email: $scope.email, password: $scope.password})
+                .success(function (data, status, headers, config) {
+                    var name = data[0].firstname + " " + data[0].lastname;
+                    $state.go('home', {name: name});
+                })
+                .error(function (data, status, headers, config) {
                     $scope.errorMessages = data;
                     $scope.password = "";
                 })
