@@ -6,7 +6,7 @@ var myApp = angular.module( 'myApp', [ 'ngMap' ] );
 lunchrControllers.controller('MainPageController', ['$scope', '$http', '$state',
     function ($scope, $http, $state) {
         $scope.createAccount = function () {
-            $state.go('register')
+            $state.go('register');
         };
 
         $scope.logIn = function () {
@@ -16,20 +16,34 @@ lunchrControllers.controller('MainPageController', ['$scope', '$http', '$state',
                 return;
             }
 
-            $http.post('/api/users/authenticate', {email: $scope.email, password: $scope.password}).
-                success(function (data, status, headers, config) {
-                    $state.go('users');
-                }).
-                error(function (data, status, headers, config) {
+            $http.post('/api/users/authenticate', {email: $scope.email, password: $scope.password})
+                .success(function (data, status, headers, config) {
+                    var name = data[0].firstname + " " + data[0].lastname;
+                    $state.go('home', {name: name});
+                })
+                .error(function (data, status, headers, config) {
                     $scope.errorMessages = data;
                     $scope.password = "";
                 })
         }
     }]);
 
-lunchrControllers.controller('UserController', ['$scope', '$http', '$state', 'socket',
-    function ($scope, $http, $state, socket) {
+lunchrControllers.controller('HomePageController', ['$scope', '$state', '$stateParams',
+    function ($scope, $state, $stateParams) {
+        $scope.userName = $stateParams.name;
+        $scope.match = function () {
+            //$state.go('match');
+        };
 
+        $scope.editInfo = function () {
+            //$state.go('editInformation');
+            //also needs to go to new page
+        };
+    }
+]);
+
+lunchrControllers.controller('UserController', ['$scope', '$http',
+    function ($scope, $http) {
         $http.get('/api/users')
             .success(function (data, status, headers, config) {
                 $scope.users = data;
