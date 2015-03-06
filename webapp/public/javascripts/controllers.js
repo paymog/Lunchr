@@ -18,7 +18,8 @@ lunchrControllers.controller('MainPageController', ['$scope', '$http', '$state',
             $http.post('/api/users/authenticate', {email: $scope.email, password: $scope.password})
                 .success(function (data, status, headers, config) {
                     authService.login($scope.email);
-                    $state.go('home', data[0].firstname + " " + data[0].lastname);
+                    var name = data[0].firstname + " " + data[0].lastname;
+                    $state.go('home', {name: name});
                 })
                 .error(function (data, status, headers, config) {
                     $scope.errorMessages = data;
