@@ -15,11 +15,11 @@ lunchrControllers.controller('MainPageController', ['$scope', '$http', '$state',
             if (!$scope.email || !$scope.password) {
                 return;
             }
-            
+
             $http.post('/api/users/authenticate', {email: $scope.email, password: $scope.password})
                 .success(function (data, status, headers, config) {
-                    var name = data[0].firstname + " " + data[0].lastname;
-                    $state.go('home', {name: name});
+                    authService.login($scope.email);
+                    $state.go('home', data[0].firstname + " " + data[0].lastname);
                 })
                 .error(function (data, status, headers, config) {
                     $scope.errorMessages = data;
@@ -85,19 +85,19 @@ lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'n
     function ( $scope, $http, $state, ngGPlacesAPI )
     {
         $scope.map = { center: { latitude: 49.8651559, longitude: -97.11077669999997 }, zoom: 14 };
-        
+
         $scope.getUserLocation = function ( onSuccess, onError )
         {
             if ( navigator.geolocation )
             {
                 navigator.geolocation.getCurrentPosition
                 (
-                    function( position )
+                    function ( position )
                     {
                         $scope.position = position;
                         onSuccess( position );
                     },
-                    function( error )
+                    function ( error )
                     {
                         onError( error );
                     }
@@ -107,47 +107,62 @@ lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'n
             {
                 alert( "Your browser does not support geolocation." );
             }
-        }
-        
+        };
+
         function onSuccess( position )
         {
             //$scope.$apply( function( )
             //{
-                $scope.map = { center: { latitude: position.coords.latitude, longitude: position.coords.longitude }, zoom: 14 };
-                $scope.marker = {id: 0, coords:{ latitude: position.coords.latitude, longitude: position.coords.longitude }};
+            $scope.map = {
+                center: { latitude: position.coords.latitude, longitude: position.coords.longitude },
+                zoom: 14
+            };
+            $scope.marker = {
+                id: 0,
+                coords: { latitude: position.coords.latitude, longitude: position.coords.longitude }
+            };
             //} );
-            
+
             $scope.restaurantData = "Empty";
             $scope.data = "empty";
-            
+
             //This is a patch for a known issue with the ngGPlacesAPI framework and angular 3.1
-            var promise1 = ngGPlacesAPI.placeDetails({ reference: "CnRoAAAA_qz5XcCCCcEROmoujZ_HLtUd46slTejRW9pLTJ-izq-Y9vdCn-MgLDQk3rUqaPxfi3N0AeRVs3H7ZmAvItqyiVYoB-U8SW-g8lnQVUhgz7ldFh8VLFj0ZzzDbv6tVxfm5x8Tte3q2LRmuJe9OqNZoRIQIaRdxp2Kl4plsbonULFJrBoUeCyr2a4MRWyZfrtc6V1HikRH6s4" });
-            promise1.then(function (data) {
+            var promise1 = ngGPlacesAPI.placeDetails( { reference: "CnRoAAAA_qz5XcCCCcEROmoujZ_HLtUd46slTejRW9pLTJ-izq-Y9vdCn-MgLDQk3rUqaPxfi3N0AeRVs3H7ZmAvItqyiVYoB-U8SW-g8lnQVUhgz7ldFh8VLFj0ZzzDbv6tVxfm5x8Tte3q2LRmuJe9OqNZoRIQIaRdxp2Kl4plsbonULFJrBoUeCyr2a4MRWyZfrtc6V1HikRH6s4" } );
+            promise1.then( function ( data )
+            {
                 $scope.details = data;
-            }, function (reason) {
-                alert('Failed: ' + reason);
-            }, function (update) {
-                alert('Got notification: ' + update);
-            });
-            
-            var promise = ngGPlacesAPI.nearbySearch({ latitude: position.coords.latitude, longitude: position.coords.longitude });
-            
-            promise.then(function (data) {
+            }, function ( reason )
+            {
+                alert( 'Failed: ' + reason );
+            }, function ( update )
+            {
+                alert( 'Got notification: ' + update );
+            } );
+
+            var promise = ngGPlacesAPI.nearbySearch( {
+                latitude: position.coords.latitude,
+                longitude: position.coords.longitude
+            } );
+
+            promise.then( function ( data )
+            {
                 $scope.data = data;
                 //alert(data);
                 //alert(data.length);
-            }, function (reason) {
-                alert('Failed: ' + reason);
-            }, function (update) {
-                alert('Got notification: ' + update);
-            });
+            }, function ( reason )
+            {
+                alert( 'Failed: ' + reason );
+            }, function ( update )
+            {
+                alert( 'Got notification: ' + update );
+            } );
         }
 
         function onError( error )
         {
             var errorMessage = "";
 
-            switch( error.code )
+            switch ( error.code )
             {
                 case error.PERMISSION_DENIED:
                     errorMessage = "User denied the request for Geolocation.";
@@ -165,8 +180,9 @@ lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'n
 
             alert( errorMessage );
         }
+
         $scope.getUserLocation( onSuccess, onError );
-        
+    }]);
 lunchrControllers.controller('UserMatchingController', ['$state', 'socket', 'authService',
     function ($state, socket, authService) {
         socket.emit('match', {user: authService.currentUser()});
@@ -180,3 +196,17 @@ lunchrControllers.controller('UserMatchedController', ['$scope', '$stateParams',
     function ($scope, $stateParams) {
         $scope.name = $stateParams.name;
     }]);
+
+lunchrControllers.controller('HomePageController', ['$scope', '$state', '$stateParams',
+    function ($scope, $state, $stateParams) {
+        $scope.userName = $stateParams.name;
+        $scope.match = function () {
+            //$state.go('match');
+        };
+
+        $scope.editInfo = function () {
+            //$state.go('editInformation');
+            //also needs to go to new page
+        };
+    }
+]);
