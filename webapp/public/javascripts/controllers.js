@@ -27,6 +27,20 @@ lunchrControllers.controller('MainPageController', ['$scope', '$http', '$state',
         }
     }]);
 
+lunchrControllers.controller('HomePageController', ['$scope', '$state', '$stateParams',
+    function ($scope, $state, $stateParams) {
+        $scope.userName = $stateParams.name;
+        $scope.match = function () {
+            //$state.go('match');
+        };
+
+        $scope.editInfo = function () {
+            //$state.go('editInformation');
+            //also needs to go to new page
+        };
+    }
+]);
+
 lunchrControllers.controller('UserController', ['$scope', '$http', '$state',
     function ($scope, $http, $state) {
 
