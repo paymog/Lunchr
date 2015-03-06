@@ -19,7 +19,8 @@ lunchrControllers.controller('MainPageController', ['$scope', '$http', '$state',
             $http.post('/api/users/authenticate', {email: $scope.email, password: $scope.password})
                 .success(function (data, status, headers, config) {
                     authService.login($scope.email);
-                    $state.go('home', data[0].firstname + " " + data[0].lastname);
+                    var name = data[0].firstname + " " + data[0].lastname;
+                    $state.go('home', {name: name});
                 })
                 .error(function (data, status, headers, config) {
                     $scope.errorMessages = data;
@@ -27,6 +28,20 @@ lunchrControllers.controller('MainPageController', ['$scope', '$http', '$state',
                 })
         }
     }]);
+
+lunchrControllers.controller('HomePageController', ['$scope', '$state', '$stateParams',
+    function ($scope, $state, $stateParams) {
+        $scope.userName = $stateParams.name;
+        $scope.match = function () {
+            //$state.go('match');
+        };
+
+        $scope.editInfo = function () {
+            //$state.go('editInformation');
+            //also needs to go to new page
+        };
+    }
+]);
 
 lunchrControllers.controller('UserController', ['$scope', '$http', '$state',
     function ($scope, $http, $state) {
@@ -182,16 +197,3 @@ lunchrControllers.controller('UserMatchedController', ['$scope', '$stateParams',
     function ($scope, $stateParams) {
         $scope.name = $stateParams.name;
     }]);
-
-lunchrControllers.controller('HomePageController', ['$scope', '$state', '$stateParams',
-    function ($scope, $state, $stateParams) {
-        $scope.userName = $stateParams.name;
-        $scope.match = function () {
-            ;
-        };
-
-        $scope.editInfo = function () {
-            ;
-        };
-    }
-]);
