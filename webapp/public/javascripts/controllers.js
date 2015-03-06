@@ -16,6 +16,7 @@ lunchrControllers.controller('MainPageController', ['$scope', '$http', '$state',
                 return;
             }
 
+            
             $http.post('/api/users/authenticate', {email: $scope.email, password: $scope.password})
                 .success(function (data, status, headers, config) {
                     authService.login($scope.email);
