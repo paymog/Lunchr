@@ -96,11 +96,21 @@ lunchrControllers.controller('MapController', ['$scope', '$http', '$state', 'ngG
         {
             $scope.map = { center: { latitude: position.coords.latitude, longitude: position.coords.longitude }, zoom: 14 };
             $scope.marker = {id: 0, coords: { latitude: position.coords.latitude, longitude: position.coords.longitude }};
-            $scope.restaurantData = ngGPlacesAPI.nearbySearch({latitude:position.latitude, longitude:position.longitude}).then(
+
+
+            $scope.restaurantData = ngGPlacesAPI.nearbySearch({
+                latitude:position.latitude,
+                longitude:position.longitude,
+                types: ['food'],
+                radius: 100
+            }).then(
                 function(data){
                     return data;
+                },function (reason) {
+                    alert("Failed: " + reason);
+                },function (update){
+                    alert("Got notification: " + update);
                 });
-            alert($scope.restaurantData);
         }
 
         function onError( error )
