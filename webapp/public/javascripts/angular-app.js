@@ -1,6 +1,6 @@
 'use strict';
 
-var lunchrApp = angular.module('lunchr', ['ui.router', 'lunchrControllers', 'uiGmapgoogle-maps']);
+var lunchrApp = angular.module('lunchr', ['ui.router', 'lunchrControllers', 'uiGmapgoogle-maps', 'ngGPlaces']);
 
 lunchrApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
     function ($stateProvider, $urlRouterProvider, $locationProvider) {

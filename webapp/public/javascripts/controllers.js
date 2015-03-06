@@ -62,19 +62,27 @@ lunchrControllers.controller('RegisterController', ['$scope', '$http', '$state',
         }
     }]);
 
-lunchrControllers.controller('MapController', ['$scope', '$http', '$state',
-    function ($scope, $http, $state) {
+lunchrControllers.controller('MapController', ['$scope', '$http', '$state', 'ngGPlacesAPI',
+    function ($scope, $http, $state, ngGPlacesAPI) {
         $scope.map = { center: { latitude: 49.8651559, longitude: -97.11077669999997 }, zoom: 14 };
-        if ( navigator.geolocation )
-        {
-            navigator.geolocation.getCurrentPosition( function ( position )
-            {
-                $scope.$apply( function( )
-                {
+        if ( navigator.geolocation ) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                $scope.$apply(function () {
                     $scope.position = position;
-                    $scope.map = { center: { latitude: position.coords.latitude, longitude: position.coords.longitude }, zoom: 14 };
-                    $scope.marker = {id: 0, coords:{ latitude: position.coords.latitude, longitude: position.coords.longitude }};
-                } );
-            } );
+                    $scope.map = {
+                        center: {latitude: position.coords.latitude, longitude: position.coords.longitude},
+                        zoom: 14
+                    };
+                    $scope.marker = {
+                        id: 0,
+                        coords: {latitude: position.coords.latitude, longitude: position.coords.longitude}
+                    };
+                    $scope.restaurantData = ngGPlacesAPI.nearbySearch({latitude:position.latitude, longitude:position.longitude}).then(
+                        function(data){
+                            return data;
+                        });
+                    alert($scope.restaurantData);
+                });
+            });
         }
     }]);
