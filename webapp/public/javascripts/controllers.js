@@ -2,8 +2,8 @@
 
 var lunchrControllers = angular.module('lunchrControllers', []);
 
-lunchrControllers.controller('MainPageController', ['$scope', '$http', '$state',
-    function ($scope, $http, $state) {
+lunchrControllers.controller('MainPageController', ['$scope', '$http', '$state', 'authService',
+    function ($scope, $http, $state, authService) {
         $scope.createAccount = function () {
             $state.go('register')
         };
@@ -17,6 +17,7 @@ lunchrControllers.controller('MainPageController', ['$scope', '$http', '$state',
 
             $http.post('/api/users/authenticate', {email: $scope.email, password: $scope.password}).
                 success(function (data, status, headers, config) {
+                    authService.login($scope.email);
                     $state.go('users');
                 }).
                 error(function (data, status, headers, config) {
@@ -39,9 +40,9 @@ lunchrControllers.controller('UserController', ['$scope', '$http', '$state', 'so
         };
     }]);
 
-lunchrControllers.controller('RegisterController', ['$scope', '$http', '$state',
+lunchrControllers.controller('RegisterController', ['$scope', '$http', '$state', 'authService',
 
-    function ($scope, $http, $state) {
+    function ($scope, $http, $state, authService) {
 
         $scope.register = function () {
             $scope.errorMessages = null;
@@ -57,6 +58,7 @@ lunchrControllers.controller('RegisterController', ['$scope', '$http', '$state',
                 lastname: $scope.lastname
             })
                 .success(function (data, status, headers, config) {
+                    authService.login($scope.email);
                     $state.go('users')
                 }).
                 error(function (data, status, headers, config) {
@@ -65,11 +67,11 @@ lunchrControllers.controller('RegisterController', ['$scope', '$http', '$state',
         }
     }]);
 
-lunchrControllers.controller('UserMatchingController', ['$state', 'socket',
-    function ($state, socket) {
-        socket.emit('match');
+lunchrControllers.controller('UserMatchingController', ['$state', 'socket', 'authService',
+    function ($state, socket, authService) {
+        socket.emit('match', {user: authService.currentUser()});
 
-        socket.on('matched', function (data) {
+        socket.on('matched' + authService.currentUser(), function (data) {
             $state.go('users.matched', {name: data.name})
         });
     }]);

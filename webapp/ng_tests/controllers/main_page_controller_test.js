@@ -7,10 +7,10 @@ describe('MainPageController', function () {
     var DEFAULT_EMAIL = 'user';
     var DEFAULT_PASSWORD = 'password';
 
-    var $controller, $httpBackend, $rootScope, $state;
+    var $controller, $httpBackend, $rootScope, $state, authService;
 
     function createController() {
-        return $controller('MainPageController', {'$scope': $rootScope});
+        return $controller('MainPageController', {'$scope': $rootScope, 'authService': authService});
     }
 
     beforeEach(inject(function ($injector) {
@@ -25,6 +25,8 @@ describe('MainPageController', function () {
         // The $controller service is used to create instances of controllers
         $controller = $injector.get('$controller');
 
+        authService = jasmine.createSpyObj('authService', ['login']);
+
     }));
 
     afterEach(function () {
@@ -34,7 +36,8 @@ describe('MainPageController', function () {
     });
 
     describe('$scope.logIn', function () {
-        it('redirects user to /users on success', function () {
+
+        it('redirects user to /users on success and logs in user', function () {
 
             createController();
             $rootScope.email = DEFAULT_EMAIL;
@@ -46,6 +49,7 @@ describe('MainPageController', function () {
             $rootScope.logIn();
             $httpBackend.flush();
 
+            expect(authService.login).toHaveBeenCalledWith(DEFAULT_EMAIL);
         });
 
         it('sets error message on 500', function () {
@@ -60,6 +64,7 @@ describe('MainPageController', function () {
             $httpBackend.flush();
 
             expect($rootScope.errorMessages).toBe(errorMessage);
+            expect(authService.login.calls.any()).toBeFalsy();
         });
 
         it('does not make post without password', function () {
@@ -71,6 +76,7 @@ describe('MainPageController', function () {
             //note do not expectPOST
 
             expect($rootScope.errorMessages).toBeFalsy();
+            expect(authService.login.calls.any()).toBeFalsy();
         });
 
         it('does not make post without email', function () {
@@ -82,6 +88,7 @@ describe('MainPageController', function () {
             //note do not expectPOST
 
             expect($rootScope.errorMessages).toBeFalsy();
+            expect(authService.login.calls.any()).toBeFalsy();
         })
     });
 
@@ -91,6 +98,7 @@ describe('MainPageController', function () {
             $state.expectTransitionTo('register');
 
             $rootScope.createAccount();
+            expect(authService.login.calls.any()).toBeFalsy();
         })
     })
 });
