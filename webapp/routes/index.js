@@ -13,7 +13,7 @@ router.get('/partials/:name', function (req, res) {
 });
 
 router.get('*', function(req, res){
-  console.log("HITTING UNREGISTERED ROUTE");
+  console.log("HITTING UNREGISTERED ROUTE: " + req.originalUrl);
   res.render('index');
 });
 
