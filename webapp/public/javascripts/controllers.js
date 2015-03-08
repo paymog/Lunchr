@@ -31,12 +31,11 @@ lunchrControllers.controller('HomePageController', ['$scope', '$state', '$stateP
     function ($scope, $state, $stateParams) {
         $scope.userName = $stateParams.name;
         $scope.match = function () {
-            //$state.go('match');
+            ;
         };
 
         $scope.editInfo = function () {
-            //$state.go('editInformation');
-            //also needs to go to new page
+            ;
         };
     }
 ]);
