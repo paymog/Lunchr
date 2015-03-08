@@ -26,10 +26,16 @@ a {
     height: 400px;
 }
         
-.div-center {
+.div-center-circleBtn {
     margin-left: auto;
     margin-right: auto;
     width: 9.5em;
+}
+
+.div-center {
+    margin-left: auto;
+    margin-right: auto;
+    width: 12em;
 }
 
 .btn-circle {
@@ -42,6 +48,8 @@ a {
     font-size: 25px;
     line-height: 1.42;
     border-radius: 65px;
+    margin-bottom: 30px;
+    margin-top: 50px;
 }
 
 .btn-circle:hover {
