@@ -47,7 +47,8 @@ lunchrControllers.controller('RegisterController', ['$scope', '$http', '$state',
         $scope.register = function () {
             $scope.errorMessages = null;
 
-            if (!$scope.email || !$scope.password || !$scope.firstname || !$scope.lastname) {
+            if (!$scope.email || !$scope.password || !$scope.firstname ||
+                !$scope.lastname || !$scope.age || !$scope.radius) {
                 return;
             }
 
@@ -56,7 +57,7 @@ lunchrControllers.controller('RegisterController', ['$scope', '$http', '$state',
                 password: $scope.password,
                 firstname: $scope.firstname,
                 lastname: $scope.lastname,
-                age: $scope.age,
+                age: Number($scope.age),
                 radius: Number($scope.radius)
             })
                 .success(function (data, status, headers, config) {
