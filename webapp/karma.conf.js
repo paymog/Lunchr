@@ -24,6 +24,7 @@ module.exports = function (config) {
             'bower_components/angularjs-google-places/src/angularjs-google-places.js',
             'bower_components/angular-socket-io/socket.js',
             'bower_components/socket.io-client/socket.io.js',
+            'bower_components/angular-cookies/angular-cookies.js',
             'public/javascripts/*.js',
             'ng_tests/**/*.js',
             'ng_tests/stateMock.js',
