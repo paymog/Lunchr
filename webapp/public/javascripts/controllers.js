@@ -28,19 +28,6 @@ lunchrControllers.controller('MainPageController', ['$scope', '$http', '$state',
         }
     }]);
 
-lunchrControllers.controller('HomePageController', ['$scope', '$state', '$stateParams',
-    function ($scope, $state, $stateParams) {
-        $scope.userName = $stateParams.name;
-        $scope.match = function () {
-            ;
-        };
-
-        $scope.editInfo = function () {
-            ;
-        };
-    }
-]);
-
 lunchrControllers.controller('UserController', ['$scope', '$http', '$state',
     function ($scope, $http, $state) {
         $http.get('/api/users')
@@ -198,7 +185,8 @@ lunchrControllers.controller('UserMatchedController', ['$scope', '$stateParams',
 
 lunchrControllers.controller('HomePageController', ['$scope', '$http', '$state', 'authService',
     function ($scope, $http, $state, authService) {
-        $http.get('api/users', {params: {email: authService.currentUser()}})
+        var string = authService.currentUser();
+        $http({ url: "/api/users", method: "GET", params: {email: string}})
             .success(function (data, status, headers, config) {
                 $scope.name = (data[0].firstname + " " + data[0].lastname);
             })
