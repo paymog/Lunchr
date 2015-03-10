@@ -27,8 +27,8 @@ lunchrControllers.controller('MainPageController', ['$scope', '$http', '$state',
         }
     }]);
 
-lunchrControllers.controller('UserController', ['$scope', '$http', '$state', 'socket',
-    function ($scope, $http, $state, socket) {
+lunchrControllers.controller('UserController', ['$scope', '$http', '$state',
+    function ($scope, $http, $state) {
 
         $http.get('/api/users')
             .success(function (data, status, headers, config) {
