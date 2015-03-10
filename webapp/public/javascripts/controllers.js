@@ -75,11 +75,11 @@ lunchrControllers.controller('MapController', ['$scope', '$http', '$state', 'ngG
                         $scope.map = { center: { latitude: position.coords.latitude, longitude: position.coords.longitude }, zoom: 14 };
                         $scope.marker = {id: 0, coords:{ latitude: position.coords.latitude, longitude: position.coords.longitude }};
 
-                        $scope.$apply( function( )
-                        {
+//                        $scope.$apply( function( )
+//                        {
                             $scope.position = position;
                             onSuccess( position );
-                        } );
+//                        } );
                     },
                     function( error )
                     {
@@ -96,21 +96,31 @@ lunchrControllers.controller('MapController', ['$scope', '$http', '$state', 'ngG
         {
             $scope.map = { center: { latitude: position.coords.latitude, longitude: position.coords.longitude }, zoom: 14 };
             $scope.marker = {id: 0, coords: { latitude: position.coords.latitude, longitude: position.coords.longitude }};
+            $scope.restaurantData = "Empty";
+            $scope.data = "empty";
+
+            //This is a patch for a known issue with the ngGPlacesAPI framework and angular 3.1
+            var promise1 = ngGPlacesAPI.placeDetails({ reference: "CnRoAAAA_qz5XcCCCcEROmoujZ_HLtUd46slTejRW9pLTJ-izq-Y9vdCn-MgLDQk3rUqaPxfi3N0AeRVs3H7ZmAvItqyiVYoB-U8SW-g8lnQVUhgz7ldFh8VLFj0ZzzDbv6tVxfm5x8Tte3q2LRmuJe9OqNZoRIQIaRdxp2Kl4plsbonULFJrBoUeCyr2a4MRWyZfrtc6V1HikRH6s4" });
+            promise1.then(function (data) {
+                $scope.details = data;
+            }, function (reason) {
+                alert('Failed: ' + reason);
+            }, function (update) {
+                alert('Got notification: ' + update);
+            });
 
 
-            $scope.restaurantData = ngGPlacesAPI.nearbySearch({
-                latitude:position.latitude,
-                longitude:position.longitude,
-                types: ['food'],
-                radius: 100
-            }).then(
-                function(data){
-                    return data;
-                },function (reason) {
-                    alert("Failed: " + reason);
-                },function (update){
-                    alert("Got notification: " + update);
-                });
+            var promise = ngGPlacesAPI.nearbySearch({ latitude: position.coords.latitude, longitude: position.coords.longitude });
+
+            promise.then(function (data) {
+                $scope.data = data;
+                //alert(data);
+                //alert(data.length);
+            }, function (reason) {
+                alert('Failed: ' + reason);
+            }, function (update) {
+                alert('Got notification: ' + update);
+            });
         }
 
         function onError( error )
