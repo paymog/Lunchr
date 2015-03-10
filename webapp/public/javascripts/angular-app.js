@@ -16,7 +16,6 @@ lunchrApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
             .state('home', {
                 url: '/home',
                 templateUrl: '/partials/home.jade',
-                params: {name:null},
                 controller: 'HomePageController'
             })
             .state('users', {
