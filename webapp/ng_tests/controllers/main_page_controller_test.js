@@ -44,7 +44,7 @@ describe('MainPageController', function () {
             createController();
             $rootScope.email = DEFAULT_EMAIL;
             $rootScope.password = DEFAULT_PASSWORD;
-            
+
             $httpBackend.expectPOST('/api/users/authenticate').respond(200, [{firstname: DEFAULT_FIRSTNAME, lastname: DEFAULT_LASTNAME}]);
             $state.expectTransitionTo('home');
 
