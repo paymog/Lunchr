@@ -27,7 +27,7 @@ describe('MainPageController', function () {
         // The $controller service is used to create instances of controllers
         $controller = $injector.get('$controller');
 
-        authService = jasmine.createSpyObj('authService', ['login']);
+        authService = jasmine.createSpyObj('authService', ['setUser']);
 
     }));
 
@@ -51,7 +51,7 @@ describe('MainPageController', function () {
             $rootScope.logIn();
             $httpBackend.flush();
 
-            expect(authService.login).toHaveBeenCalledWith(DEFAULT_EMAIL);
+            expect(authService.setUser).toHaveBeenCalledWith(response);
         });
 
         it('sets error message on 500', function () {
@@ -66,7 +66,7 @@ describe('MainPageController', function () {
             $httpBackend.flush();
 
             expect($rootScope.errorMessages).toBe(errorMessage);
-            expect(authService.login.calls.any()).toBeFalsy();
+            expect(authService.setUser.calls.any()).toBeFalsy();
         });
 
         it('does not make post without password', function () {
@@ -78,7 +78,7 @@ describe('MainPageController', function () {
             //note do not expectPOST
 
             expect($rootScope.errorMessages).toBeFalsy();
-            expect(authService.login.calls.any()).toBeFalsy();
+            expect(authService.setUser.calls.any()).toBeFalsy();
         });
 
         it('does not make post without email', function () {
@@ -90,7 +90,7 @@ describe('MainPageController', function () {
             //note do not expectPOST
 
             expect($rootScope.errorMessages).toBeFalsy();
-            expect(authService.login.calls.any()).toBeFalsy();
+            expect(authService.setUser.calls.any()).toBeFalsy();
         })
     });
 
@@ -100,7 +100,7 @@ describe('MainPageController', function () {
             $state.expectTransitionTo('register');
 
             $rootScope.createAccount();
-            expect(authService.login.calls.any()).toBeFalsy();
+            expect(authService.setUser.calls.any()).toBeFalsy();
         })
     })
 });
