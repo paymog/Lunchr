@@ -6,6 +6,8 @@ mongoose.model('User', {
     firstname: String,
     lastname: String,
     age: Number,
-    radius: String
+    radius: String,
+    wantsToBeMatched: Boolean,
+    matchedWith: String
 });
 mongoose.connect('mongodb://localhost:27017/lunchr');

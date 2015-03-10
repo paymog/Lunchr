@@ -22,7 +22,7 @@ describe('UserMatchingController', function () {
         socket = new socketMock($rootScope);
 
         authService = jasmine.createSpyObj('authService', ['currentUser']);
-        authService.currentUser.and.returnValue(CURRENT_USER);
+        authService.currentUser.and.returnValue({email: CURRENT_USER});
     }));
 
     afterEach(function () {
@@ -42,7 +42,7 @@ describe('UserMatchingController', function () {
 
             createController();
 
-            expect(socket.emits['match'][0][0]).toEqual({user: CURRENT_USER});
+            expect(socket.emits['match'][0][0]).toEqual({userEmail: CURRENT_USER});
             expect(authService.currentUser).toHaveBeenCalled();
         });
 

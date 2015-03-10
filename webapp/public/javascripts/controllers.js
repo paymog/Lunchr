@@ -27,8 +27,9 @@ lunchrControllers.controller('MainPageController', ['$scope', '$http', '$state',
         }
     }]);
 
-lunchrControllers.controller('UserController', ['$scope', '$http', '$state',
-    function ($scope, $http, $state) {
+lunchrControllers.controller('UserController', ['$scope', '$http', '$state', 'authService', 'socket',
+    function ($scope, $http, $state, authService, socket) {
+        $scope.currentUser = authService.currentUser().firstname;
 
         $http.get('/api/users')
             .success(function (data, status, headers, config) {
@@ -36,6 +37,7 @@ lunchrControllers.controller('UserController', ['$scope', '$http', '$state',
             });
 
         $scope.match = function () {
+
             $state.go('users.matching');
         };
     }]);
@@ -61,7 +63,7 @@ lunchrControllers.controller('RegisterController', ['$scope', '$http', '$state',
                 radius: Number($scope.radius)
             })
                 .success(function (data, status, headers, config) {
-                    authService.login($scope.email);
+                    authService.setUser(data);
                     $state.go('users')
                 }).
                 error(function (data, status, headers, config) {
@@ -72,9 +74,9 @@ lunchrControllers.controller('RegisterController', ['$scope', '$http', '$state',
 
 lunchrControllers.controller('UserMatchingController', ['$state', 'socket', 'authService',
     function ($state, socket, authService) {
-        socket.emit('match', {user: authService.currentUser()});
+        socket.emit('match', {userEmail: authService.currentUser().email});
 
-        socket.on('matched' + authService.currentUser(), function (data) {
+        socket.on('matched' + authService.currentUser().email, function (data) {
             $state.go('users.matched', {name: data.name})
         });
     }]);
