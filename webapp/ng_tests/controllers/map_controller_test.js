@@ -43,9 +43,13 @@ describe( 'MapController', function( )
         beforeEach( function( )
         {
             createController( );
+        } );
+        
+        it ( "executes the function onSuccess with valid data", function( )
+        {
             var jasmineSuccess = jasmine.createSpy( );
             var jasmineError = jasmine.createSpy( );
-
+            
             spyOn( navigator.geolocation,"getCurrentPosition" ).and.callFake( function( )
             {
                 var position = { coords: { latitude: 12.3456, longitude: -12.3456 } };
@@ -53,36 +57,100 @@ describe( 'MapController', function( )
             } );
 
             $rootScope.getUserLocation( jasmineSuccess, jasmineError );
-        } );
-        
-        it ( "executes the function onSuccess with valid data", function( )
-        {
+            
             setTimeout( function( )
-        {
-            expect( jasmineSuccess ).wasCalled( );
-            done( );
-        }, 500 );
+            {
+                expect( jasmineSuccess ).wasCalled( );
+                done( );
+            }, 500 );
         } );
         
         it ( "executes the function onError to simulate PERMISSION_DENIED", function( )
         {
-            // Pass in error code to mimic PERMISSION_DENIED
+            var jasmineSuccess = jasmine.createSpy( );
+            var jasmineError = jasmine.createSpy( );
             
-            //setTimeout( function( )
-            //{
-            //    expect( jasmineError ).wasCalled( );
-            //    done( );
-            //}, 500 );
+            spyOn( navigator.geolocation,"getCurrentPosition" ).and.callFake( function( )
+            {
+                const PERMISSION_DENIED = 1;
+                var error = { code: PERMISSION_DENIED };
+                
+                arguments[ 0 ]( error );
+            } );
+
+            $rootScope.getUserLocation( jasmineSuccess, jasmineError );
+
+            setTimeout( function( )
+            {
+                expect( jasmineError ).wasCalled( );
+                done( );
+            }, 500 );
         } );
 
-        //it ( "executes the function onError to simulate POSITION_UNAVAILABLE", function( )
-        //{
-        //
-        //} );
-        //
-        //it ( "executes the function onError to simulate TIMEOUT", function( )
-        //{
-        //
-        //} );
+        it ( "executes the function onError to simulate POSITION_UNAVAILABLE", function( )
+        {
+            var jasmineSuccess = jasmine.createSpy( );
+            var jasmineError = jasmine.createSpy( );
+
+            spyOn( navigator.geolocation,"getCurrentPosition" ).and.callFake( function( )
+            {
+                const POSITION_UNAVAILABLE = 2;
+                var error = { code: POSITION_UNAVAILABLE };
+
+                arguments[ 0 ]( error );
+            } );
+
+            $rootScope.getUserLocation( jasmineSuccess, jasmineError );
+
+            setTimeout( function( )
+            {
+                expect( jasmineError ).wasCalled( );
+                done( );
+            }, 500 );
+        } );
+        
+        it ( "executes the function onError to simulate TIMEOUT", function( )
+        {
+            var jasmineSuccess = jasmine.createSpy( );
+            var jasmineError = jasmine.createSpy( );
+
+            spyOn( navigator.geolocation,"getCurrentPosition" ).and.callFake( function( )
+            {
+                const TIMEOUT = 3;
+                var error = { code: TIMEOUT };
+
+                arguments[ 0 ]( error );
+            } );
+
+            $rootScope.getUserLocation( jasmineSuccess, jasmineError );
+
+            setTimeout( function( )
+            {
+                expect( jasmineError ).wasCalled( );
+                done( );
+            }, 500 );
+        } );
+        
+        it ( "executes the function onError to similate an unknown error", function( )
+        {
+            var jasmineSuccess = jasmine.createSpy( );
+            var jasmineError = jasmine.createSpy( );
+
+            spyOn( navigator.geolocation,"getCurrentPosition" ).and.callFake( function( )
+            {
+                const UNKNOWN_ERROR = 4;
+                var error = { code: UNKNOWN_ERROR };
+
+                arguments[ 0 ]( error );
+            } );
+
+            $rootScope.getUserLocation( jasmineSuccess, jasmineError );
+
+            setTimeout( function( )
+            {
+                expect( jasmineError ).wasCalled( );
+                done( );
+            }, 500 );
+        } );
     } );
 } );
