@@ -18,29 +18,14 @@ lunchrControllers.controller('MainPageController', ['$scope', '$http', '$state',
             $http.post('/api/users/authenticate', {email: $scope.email, password: $scope.password})
                 .success(function (data, status, headers, config) {
                     authService.login($scope.email);
-                    var name = data[0].firstname + " " + data[0].lastname;
-                    $state.go('home', {name: name});
+                    $state.go('home');
                 })
                 .error(function (data, status, headers, config) {
                     $scope.errorMessages = data;
                     $scope.password = "";
-                })
+                });
         }
     }]);
-
-lunchrControllers.controller('HomePageController', ['$scope', '$state', '$stateParams',
-    function ($scope, $state, $stateParams) {
-        $scope.userName = $stateParams.name;
-        $scope.match = function () {
-            //$state.go('match');
-        };
-
-        $scope.editInfo = function () {
-            //$state.go('editInformation');
-            //also needs to go to new page
-        };
-    }
-]);
 
 lunchrControllers.controller('UserController', ['$scope', '$http', '$state',
     function ($scope, $http, $state) {
@@ -96,9 +81,16 @@ lunchrControllers.controller('UserMatchedController', ['$scope', '$stateParams',
         $scope.name = $stateParams.name;
     }]);
 
-lunchrControllers.controller('HomePageController', ['$scope', '$state', '$stateParams',
-    function ($scope, $state, $stateParams) {
-        $scope.userName = $stateParams.name;
+lunchrControllers.controller('HomePageController', ['$scope', '$http', '$state', 'authService',
+    function ($scope, $http, $state, authService) {
+        var string = authService.currentUser();
+        $http({ url: "/api/users", method: "GET", params: {email: string}})
+            .success(function (data, status, headers, config) {
+                $scope.name = (data[0].firstname + " " + data[0].lastname);
+            })
+            .error(function (data, status, headers, config) {
+                ;//couldnt find user in db
+            });
         $scope.match = function () {
             ;
         };

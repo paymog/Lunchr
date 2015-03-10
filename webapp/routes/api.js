@@ -5,10 +5,23 @@ var User = mongoose.model('User');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/users', function (req, res) {
-    User.find({}, function (error, users) {
-        res.json(users);
-    })
+router.get('/users', function (req, res, next) {
+    if(req.query.email)
+    {
+        User.find({email: req.query.email},function (error, users) {
+            if(error)
+            {
+                return next(error);
+            }
+            res.json(users);
+        });
+    }
+    else
+    {
+        User.find({}, function (error, users) {
+            res.json(users);
+        });
+    }
 });
 
 router.post('/users/register', function (req, res, next) {
