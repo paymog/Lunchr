@@ -40,7 +40,7 @@ describe( 'MapController', function( )
 
     describe( "Test HTML5 Geolocation", function( )
     {
-        it ( "executes the function onSuccess with valid data", function( )
+        beforeEach( function( )
         {
             createController( );
             var jasmineSuccess = jasmine.createSpy( );
@@ -51,14 +51,38 @@ describe( 'MapController', function( )
                 var position = { coords: { latitude: 12.3456, longitude: -12.3456 } };
                 arguments[ 0 ]( position );
             } );
-            
-            $rootScope.getUserLocation( jasmineSuccess, jasmineError );
 
-            setTimeout( function( )
-            {
-                expect( jasmineSuccess ).wasCalled( );
-                done( );
-            }, 500 );
+            $rootScope.getUserLocation( jasmineSuccess, jasmineError );
         } );
+        
+        it ( "executes the function onSuccess with valid data", function( )
+        {
+            setTimeout( function( )
+        {
+            expect( jasmineSuccess ).wasCalled( );
+            done( );
+        }, 500 );
+        } );
+        
+        it ( "executes the function onError to simulate PERMISSION_DENIED", function( )
+        {
+            // Pass in error code to mimic PERMISSION_DENIED
+            
+            //setTimeout( function( )
+            //{
+            //    expect( jasmineError ).wasCalled( );
+            //    done( );
+            //}, 500 );
+        } );
+
+        //it ( "executes the function onError to simulate POSITION_UNAVAILABLE", function( )
+        //{
+        //
+        //} );
+        //
+        //it ( "executes the function onError to simulate TIMEOUT", function( )
+        //{
+        //
+        //} );
     } );
 } );
