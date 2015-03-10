@@ -83,8 +83,7 @@ lunchrControllers.controller('UserMatchedController', ['$scope', '$stateParams',
 
 lunchrControllers.controller('HomePageController', ['$scope', '$http', '$state', 'authService',
     function ($scope, $http, $state, authService) {
-        var string = authService.currentUser();
-        $http({ url: "/api/users", method: "GET", params: {email: string}})
+        $http.get('api/users', {params: {email: authService.currentUser()}})
             .success(function (data, status, headers, config) {
                 $scope.name = (data[0].firstname + " " + data[0].lastname);
             })
