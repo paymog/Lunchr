@@ -45,7 +45,11 @@ describe('MainPageController', function () {
             $rootScope.email = DEFAULT_EMAIL;
             $rootScope.password = DEFAULT_PASSWORD;
 
-            $httpBackend.expectPOST('/api/users/authenticate').respond(200, [{firstname: DEFAULT_FIRSTNAME, lastname: DEFAULT_LASTNAME}]);
+            var response = [{
+                firstname: DEFAULT_FIRSTNAME,
+                lastname: DEFAULT_LASTNAME
+            }];
+            $httpBackend.expectPOST('/api/users/authenticate').respond(200, response);
             $state.expectTransitionTo('home');
 
             $rootScope.logIn();
@@ -91,7 +95,7 @@ describe('MainPageController', function () {
 
             expect($rootScope.errorMessages).toBeFalsy();
             expect(authService.setUser.calls.any()).toBeFalsy();
-        })
+        });
     });
 
     describe('$scope.createAccount', function() {
@@ -101,6 +105,6 @@ describe('MainPageController', function () {
 
             $rootScope.createAccount();
             expect(authService.setUser.calls.any()).toBeFalsy();
-        })
-    })
+        });
+    });
 });

@@ -23,16 +23,16 @@ lunchrApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
                 templateUrl: '/partials/users.jade',
                 controller: 'UserController'
             })
-            .state('users.matching', {
+            .state('home.matching', {
                 url: '',
-                templateUrl: '/partials/users.matching.jade',
-                controller: 'UserMatchingController'
+                templateUrl: '/partials/home.matching.jade',
+                controller: 'HomeMatchingController'
             })
-            .state('users.matched', {
+            .state('home.matched', {
                 url: '',
-                templateUrl: '/partials/users.matched.jade',
+                templateUrl: '/partials/home.matched.jade',
                 params: {name: null},
-                controller: 'UserMatchedController'
+                controller: 'HomeMatchedController'
             })
             .state('map', {
                 url: '/map',

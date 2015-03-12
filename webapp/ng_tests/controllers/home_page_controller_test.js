@@ -2,14 +2,14 @@
 
 describe('HomePageController', function () {
     beforeEach(module('lunchr'));
+    beforeEach(module('stateMock'));
 
-    var DEFAULT_EMAIL = 'amy@mail.com';
     var DEFAULT_FIRSTNAME = 'Amy';
     var DEFAULT_LASTNAME = 'Last';
 
-    var $controller, $httpBackend, $rootScope, authService;
+    var $controller, $httpBackend, $rootScope, $state;
 
-    function createController() {
+    function createController(authService) {
         return $controller('HomePageController', {'$scope': $rootScope, 'authService': authService});
     }
 
@@ -23,27 +23,42 @@ describe('HomePageController', function () {
         // The $controller service is used to create instances of controllers
         $controller = $injector.get('$controller');
 
-        authService = jasmine.createSpyObj('authService', ['currentUser']);
-        authService.currentUser.and.returnValue(DEFAULT_EMAIL);
+        $state = $injector.get('$state');
     }));
 
     afterEach(function () {
         $httpBackend.verifyNoOutstandingExpectation();
         $httpBackend.verifyNoOutstandingRequest();
+        $state.ensureAllTransitionsHappened();
     });
 
     describe('on initialization', function() {
         it('sets $scope.name based on call to db using authService', function() {
 
-            $httpBackend.expectGET('api/users?email=' + DEFAULT_EMAIL).respond(200, [{firstname: DEFAULT_FIRSTNAME, lastname: DEFAULT_LASTNAME}]);
-            //not sure why this main.jade is GET, but apparently it wants in on the test action
-            $httpBackend.expectGET('/partials/main.jade').respond(200,'');
-
-            createController();
-            $httpBackend.flush();
+            var authService = jasmine.createSpyObj('authService', ['currentUser']);
+            authService.currentUser.and.returnValue({firstname: DEFAULT_FIRSTNAME, lastname: DEFAULT_LASTNAME});
+            createController(authService);
 
             expect(authService.currentUser).toHaveBeenCalled();
             expect($rootScope.name).toBe((DEFAULT_FIRSTNAME+" "+DEFAULT_LASTNAME));
-        })
+        });
+
+        it('navigates to matching when matchedWith is set in cookie', function() {
+            var authService = jasmine.createSpyObj('authService', ['currentUser']);
+            authService.currentUser.and.returnValue({matchedWith: DEFAULT_FIRSTNAME});
+
+            $state.expectTransitionTo('home.matched');
+
+            createController(authService);
+        });
+
+        it('navigates to matching when matching is set in cookie', function() {
+            var authService = jasmine.createSpyObj('authService', ['currentUser']);
+            authService.currentUser.and.returnValue({wantsToBeMatched: true});
+
+            $state.expectTransitionTo('home.matching');
+
+            createController(authService);
+        });
     });
 });
