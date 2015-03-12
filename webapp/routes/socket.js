@@ -7,7 +7,7 @@ module.exports = function(socket) {
         var currentUser = null;
         User.findOne({email: data.userEmail}, function(error, user) {
             if(error){
-                return
+                return;
             }
 
             if(!user) {
@@ -21,8 +21,12 @@ module.exports = function(socket) {
                 if(err) {
                     console.log('Could not save user: ' + currentUser);
                     console.log(err);
+                    return;
                 }
+                currentUser.password = null;
+                socket.emit('hasBeenMatched', {user: JSON.stringify(currentUser)})
             });
+
         });
 
         User.find({email: {'$ne': data.userEmail }, wantsToBeMatched: true}, function(error, users){
@@ -36,8 +40,8 @@ module.exports = function(socket) {
             userToMatch.wantsToBeMatched = false;
             currentUser.wantsToBeMatched = false;
 
-            userToMatch.matchedWith = currentUser.firstname;
-            currentUser.matchedWith = userToMatch.firstname;
+            userToMatch.matchedWith = currentUser.firstname + " " + currentUser.lastname;
+            currentUser.matchedWith = userToMatch.firstname + " " + userToMatch.lastname;
 
             userToMatch.save(function(err) {
                 if(err) {
@@ -54,8 +58,10 @@ module.exports = function(socket) {
                 }
             });
 
-            socket.broadcast.emit('matched' + userToMatch.email, {name: userToMatch.matchedWith});
-            socket.emit('matched' + currentUser.email, {name: currentUser.matchedWith});
+            userToMatch.password = null;
+            currentUser.password = null;
+            socket.broadcast.emit('matched' + userToMatch.email, {user: JSON.stringify(userToMatch)});
+            socket.emit('matched' + currentUser.email, {user: JSON.stringify(currentUser)});
 
         });
     })

@@ -61,7 +61,7 @@ describe('RegisterController', function () {
                 age: Number(DEFAULT_AGE),
                 radius: Number(DEFAULT_RADIUS)
             }).respond(200, response);
-            $state.expectTransitionTo('users');
+            $state.expectTransitionTo('home');
 
             $rootScope.register();
             $httpBackend.flush();
@@ -166,8 +166,8 @@ describe('RegisterController', function () {
 
             expect($rootScope.errorMessages).toBe(errorMessage);
             expect(authService.setUser.calls.any()).toBeFalsy();
-        })
+        });
 
-    })
+    });
 
 });
