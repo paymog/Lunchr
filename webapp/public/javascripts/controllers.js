@@ -1,6 +1,7 @@
 'use strict';
 
 var lunchrControllers = angular.module('lunchrControllers', []);
+var myApp = angular.module( 'myApp', [ 'ngMap' ] );
 
 lunchrControllers.controller('MainPageController', ['$scope', '$http', '$state',
     function ($scope, $http, $state) {

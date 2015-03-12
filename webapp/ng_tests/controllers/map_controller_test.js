@@ -22,12 +22,6 @@ describe( 'MapController', function( )
         // The $controller service is used to create instances of controllers
         $controller = $injector.get( '$controller' );
     } ) );
-
-    afterEach( function( )
-    {
-        $httpBackend.verifyNoOutstandingExpectation( );
-        $httpBackend.verifyNoOutstandingRequest( );
-    } );
     
     describe( "$scope.map", function( )
     {

@@ -20,8 +20,9 @@ module.exports = function (config) {
             'bower_components/angular-ui-router/release/angular-ui-router.js',
             'bower_components/lodash/dist/lodash.js',
             'bower_components/angular-google-maps/dist/angular-google-maps.js',
-            'bower_components/angularjs-google-places/src/angularjs-google-places.js',
             'bower_components/angularjs-google-places/src/google-api.js',
+            'bower_components/angularjs-google-places/src/angularjs-google-places.js',
+           
             'public/javascripts/*.js',
             'ng_tests/**/*.js',
             'ng_tests/stateMock.js'
