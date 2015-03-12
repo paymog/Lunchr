@@ -6,6 +6,8 @@ describe('MainPageController', function () {
 
     var DEFAULT_EMAIL = 'user';
     var DEFAULT_PASSWORD = 'password';
+    var DEFAULT_FIRSTNAME = 'first';
+    var DEFAULT_LASTNAME = 'last';
 
     var $controller, $httpBackend, $rootScope, $state, authService;
 
@@ -37,14 +39,14 @@ describe('MainPageController', function () {
 
     describe('$scope.logIn', function () {
 
-        it('redirects user to /users on success and logs in user', function () {
+        it('redirects user to /home on success and logs in user', function () {
 
             createController();
             $rootScope.email = DEFAULT_EMAIL;
             $rootScope.password = DEFAULT_PASSWORD;
 
-            $httpBackend.expectPOST('/api/users/authenticate').respond(200, '');
-            $state.expectTransitionTo('users');
+            $httpBackend.expectPOST('/api/users/authenticate').respond(200, [{firstname: DEFAULT_FIRSTNAME, lastname: DEFAULT_LASTNAME}]);
+            $state.expectTransitionTo('home');
 
             $rootScope.logIn();
             $httpBackend.flush();
