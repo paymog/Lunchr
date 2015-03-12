@@ -6,11 +6,16 @@ div(class='container')
     div(class='text-center')
         div(ng-show='errorMessages', class='alert alert-danger')
             p {{errorMessages}}
-
+  
         form
-            input(type='text', id='inputEmail', class='form-control', placeholder="Enter your email", ng-model='email', required, autofocus)
-            input(type='text', id='firstName', class='form-control', placeholder="Enter your first name", ng-model='firstname', required)
-            input(type='text', id='lastName', class='form-control', placeholder="Enter your last name", ng-model='lastname', required)
-            input(type='password', class='form-control', placeholder="Enter a password", ng-model='password', required)
-
-            button(type='submit', class='btn btn-default btn-block btn-primary', ng-click='register()') Register
+            div(class='regboxLeft')
+                input(type='text', id='inputEmail', class='form-control', placeholder="Enter your email", ng-model='email', required, autofocus)
+                input(type='text', id='firstName', class='form-control', placeholder="Enter your first name", ng-model='firstname', required)
+                input(type='text', id='lastName', class='form-control', placeholder="Enter your last name", ng-model='lastname', required)
+                input(type='password', class='form-control', placeholder="Enter a password", ng-model='password', required)
+                
+            div(class='regboxRight')
+                input(type='text', id='userAge', class='form-control', placeholder="Enter your age", ng-model='age', required)
+                input(type='text', id='radius', class='form-control', placeholder="Enter a radius (km)", ng-model='radius', required)
+                
+            button(type='submit', class='btn btn-default btn-block btn-primary regButton', ng-click='register()') Register
