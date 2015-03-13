@@ -8,6 +8,8 @@ describe('RegisterController', function () {
     var DEFAULT_PASSWORD = 'password';
     var DEFAULT_FIRST_NAME = 'bob';
     var DEFAULT_LAST_NAME = 'johnson';
+    var DEFAULT_AGE = '25';
+    var DEFAULT_RADIUS = '5';
 
     var $controller, $httpBackend, $rootScope, $state, authService;
 
@@ -27,7 +29,7 @@ describe('RegisterController', function () {
         // The $controller service is used to create instances of controllers
         $controller = $injector.get('$controller');
 
-        authService = jasmine.createSpyObj('authService', ['login']);
+        authService = jasmine.createSpyObj('authService', ['setUser']);
     }));
 
     afterEach(function () {
@@ -41,25 +43,31 @@ describe('RegisterController', function () {
         $rootScope.password = DEFAULT_PASSWORD;
         $rootScope.firstname = DEFAULT_FIRST_NAME;
         $rootScope.lastname = DEFAULT_LAST_NAME;
+        $rootScope.age = DEFAULT_AGE;
+        $rootScope.radius = DEFAULT_RADIUS;
     }
 
     describe('$scope.register', function () {
-        it('redirects to /users on success and logs in user', function () {
+        it('redirects to /users on success and logs in user and casts age and radius to Number', function () {
             createController();
             setDefaultScopeValues();
 
+            var response = {test: 'test'};
             $httpBackend.expectPOST('/api/users/register', {
-                email: DEFAULT_EMAIL, password: DEFAULT_PASSWORD,
+                email: DEFAULT_EMAIL,
+                password: DEFAULT_PASSWORD,
                 firstname: DEFAULT_FIRST_NAME,
-                lastname: DEFAULT_LAST_NAME
-            }).respond(200, '');
-            $state.expectTransitionTo('users');
+                lastname: DEFAULT_LAST_NAME,
+                age: Number(DEFAULT_AGE),
+                radius: Number(DEFAULT_RADIUS)
+            }).respond(200, response);
+            $state.expectTransitionTo('home');
 
             $rootScope.register();
             $httpBackend.flush();
 
             expect($rootScope.errorMessages).toBeFalsy();
-            expect(authService.login).toHaveBeenCalledWith(DEFAULT_EMAIL);
+            expect(authService.setUser).toHaveBeenCalledWith(response);
         });
 
         it('does not post with missing email', function() {
@@ -73,7 +81,7 @@ describe('RegisterController', function () {
             //do not expectPOST
 
             expect($rootScope.errorMessages).toBeFalsy();
-            expect(authService.login.calls.any()).toBeFalsy();
+            expect(authService.setUser.calls.any()).toBeFalsy();
         });
 
         it('does not post with missing password', function() {
@@ -87,7 +95,7 @@ describe('RegisterController', function () {
             //do not expectPOST
 
             expect($rootScope.errorMessages).toBeFalsy();
-            expect(authService.login.calls.any()).toBeFalsy();
+            expect(authService.setUser.calls.any()).toBeFalsy();
         });
 
         it('does not post with missing first name', function() {
@@ -101,7 +109,7 @@ describe('RegisterController', function () {
             //do not expectPOST
 
             expect($rootScope.errorMessages).toBeFalsy();
-            expect(authService.login.calls.any()).toBeFalsy();
+            expect(authService.setUser.calls.any()).toBeFalsy();
         });
 
         it('does not post with missing last name', function() {
@@ -115,7 +123,35 @@ describe('RegisterController', function () {
             //do not expectPOST
 
             expect($rootScope.errorMessages).toBeFalsy();
-            expect(authService.login.calls.any()).toBeFalsy();
+            expect(authService.setUser.calls.any()).toBeFalsy();
+        });
+
+        it('does not post with missing age', function() {
+            createController();
+            setDefaultScopeValues();
+
+            $rootScope.age = null;
+
+            $rootScope.register();
+
+            //do not expectPOST
+
+            expect($rootScope.errorMessages).toBeFalsy();
+            expect(authService.setUser.calls.any()).toBeFalsy();
+        });
+
+        it('does not post with missing radius', function() {
+            createController();
+            setDefaultScopeValues();
+
+            $rootScope.radius = null;
+
+            $rootScope.register();
+
+            //do not expectPOST
+
+            expect($rootScope.errorMessages).toBeFalsy();
+            expect(authService.setUser.calls.any()).toBeFalsy();
         });
 
         it('should display an error message on 500', function() {
@@ -129,9 +165,9 @@ describe('RegisterController', function () {
             $httpBackend.flush();
 
             expect($rootScope.errorMessages).toBe(errorMessage);
-            expect(authService.login.calls.any()).toBeFalsy();
-        })
+            expect(authService.setUser.calls.any()).toBeFalsy();
+        });
 
-    })
+    });
 
 });

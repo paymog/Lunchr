@@ -1,6 +1,6 @@
 'use strict';
 
-var lunchrApp = angular.module('lunchr', ['ui.router', 'btford.socket-io', 'lunchrControllers', 'lunchrFactories' ]);
+var lunchrApp = angular.module('lunchr', ['ui.router', 'btford.socket-io', 'lunchrControllers', 'lunchrFactories', 'lunchrServices']);
 
 lunchrApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
     function ($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -12,24 +12,29 @@ lunchrApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
                 templateUrl: '/partials/main.jade',
                 controller: 'MainPageController'
             })
+            .state('home', {
+                url: '/home',
+                templateUrl: '/partials/home.jade',
+                controller: 'HomePageController'
+            })
             .state('users', {
                 url: '/users',
                 templateUrl: '/partials/users.jade',
                 controller: 'UserController'
             })
-            .state('users.matching', {
-                url: '/matching',
-                templateUrl: '/partials/users.matching.jade',
-                controller: 'UserMatchingController'
+            .state('home.matching', {
+                url: '',
+                templateUrl: '/partials/home.matching.jade',
+                controller: 'HomeMatchingController'
             })
-            .state('users.matched', {
-                url: '/matched',
-                templateUrl: '/partials/users.matched.jade',
-                params:{name:null},
-                controller: 'UserMatchedController'
+            .state('home.matched', {
+                url: '',
+                templateUrl: '/partials/home.matched.jade',
+                params: {name: null},
+                controller: 'HomeMatchedController'
             })
             .state('register', {
-                url:'/register',
+                url: '/register',
                 templateUrl: 'partials/register.jade',
                 controller: 'RegisterController'
             });
