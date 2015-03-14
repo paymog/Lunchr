@@ -1,14 +1,19 @@
 'use strict';
 
-var lunchrApp = angular.module('lunchr', ['ui.router', 'btford.socket-io', 'lunchrControllers', 'lunchrFactories', 
-                                          'uiGmapgoogle-maps', 'ngGPlaces', 'lunchrServices']);
+var lunchrApp = angular.module( 'lunchr', [ 'ui.router',
+                                            'btford.socket-io',
+                                            'lunchrControllers',
+                                            'lunchrFactories', 
+                                            'uiGmapgoogle-maps',
+                                            'ngGPlaces',
+                                            'lunchrServices' ] );
 
 lunchrApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
     function ($stateProvider, $urlRouterProvider, $locationProvider) {
         $urlRouterProvider.otherwise('/');
 
-        $stateProvider.
-            state('mainPage', {
+        $stateProvider
+            .state('mainPage', {
                 url: '/',
                 templateUrl: '/partials/main.jade',
                 controller: 'MainPageController'
