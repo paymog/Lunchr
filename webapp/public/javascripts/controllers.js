@@ -1,6 +1,7 @@
 'use strict';
 
 var lunchrControllers = angular.module('lunchrControllers', []);
+var myApp = angular.module( 'myApp', [ 'ngMap' ] );
 
 lunchrControllers.controller('MainPageController', ['$scope', '$http', '$state',
     function ($scope, $http, $state) {
@@ -62,44 +63,41 @@ lunchrControllers.controller('RegisterController', ['$scope', '$http', '$state',
         }
     }]);
 
-lunchrControllers.controller('MapController', ['$scope', '$http', '$state', 'ngGPlacesAPI',
-    function ($scope, $http, $state, ngGPlacesAPI) {
+lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'ngGPlacesAPI',
+    function ( $scope, $http, $state, ngGPlacesAPI )
+    {
         $scope.map = { center: { latitude: 49.8651559, longitude: -97.11077669999997 }, zoom: 14 };
+        
         $scope.getUserLocation = function ( onSuccess, onError )
         {
             if ( navigator.geolocation )
             {
-                navigator.geolocation.getCurrentPosition( function ( position )
+                navigator.geolocation.getCurrentPosition
+                (
+                    function( position )
                     {
                         $scope.position = position;
-                        $scope.map = { center: { latitude: position.coords.latitude, longitude: position.coords.longitude }, zoom: 14 };
-                       // $scope.marker = [];
-                        $scope.marker = {id: 0, coords:{ latitude: position.coords.latitude, longitude: position.coords.longitude }};
-
-//                        $scope.$apply( function( )
-//                        {
-                            $scope.position = position;
-                            onSuccess( position );
-//                        } );
+                        onSuccess( position );
                     },
                     function( error )
                     {
                         onError( error );
-                    } );
+                    }
+                );
             }
             else
             {
                 alert( "Your browser does not support geolocation." );
             }
         }
-
+        
         function onSuccess( position )
         {
             $scope.map = { center: { latitude: position.coords.latitude, longitude: position.coords.longitude }, zoom: 14 };
-            //$scope.marker.push({id: 0, coords: { latitude: position.coords.latitude, longitude: position.coords.longitude }});
-            $scope.marker={id: 0, coords: { latitude: position.coords.latitude, longitude: position.coords.longitude }};
-            $scope.data = "empty";
+            $scope.marker = {id: 0, coords:{ latitude: position.coords.latitude, longitude: position.coords.longitude }};
 
+            $scope.data = "empty";
+            
             //This is a patch for a known issue with the ngGPlacesAPI framework and angular 3.1
             var promise1 = ngGPlacesAPI.placeDetails({ reference: "CnRoAAAA_qz5XcCCCcEROmoujZ_HLtUd46slTejRW9pLTJ-izq-Y9vdCn-MgLDQk3rUqaPxfi3N0AeRVs3H7ZmAvItqyiVYoB-U8SW-g8lnQVUhgz7ldFh8VLFj0ZzzDbv6tVxfm5x8Tte3q2LRmuJe9OqNZoRIQIaRdxp2Kl4plsbonULFJrBoUeCyr2a4MRWyZfrtc6V1HikRH6s4" });
             promise1.then(function (data) {
@@ -111,7 +109,7 @@ lunchrControllers.controller('MapController', ['$scope', '$http', '$state', 'ngG
             });
 
             var promise = ngGPlacesAPI.nearbySearch({ latitude: position.coords.latitude, longitude: position.coords.longitude });
-
+            
             promise.then(function (data) {
                 $scope.data = data;
                 $scope.locationDetails = ngGPlacesAPI.placeDetails({
