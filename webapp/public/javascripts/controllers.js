@@ -73,6 +73,7 @@ lunchrControllers.controller('MapController', ['$scope', '$http', '$state', 'ngG
                     {
                         $scope.position = position;
                         $scope.map = { center: { latitude: position.coords.latitude, longitude: position.coords.longitude }, zoom: 14 };
+                       // $scope.marker = [];
                         $scope.marker = {id: 0, coords:{ latitude: position.coords.latitude, longitude: position.coords.longitude }};
 
 //                        $scope.$apply( function( )
@@ -95,8 +96,8 @@ lunchrControllers.controller('MapController', ['$scope', '$http', '$state', 'ngG
         function onSuccess( position )
         {
             $scope.map = { center: { latitude: position.coords.latitude, longitude: position.coords.longitude }, zoom: 14 };
-            $scope.marker = {id: 0, coords: { latitude: position.coords.latitude, longitude: position.coords.longitude }};
-            $scope.restaurantData = "Empty";
+            //$scope.marker.push({id: 0, coords: { latitude: position.coords.latitude, longitude: position.coords.longitude }});
+            $scope.marker={id: 0, coords: { latitude: position.coords.latitude, longitude: position.coords.longitude }};
             $scope.data = "empty";
 
             //This is a patch for a known issue with the ngGPlacesAPI framework and angular 3.1
@@ -109,13 +110,17 @@ lunchrControllers.controller('MapController', ['$scope', '$http', '$state', 'ngG
                 alert('Got notification: ' + update);
             });
 
-
             var promise = ngGPlacesAPI.nearbySearch({ latitude: position.coords.latitude, longitude: position.coords.longitude });
 
             promise.then(function (data) {
                 $scope.data = data;
-                //alert(data);
-                //alert(data.length);
+                $scope.locationDetails = ngGPlacesAPI.placeDetails({
+                    reference: ($scope.data)[0].reference
+                }).then(
+                        function (data) {
+                            console.log(data.geometry);
+                            console.log(data.geometry.location.k);
+                        });
             }, function (reason) {
                 alert('Failed: ' + reason);
             }, function (update) {

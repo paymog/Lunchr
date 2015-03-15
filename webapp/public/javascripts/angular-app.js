@@ -2,9 +2,26 @@
 
 var lunchrApp = angular.module('lunchr', ['ui.router', 'lunchrControllers', 'uiGmapgoogle-maps', 'ngGPlaces']);
 
-lunchrApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
-    function ($stateProvider, $urlRouterProvider, $locationProvider) {
+lunchrApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 'ngGPlacesAPIProvider',
+    function ($stateProvider, $urlRouterProvider, $locationProvider, ngGPlacesAPIProvider) {
         $urlRouterProvider.otherwise('/');
+
+        var defaults = {
+            radius: 1000,
+            sensor: false,
+            latitude: null,
+            longitude: null,
+            types: ['food'],
+            map: null,
+            elem: null,
+            nearbySearchKeys: ['name', 'reference', 'vicinity'],
+            placeDetailsKeys: ['formatted_address', 'formatted_phone_number',
+                'reference', 'website', 'name', 'geometry'
+            ],
+            nearbySearchErr: 'Unable to find nearby places',
+            placeDetailsErr: 'Unable to find place details'
+        };
+        ngGPlacesAPIProvider.setDefaults(defaults);
 
         $stateProvider.
             state('mainPage', {
