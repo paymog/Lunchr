@@ -7,11 +7,11 @@ lunchrApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '
         $urlRouterProvider.otherwise('/');
 
         var defaults = {
-            radius: 1000,
+            radius: 2000,
             sensor: false,
             latitude: null,
             longitude: null,
-            types: ['food'],
+            types: ['restaurant'],
             map: null,
             elem: null,
             nearbySearchKeys: ['name', 'reference', 'vicinity'],

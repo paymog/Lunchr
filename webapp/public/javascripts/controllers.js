@@ -67,7 +67,8 @@ lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'n
     function ( $scope, $http, $state, ngGPlacesAPI )
     {
         $scope.map = { center: { latitude: 49.8651559, longitude: -97.11077669999997 }, zoom: 14 };
-        
+        $scope.marker = [];
+
         $scope.getUserLocation = function ( onSuccess, onError )
         {
             if ( navigator.geolocation )
@@ -94,31 +95,24 @@ lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'n
         function onSuccess( position )
         {
             $scope.map = { center: { latitude: position.coords.latitude, longitude: position.coords.longitude }, zoom: 14 };
-            $scope.marker = {id: 0, coords:{ latitude: position.coords.latitude, longitude: position.coords.longitude }};
+            //$scope.marker = {id: 0, coords:{ latitude: position.coords.latitude, longitude: position.coords.longitude }};
+            $scope.marker.push({id: 0, coords:{ latitude: position.coords.latitude, longitude: position.coords.longitude }});
 
             $scope.data = "empty";
-            
-            //This is a patch for a known issue with the ngGPlacesAPI framework and angular 3.1
-            var promise1 = ngGPlacesAPI.placeDetails({ reference: "CnRoAAAA_qz5XcCCCcEROmoujZ_HLtUd46slTejRW9pLTJ-izq-Y9vdCn-MgLDQk3rUqaPxfi3N0AeRVs3H7ZmAvItqyiVYoB-U8SW-g8lnQVUhgz7ldFh8VLFj0ZzzDbv6tVxfm5x8Tte3q2LRmuJe9OqNZoRIQIaRdxp2Kl4plsbonULFJrBoUeCyr2a4MRWyZfrtc6V1HikRH6s4" });
-            promise1.then(function (data) {
-                $scope.details = data;
-            }, function (reason) {
-                alert('Failed: ' + reason);
-            }, function (update) {
-                alert('Got notification: ' + update);
-            });
+            var key = -1;
 
             var promise = ngGPlacesAPI.nearbySearch({ latitude: position.coords.latitude, longitude: position.coords.longitude });
-            
+
             promise.then(function (data) {
                 $scope.data = data;
-                $scope.locationDetails = ngGPlacesAPI.placeDetails({
-                    reference: ($scope.data)[0].reference
-                }).then(
+                for (key in data) {
+                    $scope.locationDetails = ngGPlacesAPI.placeDetails({
+                        reference: ($scope.data)[key].reference
+                    }).then(
                         function (data) {
-                            console.log(data.geometry);
-                            console.log(data.geometry.location.k);
+                            $scope.marker.push({id: key+1, coords:{latitude: data.geometry.location.k, longitude:data.geometry.location.D}});
                         });
+                }
             }, function (reason) {
                 alert('Failed: ' + reason);
             }, function (update) {
