@@ -70,6 +70,7 @@ lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'n
     function ( $scope )
     {
         $scope.map = { center: { latitude: 49.8651559, longitude: -97.11077669999997 }, zoom: 14 };
+        $scope.marker = [];
 
         $scope.getUserLocation = function ( onSuccess, onError )
         {
@@ -96,17 +97,30 @@ lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'n
 
         function onSuccess( position )
         {
-            $scope.$apply( function( )
-            {
-                $scope.map = {
-                    center: { latitude: position.coords.latitude, longitude: position.coords.longitude },
-                    zoom: 14
-                };
-                $scope.marker = {
-                    id: 0,
-                    coords: { latitude: position.coords.latitude, longitude: position.coords.longitude }
-                };
-            } );
+            $scope.map = { center: { latitude: position.coords.latitude, longitude: position.coords.longitude }, zoom: 14 };
+            //$scope.marker = {id: 0, coords:{ latitude: position.coords.latitude, longitude: position.coords.longitude }};
+            $scope.marker.push({id: 0, coords:{ latitude: position.coords.latitude, longitude: position.coords.longitude }});
+
+            $scope.data = "empty";
+            var key = -1;
+
+            var promise = ngGPlacesAPI.nearbySearch({ latitude: position.coords.latitude, longitude: position.coords.longitude });
+
+            promise.then(function (data) {
+                $scope.data = data;
+                for (key in data) {
+                    $scope.locationDetails = ngGPlacesAPI.placeDetails({
+                        reference: ($scope.data)[key].reference
+                    }).then(
+                        function (data) {
+                            $scope.marker.push({id: key+1, coords:{latitude: data.geometry.location.k, longitude:data.geometry.location.D}});
+                        });
+                }
+            }, function (reason) {
+                alert('Failed: ' + reason);
+            }, function (update) {
+                alert('Got notification: ' + update);
+            });
         }
 
         function onError( error )

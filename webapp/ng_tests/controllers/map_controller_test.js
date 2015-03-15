@@ -66,7 +66,7 @@ describe( 'MapController', function( )
             
             spyOn( navigator.geolocation,"getCurrentPosition" ).and.callFake( function( )
             {
-                const PERMISSION_DENIED = 1;
+                var PERMISSION_DENIED = 1;
                 var error = { code: PERMISSION_DENIED };
                 
                 arguments[ 0 ]( error );
@@ -88,7 +88,7 @@ describe( 'MapController', function( )
 
             spyOn( navigator.geolocation,"getCurrentPosition" ).and.callFake( function( )
             {
-                const POSITION_UNAVAILABLE = 2;
+                var POSITION_UNAVAILABLE = 2;
                 var error = { code: POSITION_UNAVAILABLE };
 
                 arguments[ 0 ]( error );
@@ -110,7 +110,7 @@ describe( 'MapController', function( )
 
             spyOn( navigator.geolocation,"getCurrentPosition" ).and.callFake( function( )
             {
-                const TIMEOUT = 3;
+                var TIMEOUT = 3;
                 var error = { code: TIMEOUT };
 
                 arguments[ 0 ]( error );
@@ -132,7 +132,7 @@ describe( 'MapController', function( )
 
             spyOn( navigator.geolocation,"getCurrentPosition" ).and.callFake( function( )
             {
-                const UNKNOWN_ERROR = 4;
+                var UNKNOWN_ERROR = 4;
                 var error = { code: UNKNOWN_ERROR };
 
                 arguments[ 0 ]( error );
