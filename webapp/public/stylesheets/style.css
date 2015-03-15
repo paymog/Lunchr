@@ -22,6 +22,10 @@ a {
   color: #00B7FF;
 }
 
+.angular-google-map-container {
+    height: 400px;
+}
+
 .regboxLeft {
     width: 500px;
     float: left;
@@ -39,7 +43,6 @@ a {
 .radiusButtonDiv {
     float: right;
 }
-
 
 .radiusButton {
     width: 100px;
