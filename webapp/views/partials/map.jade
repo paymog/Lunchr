@@ -1,0 +1,6 @@
+div(class='container')
+    h1 Pick a Place on the Map
+
+    //This is the map div, its properties are in the style.css file
+    ui-gmap-google-map(center='map.center', zoom='map.zoom')
+        ui-gmap-marker(ng-repeat = 'm in marker', idKey = "'m.id'", coords = "m.coords")

@@ -1,13 +1,36 @@
 'use strict';
 
-var lunchrApp = angular.module('lunchr', ['ui.router', 'btford.socket-io', 'lunchrControllers', 'lunchrFactories', 'lunchrServices']);
+var lunchrApp = angular.module('lunchr', ['ui.router',
+                                          'btford.socket-io',
+                                          'lunchrControllers',
+                                          'lunchrFactories',
+                                          'lunchrServices',
+                                          'uiGmapgoogle-maps',
+                                          'ngGPlaces']);
 
-lunchrApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
-    function ($stateProvider, $urlRouterProvider, $locationProvider) {
+lunchrApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 'ngGPlacesAPIProvider',
+    function ($stateProvider, $urlRouterProvider, $locationProvider, ngGPlacesAPIProvider) {
         $urlRouterProvider.otherwise('/');
 
-        $stateProvider.
-            state('mainPage', {
+        var defaults = {
+            radius: 2000,
+            sensor: false,
+            latitude: null,
+            longitude: null,
+            types: ['restaurant'],
+            map: null,
+            elem: null,
+            nearbySearchKeys: ['name', 'reference', 'vicinity'],
+            placeDetailsKeys: ['formatted_address', 'formatted_phone_number',
+                'reference', 'website', 'name', 'geometry'
+            ],
+            nearbySearchErr: 'Unable to find nearby places',
+            placeDetailsErr: 'Unable to find place details'
+        };
+        ngGPlacesAPIProvider.setDefaults(defaults);
+
+        $stateProvider
+            .state('mainPage', {
                 url: '/',
                 templateUrl: '/partials/main.jade',
                 controller: 'MainPageController'
@@ -32,6 +55,11 @@ lunchrApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
                 templateUrl: '/partials/home.matched.jade',
                 params: {name: null},
                 controller: 'HomeMatchedController'
+            })
+            .state('map', {
+                url: '/map',
+                templateUrl: '/partials/map.jade',
+                controller: 'MapController'
             })
             .state('register', {
                 url: '/register',

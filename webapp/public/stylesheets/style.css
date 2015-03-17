@@ -15,7 +15,7 @@ h3 {
 }
 
 input {
-  margin: 10px 0px;
+  margin: 10px 0;
 }
 
 a {
@@ -34,16 +34,6 @@ a {
 
 .regButton {
     clear: both;
-}
-
-.radiusButtonDiv {
-    float: right;
-}
-
-
-.radiusButton {
-    width: 100px;
-    text-align: left;
 }
 
 .div-center-circleBtn {
@@ -75,4 +65,8 @@ a {
 .btn-circle:hover {
     color: #4060A5;
     background: #fff;
+}
+
+.angular-google-map-container {
+    height: 400px;
 }
