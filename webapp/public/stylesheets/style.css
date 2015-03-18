@@ -76,3 +76,8 @@ a {
     color: #4060A5;
     background: #fff;
 }
+
+.div-logout {
+    float: right;,
+    margin-top: none;
+}

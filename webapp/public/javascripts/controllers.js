@@ -43,7 +43,6 @@ lunchrControllers.controller('UserController', ['$scope', '$http', '$state', 'au
     }]);
 
 lunchrControllers.controller('RegisterController', ['$scope', '$http', '$state', 'authService',
-
     function ($scope, $http, $state, authService) {
 
         $scope.register = function () {
@@ -74,7 +73,6 @@ lunchrControllers.controller('RegisterController', ['$scope', '$http', '$state',
 
 lunchrControllers.controller('HomeMatchingController', ['$state', 'socket', 'authService',
     function ($state, socket, authService) {
-
         var currentUser = authService.currentUser();
         socket.emit('match', {userEmail: currentUser.email});
 
@@ -99,6 +97,11 @@ lunchrControllers.controller('HomeMatchedController', ['$scope', 'authService',
 
 lunchrControllers.controller('HomePageController', ['$scope', '$http', '$state', 'authService',
     function ($scope, $http, $state, authService) {
+        $scope.logout = function () {
+            authService.removeUser();
+            $state.go('mainPage');
+        };
+
         var currentUser = authService.currentUser();
         if(currentUser.matchedWith){
             $state.go('home.matched');
