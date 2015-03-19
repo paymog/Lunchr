@@ -70,3 +70,16 @@ a {
 .angular-google-map-container {
     height: 400px;
 }
+
+.labels {
+    background: #eee;
+    border: 2px solid #777;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px;
+}
+
+.label-user-pos {
+    background: #8ffb8f;
+    border: 2px solid #5cb85c;
+}

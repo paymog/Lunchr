@@ -147,28 +147,63 @@ lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'n
         function onSuccess( position )
         {
             $scope.map = { center: { latitude: position.coords.latitude, longitude: position.coords.longitude }, zoom: 14 };
-            $scope.marker.push({id: 0, coords:{ latitude: position.coords.latitude, longitude: position.coords.longitude }});
+            $scope.marker.push( {
+                id: 0,
+                coords: {
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude
+                }, 
+                icon: "https://maps.google.com/mapfiles/ms/icons/green-dot.png",
+                options: { 
+                    labelContent: "You Are Here",
+                    labelClass: "labels label-user-pos",
+                    animation: google.maps.Animation.DROP
+                }
+            } );
 
             $scope.data = "empty";
             var key = -1;
 
-            var promise = ngGPlacesAPI.nearbySearch({ latitude: position.coords.latitude, longitude: position.coords.longitude });
+            var promise = ngGPlacesAPI.nearbySearch( {
+                latitude: position.coords.latitude,
+                longitude: position.coords.longitude
+            } );
 
-            promise.then(function (data) {
+            promise.then( function( data )
+            {
                 $scope.data = data;
-                for (key in data) {
-                    $scope.locationDetails = ngGPlacesAPI.placeDetails({
-                        reference: ($scope.data)[key].reference
-                    }).then(
-                        function (data) {
-                            $scope.marker.push({id: key+1, coords:{latitude: data.geometry.location.k, longitude:data.geometry.location.D}});
-                        });
+                for ( key in data )
+                {
+                    $scope.locationDetails = ngGPlacesAPI.placeDetails( {
+                        reference: ( $scope.data )[ key ].reference
+                    } ).then(
+                        function( data )
+                        {
+                            var marker = new google.maps.Marker( {
+                                id: key + 1,
+                                coords: {
+                                    latitude: data.geometry.location.k,
+                                    longitude: data.geometry.location.D
+                                },
+                                options: {
+                                    labelContent: data.name,
+                                    labelClass: "labels"
+                                }
+                            } );
+                            
+                            $scope.marker.push( marker );
+                        }
+                    );
                 }
-            }, function (reason) {
-                alert('Failed: ' + reason);
-            }, function (update) {
-                alert('Got notification: ' + update);
-            });
+            }, 
+            function( reason )
+            {
+                alert( 'Failed: ' + reason );
+            },
+            function( update )
+            {
+                alert( 'Got notification: ' + update );
+            } );
         }
 
         function onError( error )
