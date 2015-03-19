@@ -1,6 +1,10 @@
 'use strict';
 
 var lunchrControllers = angular.module('lunchrControllers', []);
+var userLogout = function (authService, $state) {
+    authService.removeUser();
+    $state.go('mainPage');
+};
 
 lunchrControllers.controller('MainPageController', ['$scope', '$http', '$state', 'authService',
     function ($scope, $http, $state, authService) {
@@ -98,8 +102,7 @@ lunchrControllers.controller('HomeMatchedController', ['$scope', 'authService',
 lunchrControllers.controller('HomePageController', ['$scope', '$http', '$state', 'authService',
     function ($scope, $http, $state, authService) {
         $scope.logout = function () {
-            authService.removeUser();
-            $state.go('mainPage');
+            userLogout(authService, $state);
         };
 
         var currentUser = authService.currentUser();
