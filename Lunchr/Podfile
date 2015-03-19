@@ -6,6 +6,7 @@ target 'Lunchr' do
 	pod 'SocketRocket'
 	pod 'Socket.IO-Client-Swift', '~> 1.1'
     pod 'Alamofire', '~> 1.1'
+    pod "SwiftyJSON", ">= 2.1.3"
 end
 
 target 'LunchrTests' do

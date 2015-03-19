@@ -4,94 +4,85 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-Lunchr-Alamofire 2.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>8</integer>
-		</dict>
 		<key>Pods-Lunchr-Alamofire.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 		<key>Pods-Lunchr-Socket.IO-Client-Swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 		<key>Pods-Lunchr-SocketRocket.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
 		</dict>
 		<key>Pods-Lunchr-SwiftHTTP.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>5</integer>
+		</dict>
+		<key>Pods-Lunchr-SwiftyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-Lunchr.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 		<key>Pods-LunchrTests-SwiftHTTP.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>7</integer>
 		</dict>
 		<key>Pods-LunchrTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>6</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>261ABE5C892A6613F61FE9C1</key>
+		<key>5312212106D459570447BC18</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2FDF3DAE99CC9CFA604932E5</key>
+		<key>608597661351E0FCC167055F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>684999EA7DBED68222BA743D</key>
+		<key>6E1981AB18AECDFC5362AD8D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7EE10275CA56DD96E8195348</key>
+		<key>7932D5388CE8847AEC3ED52F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A07F0D0DF077AC35BC0EC8F2</key>
+		<key>9C6021747F87B60FCD92F080</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C984270D46F9EC66A2A74B4E</key>
+		<key>A0BC4EDC509D8ECBCA182D6B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F71EA2277AD4D0F3C147EAD6</key>
+		<key>A699068A5B7504FF6A4B07CC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DFE2E9328AAAF2DC2141F942</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 
 class RegisterViewController: UIViewController {
@@ -112,6 +113,9 @@ class RegisterViewController: UIViewController {
                 var serializationError: NSError?
                 
                 if let json: AnyObject = NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments, error: &serializationError) {
+                    
+                    let jsonObject = JSON(json)
+                    CurrentUser.currentUser = jsonObject.dictionaryValue
                     
                     let welcome = self?.storyboard?.instantiateViewControllerWithIdentifier("login") as UINavigationController
                     self?.presentViewController(welcome, animated: true, completion: nil)

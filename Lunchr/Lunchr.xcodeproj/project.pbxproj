@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1BB666B706312EFEE11FB33F /* Pods_Lunchr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BDEF23F074D69064C511880 /* Pods_Lunchr.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		247FE0C21ABB5B3000E8F283 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247FE0C11ABB5B3000E8F283 /* CurrentUser.swift */; };
 		2494FC7F1AB294D70057A3B6 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2494FC7E1AB294D70057A3B6 /* Alamofire.framework */; };
 		249AE2571AB2783A00EA14F8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249AE2561AB2783A00EA14F8 /* LoginViewController.swift */; };
 		249AE2591AB2785C00EA14F8 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249AE2581AB2785C00EA14F8 /* RegisterViewController.swift */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		058F7DAB1C731F95401F8184 /* Pods-Lunchr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lunchr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lunchr/Pods-Lunchr.release.xcconfig"; sourceTree = "<group>"; };
+		247FE0C11ABB5B3000E8F283 /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		2494FC7E1AB294D70057A3B6 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Pods-Lunchr/Alamofire.framework"; sourceTree = "<group>"; };
 		249AE2561AB2783A00EA14F8 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		249AE2581AB2785C00EA14F8 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				24C351C01AB2279C0028A387 /* Info.plist */,
+				247FE0C11ABB5B3000E8F283 /* CurrentUser.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				249AE25B1AB278D500EA14F8 /* HomePageViewController.swift in Sources */,
 				24C351C71AB2279C0028A387 /* ViewController.swift in Sources */,
 				24C351C21AB2279C0028A387 /* AppDelegate.swift in Sources */,
+				247FE0C21ABB5B3000E8F283 /* CurrentUser.swift in Sources */,
 				24C351C51AB2279C0028A387 /* Lunchr.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
