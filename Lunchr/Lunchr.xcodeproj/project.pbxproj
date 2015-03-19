@@ -7,167 +7,192 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1411DCA01A9FC40800693DC8 /* HttpUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1411DC9F1A9FC40800693DC8 /* HttpUtils.m */; };
-		142339481A9D130D00C8C264 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 142339471A9D130D00C8C264 /* RegisterViewController.m */; };
-		1473E63D1A95373300E9DD33 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1473E63C1A95373300E9DD33 /* main.m */; };
-		1473E6401A95373300E9DD33 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1473E63F1A95373300E9DD33 /* AppDelegate.m */; };
-		1473E6431A95373300E9DD33 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1473E6421A95373300E9DD33 /* ViewController.m */; };
-		1473E6461A95373300E9DD33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1473E6441A95373300E9DD33 /* Main.storyboard */; };
-		1473E6481A95373300E9DD33 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1473E6471A95373300E9DD33 /* Images.xcassets */; };
-		1473E64B1A95373300E9DD33 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1473E6491A95373300E9DD33 /* LaunchScreen.xib */; };
-		1473E6571A95373300E9DD33 /* LunchrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1473E6561A95373300E9DD33 /* LunchrTests.m */; };
-		1473E6631A95411700E9DD33 /* Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1473E6621A95411700E9DD33 /* Button.png */; };
-		1473E67B1A95853200E9DD33 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1473E67A1A95853200E9DD33 /* MapViewController.m */; };
-		1473E67E1A95856200E9DD33 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1473E67D1A95856200E9DD33 /* LoginViewController.m */; };
+		1BB666B706312EFEE11FB33F /* Pods_Lunchr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BDEF23F074D69064C511880 /* Pods_Lunchr.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		2494FC7F1AB294D70057A3B6 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2494FC7E1AB294D70057A3B6 /* Alamofire.framework */; };
+		249AE2571AB2783A00EA14F8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249AE2561AB2783A00EA14F8 /* LoginViewController.swift */; };
+		249AE2591AB2785C00EA14F8 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249AE2581AB2785C00EA14F8 /* RegisterViewController.swift */; };
+		249AE25B1AB278D500EA14F8 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249AE25A1AB278D500EA14F8 /* HomePageViewController.swift */; };
+		24C351C21AB2279C0028A387 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C351C11AB2279C0028A387 /* AppDelegate.swift */; };
+		24C351C51AB2279C0028A387 /* Lunchr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24C351C31AB2279C0028A387 /* Lunchr.xcdatamodeld */; };
+		24C351C71AB2279C0028A387 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C351C61AB2279C0028A387 /* ViewController.swift */; };
+		24C351CA1AB2279D0028A387 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24C351C81AB2279D0028A387 /* Main.storyboard */; };
+		24C351CC1AB2279D0028A387 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24C351CB1AB2279D0028A387 /* Images.xcassets */; };
+		24C351CF1AB2279D0028A387 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24C351CD1AB2279D0028A387 /* LaunchScreen.xib */; };
+		24C351DB1AB2279D0028A387 /* LunchrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C351DA1AB2279D0028A387 /* LunchrTests.swift */; };
+		24C351E61AB2288A0028A387 /* Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 24C351E51AB2288A0028A387 /* Button.png */; };
+		53F20BC494D1E6404C9C63AA /* Pods_LunchrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED6F25CDBD68C3D10F490FA /* Pods_LunchrTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1473E6511A95373300E9DD33 /* PBXContainerItemProxy */ = {
+		24C351D51AB2279D0028A387 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1473E62F1A95373300E9DD33 /* Project object */;
+			containerPortal = 24C351B41AB2279C0028A387 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 1473E6361A95373300E9DD33;
+			remoteGlobalIDString = 24C351BB1AB2279C0028A387;
 			remoteInfo = Lunchr;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1411DC9F1A9FC40800693DC8 /* HttpUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpUtils.m; sourceTree = "<group>"; };
-		1411DCA21A9FC60100693DC8 /* HttpUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HttpUtils.h; sourceTree = "<group>"; };
-		142339461A9D130D00C8C264 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
-		142339471A9D130D00C8C264 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
-		1473E6371A95373300E9DD33 /* Lunchr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lunchr.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1473E63B1A95373300E9DD33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1473E63C1A95373300E9DD33 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1473E63E1A95373300E9DD33 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		1473E63F1A95373300E9DD33 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1473E6411A95373300E9DD33 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1473E6421A95373300E9DD33 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		1473E6451A95373300E9DD33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1473E6471A95373300E9DD33 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		1473E64A1A95373300E9DD33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		1473E6501A95373300E9DD33 /* LunchrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LunchrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1473E6551A95373300E9DD33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1473E6561A95373300E9DD33 /* LunchrTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LunchrTests.m; sourceTree = "<group>"; };
-		1473E6621A95411700E9DD33 /* Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button.png; sourceTree = "<group>"; };
-		1473E6791A95853200E9DD33 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
-		1473E67A1A95853200E9DD33 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
-		1473E67C1A95856200E9DD33 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		1473E67D1A95856200E9DD33 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		058F7DAB1C731F95401F8184 /* Pods-Lunchr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lunchr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lunchr/Pods-Lunchr.release.xcconfig"; sourceTree = "<group>"; };
+		2494FC7E1AB294D70057A3B6 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Pods-Lunchr/Alamofire.framework"; sourceTree = "<group>"; };
+		249AE2561AB2783A00EA14F8 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		249AE2581AB2785C00EA14F8 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		249AE25A1AB278D500EA14F8 /* HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		24C351BC1AB2279C0028A387 /* Lunchr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lunchr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		24C351C01AB2279C0028A387 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24C351C11AB2279C0028A387 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		24C351C41AB2279C0028A387 /* Lunchr.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Lunchr.xcdatamodel; sourceTree = "<group>"; };
+		24C351C61AB2279C0028A387 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		24C351C91AB2279D0028A387 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		24C351CB1AB2279D0028A387 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		24C351CE1AB2279D0028A387 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		24C351D41AB2279D0028A387 /* LunchrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LunchrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		24C351D91AB2279D0028A387 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24C351DA1AB2279D0028A387 /* LunchrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchrTests.swift; sourceTree = "<group>"; };
+		24C351E51AB2288A0028A387 /* Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Button.png; path = Lunchr/Button.png; sourceTree = "<group>"; };
+		726FD2AD2992A533444B0359 /* Pods-Lunchr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lunchr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lunchr/Pods-Lunchr.debug.xcconfig"; sourceTree = "<group>"; };
+		98BDB2CE830B3B74F0CF9EE9 /* Pods-LunchrTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchrTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LunchrTests/Pods-LunchrTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9BDEF23F074D69064C511880 /* Pods_Lunchr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lunchr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AED6F25CDBD68C3D10F490FA /* Pods_LunchrTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LunchrTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED3EF82B952A24B30FEBC136 /* Pods-LunchrTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchrTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LunchrTests/Pods-LunchrTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1473E6341A95373300E9DD33 /* Frameworks */ = {
+		24C351B91AB2279C0028A387 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2494FC7F1AB294D70057A3B6 /* Alamofire.framework in Frameworks */,
+				1BB666B706312EFEE11FB33F /* Pods_Lunchr.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1473E64D1A95373300E9DD33 /* Frameworks */ = {
+		24C351D11AB2279D0028A387 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53F20BC494D1E6404C9C63AA /* Pods_LunchrTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1411DCA11A9FC42500693DC8 /* Controllers */ = {
+		1E11A50FF97DBA95598EA783 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1473E6411A95373300E9DD33 /* ViewController.h */,
-				1473E6421A95373300E9DD33 /* ViewController.m */,
-				1473E67C1A95856200E9DD33 /* LoginViewController.h */,
-				1473E67D1A95856200E9DD33 /* LoginViewController.m */,
-				142339461A9D130D00C8C264 /* RegisterViewController.h */,
-				142339471A9D130D00C8C264 /* RegisterViewController.m */,
-				1473E6791A95853200E9DD33 /* MapViewController.h */,
-				1473E67A1A95853200E9DD33 /* MapViewController.m */,
+				726FD2AD2992A533444B0359 /* Pods-Lunchr.debug.xcconfig */,
+				058F7DAB1C731F95401F8184 /* Pods-Lunchr.release.xcconfig */,
+				98BDB2CE830B3B74F0CF9EE9 /* Pods-LunchrTests.debug.xcconfig */,
+				ED3EF82B952A24B30FEBC136 /* Pods-LunchrTests.release.xcconfig */,
 			);
-			name = Controllers;
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		1411DCA31A9FCD2D00693DC8 /* Resources */ = {
+		24C351B31AB2279C0028A387 = {
 			isa = PBXGroup;
 			children = (
-				1473E6621A95411700E9DD33 /* Button.png */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		1473E62E1A95373300E9DD33 = {
-			isa = PBXGroup;
-			children = (
-				1473E6391A95373300E9DD33 /* Lunchr */,
-				1473E6531A95373300E9DD33 /* LunchrTests */,
-				1473E6381A95373300E9DD33 /* Products */,
+				24C351BE1AB2279C0028A387 /* Lunchr */,
+				24C351D71AB2279D0028A387 /* LunchrTests */,
+				24C351BD1AB2279C0028A387 /* Products */,
+				1E11A50FF97DBA95598EA783 /* Pods */,
+				8AE6AEF2D700304BADD34CF8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		1473E6381A95373300E9DD33 /* Products */ = {
+		24C351BD1AB2279C0028A387 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1473E6371A95373300E9DD33 /* Lunchr.app */,
-				1473E6501A95373300E9DD33 /* LunchrTests.xctest */,
+				24C351BC1AB2279C0028A387 /* Lunchr.app */,
+				24C351D41AB2279D0028A387 /* LunchrTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1473E6391A95373300E9DD33 /* Lunchr */ = {
+		24C351BE1AB2279C0028A387 /* Lunchr */ = {
 			isa = PBXGroup;
 			children = (
-				1473E63E1A95373300E9DD33 /* AppDelegate.h */,
-				1473E63F1A95373300E9DD33 /* AppDelegate.m */,
-				1411DCA11A9FC42500693DC8 /* Controllers */,
-				1473E6441A95373300E9DD33 /* Main.storyboard */,
-				1473E6471A95373300E9DD33 /* Images.xcassets */,
-				1473E6491A95373300E9DD33 /* LaunchScreen.xib */,
-				1411DCA31A9FCD2D00693DC8 /* Resources */,
-				1473E63A1A95373300E9DD33 /* Support */,
+				24C351E41AB228510028A387 /* Resources */,
+				24C351EB1AB22DAC0028A387 /* Controllers */,
+				24C351C11AB2279C0028A387 /* AppDelegate.swift */,
+				24C351C81AB2279D0028A387 /* Main.storyboard */,
+				24C351CB1AB2279D0028A387 /* Images.xcassets */,
+				24C351CD1AB2279D0028A387 /* LaunchScreen.xib */,
+				24C351C31AB2279C0028A387 /* Lunchr.xcdatamodeld */,
+				24C351BF1AB2279C0028A387 /* Supporting Files */,
 			);
 			path = Lunchr;
 			sourceTree = "<group>";
 		};
-		1473E63A1A95373300E9DD33 /* Support */ = {
+		24C351BF1AB2279C0028A387 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1473E63B1A95373300E9DD33 /* Info.plist */,
-				1411DCA21A9FC60100693DC8 /* HttpUtils.h */,
-				1411DC9F1A9FC40800693DC8 /* HttpUtils.m */,
-				1473E63C1A95373300E9DD33 /* main.m */,
+				24C351C01AB2279C0028A387 /* Info.plist */,
 			);
-			name = Support;
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		1473E6531A95373300E9DD33 /* LunchrTests */ = {
+		24C351D71AB2279D0028A387 /* LunchrTests */ = {
 			isa = PBXGroup;
 			children = (
-				1473E6561A95373300E9DD33 /* LunchrTests.m */,
-				1473E6541A95373300E9DD33 /* Supporting Files */,
+				24C351DA1AB2279D0028A387 /* LunchrTests.swift */,
+				24C351D81AB2279D0028A387 /* Supporting Files */,
 			);
 			path = LunchrTests;
 			sourceTree = "<group>";
 		};
-		1473E6541A95373300E9DD33 /* Supporting Files */ = {
+		24C351D81AB2279D0028A387 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1473E6551A95373300E9DD33 /* Info.plist */,
+				24C351D91AB2279D0028A387 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		24C351E41AB228510028A387 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				24C351E51AB2288A0028A387 /* Button.png */,
+			);
+			name = Resources;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		24C351EB1AB22DAC0028A387 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				24C351C61AB2279C0028A387 /* ViewController.swift */,
+				249AE25A1AB278D500EA14F8 /* HomePageViewController.swift */,
+				249AE2581AB2785C00EA14F8 /* RegisterViewController.swift */,
+				249AE2561AB2783A00EA14F8 /* LoginViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		8AE6AEF2D700304BADD34CF8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2494FC7E1AB294D70057A3B6 /* Alamofire.framework */,
+				9BDEF23F074D69064C511880 /* Pods_Lunchr.framework */,
+				AED6F25CDBD68C3D10F490FA /* Pods_LunchrTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1473E6361A95373300E9DD33 /* Lunchr */ = {
+		24C351BB1AB2279C0028A387 /* Lunchr */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1473E65A1A95373300E9DD33 /* Build configuration list for PBXNativeTarget "Lunchr" */;
+			buildConfigurationList = 24C351DE1AB2279D0028A387 /* Build configuration list for PBXNativeTarget "Lunchr" */;
 			buildPhases = (
-				1473E6331A95373300E9DD33 /* Sources */,
-				1473E6341A95373300E9DD33 /* Frameworks */,
-				1473E6351A95373300E9DD33 /* Resources */,
+				90B5A9CC26DAAD5622CFF551 /* Check Pods Manifest.lock */,
+				24C351B81AB2279C0028A387 /* Sources */,
+				24C351B91AB2279C0028A387 /* Frameworks */,
+				24C351BA1AB2279C0028A387 /* Resources */,
+				453159D05CB853F2234D632F /* Embed Pods Frameworks */,
+				2213FAEBB40151D7D8EB3472 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -175,45 +200,49 @@
 			);
 			name = Lunchr;
 			productName = Lunchr;
-			productReference = 1473E6371A95373300E9DD33 /* Lunchr.app */;
+			productReference = 24C351BC1AB2279C0028A387 /* Lunchr.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1473E64F1A95373300E9DD33 /* LunchrTests */ = {
+		24C351D31AB2279D0028A387 /* LunchrTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1473E65D1A95373300E9DD33 /* Build configuration list for PBXNativeTarget "LunchrTests" */;
+			buildConfigurationList = 24C351E11AB2279D0028A387 /* Build configuration list for PBXNativeTarget "LunchrTests" */;
 			buildPhases = (
-				1473E64C1A95373300E9DD33 /* Sources */,
-				1473E64D1A95373300E9DD33 /* Frameworks */,
-				1473E64E1A95373300E9DD33 /* Resources */,
+				02847C90EC299C19E2176A34 /* Check Pods Manifest.lock */,
+				24C351D01AB2279D0028A387 /* Sources */,
+				24C351D11AB2279D0028A387 /* Frameworks */,
+				24C351D21AB2279D0028A387 /* Resources */,
+				E96083C3FD6BD988A0319A82 /* Embed Pods Frameworks */,
+				20BA2D7FC2D96AFDDA9F70CB /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				1473E6521A95373300E9DD33 /* PBXTargetDependency */,
+				24C351D61AB2279D0028A387 /* PBXTargetDependency */,
 			);
 			name = LunchrTests;
 			productName = LunchrTests;
-			productReference = 1473E6501A95373300E9DD33 /* LunchrTests.xctest */;
+			productReference = 24C351D41AB2279D0028A387 /* LunchrTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		1473E62F1A95373300E9DD33 /* Project object */ = {
+		24C351B41AB2279C0028A387 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = SoftEngGroup4;
 				TargetAttributes = {
-					1473E6361A95373300E9DD33 = {
-						CreatedOnToolsVersion = 6.1.1;
+					24C351BB1AB2279C0028A387 = {
+						CreatedOnToolsVersion = 6.2;
 					};
-					1473E64F1A95373300E9DD33 = {
-						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = 1473E6361A95373300E9DD33;
+					24C351D31AB2279D0028A387 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 24C351BB1AB2279C0028A387;
 					};
 				};
 			};
-			buildConfigurationList = 1473E6321A95373300E9DD33 /* Build configuration list for PBXProject "Lunchr" */;
+			buildConfigurationList = 24C351B71AB2279C0028A387 /* Build configuration list for PBXProject "Lunchr" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -221,30 +250,30 @@
 				en,
 				Base,
 			);
-			mainGroup = 1473E62E1A95373300E9DD33;
-			productRefGroup = 1473E6381A95373300E9DD33 /* Products */;
+			mainGroup = 24C351B31AB2279C0028A387;
+			productRefGroup = 24C351BD1AB2279C0028A387 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1473E6361A95373300E9DD33 /* Lunchr */,
-				1473E64F1A95373300E9DD33 /* LunchrTests */,
+				24C351BB1AB2279C0028A387 /* Lunchr */,
+				24C351D31AB2279D0028A387 /* LunchrTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1473E6351A95373300E9DD33 /* Resources */ = {
+		24C351BA1AB2279C0028A387 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1473E6461A95373300E9DD33 /* Main.storyboard in Resources */,
-				1473E6631A95411700E9DD33 /* Button.png in Resources */,
-				1473E64B1A95373300E9DD33 /* LaunchScreen.xib in Resources */,
-				1473E6481A95373300E9DD33 /* Images.xcassets in Resources */,
+				24C351CA1AB2279D0028A387 /* Main.storyboard in Resources */,
+				24C351E61AB2288A0028A387 /* Button.png in Resources */,
+				24C351CF1AB2279D0028A387 /* LaunchScreen.xib in Resources */,
+				24C351CC1AB2279D0028A387 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1473E64E1A95373300E9DD33 /* Resources */ = {
+		24C351D21AB2279D0028A387 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -253,52 +282,144 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		02847C90EC299C19E2176A34 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		20BA2D7FC2D96AFDDA9F70CB /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LunchrTests/Pods-LunchrTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2213FAEBB40151D7D8EB3472 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Lunchr/Pods-Lunchr-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		453159D05CB853F2234D632F /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Lunchr/Pods-Lunchr-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		90B5A9CC26DAAD5622CFF551 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E96083C3FD6BD988A0319A82 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LunchrTests/Pods-LunchrTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		1473E6331A95373300E9DD33 /* Sources */ = {
+		24C351B81AB2279C0028A387 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1473E6431A95373300E9DD33 /* ViewController.m in Sources */,
-				142339481A9D130D00C8C264 /* RegisterViewController.m in Sources */,
-				1473E6401A95373300E9DD33 /* AppDelegate.m in Sources */,
-				1473E67B1A95853200E9DD33 /* MapViewController.m in Sources */,
-				1473E63D1A95373300E9DD33 /* main.m in Sources */,
-				1473E67E1A95856200E9DD33 /* LoginViewController.m in Sources */,
-				1411DCA01A9FC40800693DC8 /* HttpUtils.m in Sources */,
+				249AE2571AB2783A00EA14F8 /* LoginViewController.swift in Sources */,
+				249AE2591AB2785C00EA14F8 /* RegisterViewController.swift in Sources */,
+				249AE25B1AB278D500EA14F8 /* HomePageViewController.swift in Sources */,
+				24C351C71AB2279C0028A387 /* ViewController.swift in Sources */,
+				24C351C21AB2279C0028A387 /* AppDelegate.swift in Sources */,
+				24C351C51AB2279C0028A387 /* Lunchr.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1473E64C1A95373300E9DD33 /* Sources */ = {
+		24C351D01AB2279D0028A387 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1473E6571A95373300E9DD33 /* LunchrTests.m in Sources */,
+				24C351DB1AB2279D0028A387 /* LunchrTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1473E6521A95373300E9DD33 /* PBXTargetDependency */ = {
+		24C351D61AB2279D0028A387 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1473E6361A95373300E9DD33 /* Lunchr */;
-			targetProxy = 1473E6511A95373300E9DD33 /* PBXContainerItemProxy */;
+			target = 24C351BB1AB2279C0028A387 /* Lunchr */;
+			targetProxy = 24C351D51AB2279D0028A387 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1473E6441A95373300E9DD33 /* Main.storyboard */ = {
+		24C351C81AB2279D0028A387 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1473E6451A95373300E9DD33 /* Base */,
+				24C351C91AB2279D0028A387 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		1473E6491A95373300E9DD33 /* LaunchScreen.xib */ = {
+		24C351CD1AB2279D0028A387 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1473E64A1A95373300E9DD33 /* Base */,
+				24C351CE1AB2279D0028A387 /* Base */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -306,7 +427,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		1473E6581A95373300E9DD33 /* Debug */ = {
+		24C351DC1AB2279D0028A387 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -340,15 +461,16 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
-		1473E6591A95373300E9DD33 /* Release */ = {
+		24C351DD1AB2279D0028A387 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -366,7 +488,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
+				COPY_PHASE_STRIP = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -376,21 +498,22 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		1473E65B1A95373300E9DD33 /* Debug */ = {
+		24C351DF1AB2279D0028A387 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 726FD2AD2992A533444B0359 /* Pods-Lunchr.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/GoogleMaps-iOS-1.9.2",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Pods-Lunchr",
 				);
 				INFOPLIST_FILE = Lunchr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -398,13 +521,14 @@
 			};
 			name = Debug;
 		};
-		1473E65C1A95373300E9DD33 /* Release */ = {
+		24C351E01AB2279D0028A387 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 058F7DAB1C731F95401F8184 /* Pods-Lunchr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/GoogleMaps-iOS-1.9.2",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Pods-Lunchr",
 				);
 				INFOPLIST_FILE = Lunchr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -412,8 +536,9 @@
 			};
 			name = Release;
 		};
-		1473E65E1A95373300E9DD33 /* Debug */ = {
+		24C351E21AB2279D0028A387 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98BDB2CE830B3B74F0CF9EE9 /* Pods-LunchrTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -431,8 +556,9 @@
 			};
 			name = Debug;
 		};
-		1473E65F1A95373300E9DD33 /* Release */ = {
+		24C351E31AB2279D0028A387 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED3EF82B952A24B30FEBC136 /* Pods-LunchrTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -449,34 +575,47 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1473E6321A95373300E9DD33 /* Build configuration list for PBXProject "Lunchr" */ = {
+		24C351B71AB2279C0028A387 /* Build configuration list for PBXProject "Lunchr" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1473E6581A95373300E9DD33 /* Debug */,
-				1473E6591A95373300E9DD33 /* Release */,
+				24C351DC1AB2279D0028A387 /* Debug */,
+				24C351DD1AB2279D0028A387 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1473E65A1A95373300E9DD33 /* Build configuration list for PBXNativeTarget "Lunchr" */ = {
+		24C351DE1AB2279D0028A387 /* Build configuration list for PBXNativeTarget "Lunchr" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1473E65B1A95373300E9DD33 /* Debug */,
-				1473E65C1A95373300E9DD33 /* Release */,
+				24C351DF1AB2279D0028A387 /* Debug */,
+				24C351E01AB2279D0028A387 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1473E65D1A95373300E9DD33 /* Build configuration list for PBXNativeTarget "LunchrTests" */ = {
+		24C351E11AB2279D0028A387 /* Build configuration list for PBXNativeTarget "LunchrTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1473E65E1A95373300E9DD33 /* Debug */,
-				1473E65F1A95373300E9DD33 /* Release */,
+				24C351E21AB2279D0028A387 /* Debug */,
+				24C351E31AB2279D0028A387 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		24C351C31AB2279C0028A387 /* Lunchr.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				24C351C41AB2279C0028A387 /* Lunchr.xcdatamodel */,
+			);
+			currentVersion = 24C351C41AB2279C0028A387 /* Lunchr.xcdatamodel */;
+			path = Lunchr.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
-	rootObject = 1473E62F1A95373300E9DD33 /* Project object */;
+	rootObject = 24C351B41AB2279C0028A387 /* Project object */;
 }

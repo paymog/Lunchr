@@ -1,0 +1,15 @@
+# Uncomment this line to define a global platform for your project
+# platform :ios, '6.0'
+use_frameworks!
+target 'Lunchr' do
+	pod 'SwiftHTTP', :git => "https://github.com/daltoniam/SwiftHTTP.git", :tag => "0.9.1"
+	pod 'SocketRocket'
+	pod 'Socket.IO-Client-Swift', '~> 1.1'
+    pod 'Alamofire', '~> 1.1'
+end
+
+target 'LunchrTests' do
+    pod 'SwiftHTTP', :git => "https://github.com/daltoniam/SwiftHTTP.git", :tag => "0.9.1"
+
+end
+
