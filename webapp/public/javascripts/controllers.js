@@ -5,6 +5,11 @@ var userLogout = function (authService, $state) {
     authService.removeUser();
     $state.go('mainPage');
 };
+var checkUser = function (user) {
+    if(user)
+        return true;
+    return false;
+};
 
 lunchrControllers.controller('MainPageController', ['$scope', '$http', '$state', 'authService',
     function ($scope, $http, $state, authService) {
@@ -31,19 +36,23 @@ lunchrControllers.controller('MainPageController', ['$scope', '$http', '$state',
         }
     }]);
 
-lunchrControllers.controller('UserController', ['$scope', '$http', '$state', 'authService', 'socket',
-    function ($scope, $http, $state, authService, socket) {
-        $scope.currentUser = authService.currentUser().firstname;
-
-        $http.get('/api/users')
-            .success(function (data, status, headers, config) {
-                $scope.users = data;
-            });
-
-        $scope.match = function () {
-
-            $state.go('users.matching');
+lunchrControllers.controller('UserController', ['$scope', '$http', '$state', 'authService',
+    function ($scope, $http, $state, authService) {
+        $scope.currentUser = authService.currentUser();
+        $scope.init = function () {
+            return checkUser($scope.currentUser);
         };
+
+        if($scope.currentUser) {
+            $scope.logout = function () {
+                userLogout(authService, $state);
+            };
+
+            $http.get('/api/users')
+                .success(function (data) {
+                    $scope.users = data;
+                });
+        }
     }]);
 
 lunchrControllers.controller('RegisterController', ['$scope', '$http', '$state', 'authService',
@@ -101,25 +110,30 @@ lunchrControllers.controller('HomeMatchedController', ['$scope', 'authService',
 
 lunchrControllers.controller('HomePageController', ['$scope', '$http', '$state', 'authService',
     function ($scope, $http, $state, authService) {
-        $scope.logout = function () {
-            userLogout(authService, $state);
-        };
-
         var currentUser = authService.currentUser();
-        if(currentUser.matchedWith){
-            $state.go('home.matched');
-        }
-        if(currentUser.wantsToBeMatched){
-            $state.go('home.matching');
-        }
-
-        $scope.name = (currentUser.firstname + " " + currentUser.lastname);
-        $scope.match = function () {
-            $state.go('home.matching');
+        $scope.init = function () {
+            return checkUser(currentUser);
         };
 
-        $scope.editInfo = function () {
-            ;
-        };
+        if(currentUser) {
+            $scope.logout = function () {
+                userLogout(authService, $state);
+            };
+
+            if (currentUser.matchedWith) {
+                $state.go('home.matched');
+            }
+            if (currentUser.wantsToBeMatched) {
+                $state.go('home.matching');
+            }
+
+            $scope.name = (currentUser.firstname + " " + currentUser.lastname);
+            $scope.match = function () {
+                $state.go('home.matching');
+            };
+
+            $scope.editInfo = function () {
+            };
+        }
     }
 ]);

@@ -1,5 +1,6 @@
-div(class='container')
-    h1 Welcome {{currentUser}}
+div(class='container', ng-if='init()')
+    include ./includes/banner.jade
+    h1 Welcome {{currentUser.firstname}}
 
     p(ng-repeat='user in users').
         Username: {{user.email}} Password: {{user.password}}
@@ -7,7 +8,8 @@ div(class='container')
         Age: {{user.age}} Radius: {{user.radius}}
         Wants to be matched: {{user.wantsToBeMatched}}
 
-    a(class='btn btn-default', ng-click='match()') Start matching me!
     //this should actually be "div(ui-view)" but for some reason that doesn't work...
     //See http://goo.gl/TVBKXO
     ui-view
+div(class='container', ng-if='init() == false')
+    include ./includes/invalid.jade
