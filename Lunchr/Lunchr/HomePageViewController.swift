@@ -26,6 +26,7 @@ class HomePageViewController: UIViewController {
     }
     
     @IBAction func LogoutButtonPressed(sender: AnyObject) {
+        CurrentUser.currentUser = nil
         let welcome = self.storyboard?.instantiateViewControllerWithIdentifier("main") as UINavigationController
         self.presentViewController(welcome, animated: true, completion: nil)
     }
