@@ -1,14 +1,22 @@
 'use strict';
 
 var lunchrControllers = angular.module('lunchrControllers', []);
-var userLogout = function (authService, $state) {
-    authService.removeUser();
-    $state.go('mainPage');
-};
 var checkUser = function (user) {
     if(user)
         return true;
     return false;
+};
+var DefineNavigation = function ($scope, $state, authService) {
+    $scope.goUsers = function () {
+        $state.go('users');
+    };
+    $scope.goHome = function () {
+        $state.go('home');
+    };
+    $scope.logout = function () {
+        authService.removeUser();
+        $state.go('mainPage');
+    };
 };
 
 lunchrControllers.controller('MainPageController', ['$scope', '$http', '$state', 'authService',
@@ -44,9 +52,7 @@ lunchrControllers.controller('UserController', ['$scope', '$http', '$state', 'au
         };
 
         if($scope.currentUser) {
-            $scope.logout = function () {
-                userLogout(authService, $state);
-            };
+            DefineNavigation($scope, $state, authService);
 
             $http.get('/api/users')
                 .success(function (data) {
@@ -116,9 +122,7 @@ lunchrControllers.controller('HomePageController', ['$scope', '$http', '$state',
         };
 
         if(currentUser) {
-            $scope.logout = function () {
-                userLogout(authService, $state);
-            };
+            DefineNavigation($scope, $state, authService);
 
             if (currentUser.matchedWith) {
                 $state.go('home.matched');
