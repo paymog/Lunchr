@@ -7,12 +7,6 @@ var checkUser = function (user) {
     return false;
 };
 var DefineNavigation = function ($scope, $state, authService) {
-    $scope.goUsers = function () {
-        $state.go('users');
-    };
-    $scope.goHome = function () {
-        $state.go('home');
-    };
     $scope.logout = function () {
         authService.removeUser();
         $state.go('mainPage');
