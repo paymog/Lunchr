@@ -68,7 +68,18 @@ a {
 }
 
 .angular-google-map-container {
-    height: 400px;
+    height: 450px;
+    width: 850px;
+    float: left;
+}
+
+#selectedPlaces {
+    width: 250px;
+    height: 450px;
+    float: right;
+    border: 1px solid #ddd;
+    background: #eee;
+    border-radius: 4px;
 }
 
 .labels {

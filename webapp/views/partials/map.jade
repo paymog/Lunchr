@@ -1,6 +1,14 @@
 div(class='container')
-    h1 Pick a Place on the Map
+    h1 Where Would You Like To Eat?
 
     //This is the map div, its properties are in the style.css file
-    ui-gmap-google-map(center='map.center', zoom='map.zoom')
-        ui-gmap-marker(ng-repeat = 'm in marker', idKey = "'m.id'", coords = "m.coords", icon = "m.icon", options = "m.options")
+    div( ng-show='errorMessages', class='alert alert-danger text-center' )
+        p <strong>Error</strong> - {{errorMessages}}
+    
+    div( ng-show='warningMessages', class='alert alert-warning text-center' )
+        p <strong>Warning</strong> - {{warningMessages}}
+        
+    ui-gmap-google-map( center='map.center', zoom='map.zoom' )
+        ui-gmap-marker( ng-repeat='m in marker', idKey="'m.id'", coords="m.coords", icon="m.icon", options="m.options", click="m.click" )
+
+    ul( id="selectedPlaces" class="list-group" )

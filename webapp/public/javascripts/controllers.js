@@ -118,6 +118,7 @@ lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'n
         var defaultVals = {latitude: 49.8651559, longitude: -97.11077669999997, zoom: 14};
         $scope.map = { center: { latitude: defaultVals.latitude, longitude: defaultVals.longitude }, zoom: defaultVals.zoom };
         $scope.marker = [];
+        $scope.selectedPlaces = [ ];
 
         $scope.getUserLocation = function ( onSuccess, onError )
         {
@@ -138,9 +139,9 @@ lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'n
             }
             else
             {
-                alert( "Your browser does not support geolocation. Using default values." );
-                $scope.postition = {coords:{latitude: defaultVals.latitude, longitude: defaultVals.longitude}};
-                onSuccess($scope.position);
+                $scope.warningMessages = "Your browser does not support geolocation. Using default values.";
+                $scope.postition = { coords: { latitude: defaultVals.latitude, longitude: defaultVals.longitude } };
+                onSuccess( $scope.position);
             }
         };
         
@@ -157,7 +158,8 @@ lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'n
                 options: { 
                     labelContent: "You Are Here",
                     labelClass: "labels label-user-pos",
-                    animation: google.maps.Animation.DROP
+                    animation: google.maps.Animation.DROP,
+                    clickable: false
                 }
             } );
 
@@ -179,7 +181,7 @@ lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'n
                     } ).then(
                         function( data )
                         {
-                            var marker = new google.maps.Marker( {
+                            $scope.marker.push( {
                                 id: key + 1,
                                 coords: {
                                     latitude: data.geometry.location.k,
@@ -188,10 +190,21 @@ lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'n
                                 options: {
                                     labelContent: data.name,
                                     labelClass: "labels"
+                                },
+                                click: function( )
+                                {
+                                    var index = $scope.selectedPlaces.indexOf( data.name );
+                                    
+                                    if ( index > -1 ) {
+                                        removeSelectedPlaceFromList( $scope.selectedPlaces[ index ] );
+                                        $scope.selectedPlaces.splice( index, 1 );
+                                    }
+                                    else {
+                                        addSelectedPlaceToList( data.name );
+                                        $scope.selectedPlaces.push( data.name );
+                                    }
                                 }
                             } );
-                            
-                            $scope.marker.push( marker );
                         }
                     );
                 }
@@ -208,25 +221,42 @@ lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'n
 
         function onError( error )
         {
-            var errorMessage = "";
-
             switch( error.code )
             {
                 case error.PERMISSION_DENIED:
-                    errorMessage = "User denied the request for Geolocation.";
+                    $scope.errorMessages = "Geolocation is disabled for this site. This site requires Geolocation to work properly.";
                     break;
                 case error.POSITION_UNAVAILABLE:
-                    errorMessage = "Location information is unavailable.";
+                    $scope.errorMessages = "Your location information is unavailable.";
                     break;
                 case error.TIMEOUT:
-                    errorMessage = "The request to get user location timed out.";
+                    $scope.errorMessages = "The request to get user location timed out.";
                     break;
                 default:
-                    errorMessage = "An unknown error occurred.";
+                    $scope.errorMessages = "An unknown error has occurred.";
                     break;
             }
-
-            alert( errorMessage );
         }
         $scope.getUserLocation( onSuccess, onError );
+        
+        function addSelectedPlaceToList( place )
+        {
+            var placesList = document.getElementById( "selectedPlaces" );
+            var placesListItem = document.createElement( "li" );
+            
+            placesListItem.appendChild( document.createTextNode( place ) );
+            placesListItem.setAttribute( "class", "list-group-item" );
+            placesList.appendChild( placesListItem );
+        }
+        
+        function removeSelectedPlaceFromList( place )
+        {
+            $( "li" ).filter
+            (
+                function( )
+                { 
+                    return $.text( [this] ) === place;
+                }
+            ).remove( );
+        }
     }]);
