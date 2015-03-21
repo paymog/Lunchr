@@ -117,7 +117,7 @@ lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'n
     {
         var defaultVals = {latitude: 49.8651559, longitude: -97.11077669999997, zoom: 14};
         $scope.map = { center: { latitude: defaultVals.latitude, longitude: defaultVals.longitude }, zoom: defaultVals.zoom };
-        $scope.marker = [];
+        $scope.marker = [ ];
         $scope.selectedPlaces = [ ];
 
         $scope.getUserLocation = function ( onSuccess, onError )
@@ -180,7 +180,7 @@ lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'n
                     $scope.locationDetails = ngGPlacesAPI.placeDetails( {
                         reference: ( $scope.data )[ key ].reference
                     } ).then(
-                        function ( data )
+                        function( data )
                         {
                             $scope.marker.push( {
                                 id: key + 1,
@@ -188,11 +188,13 @@ lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'n
                                     latitude: data.geometry.location.k,
                                     longitude: data.geometry.location.D
                                 },
+                                icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
                                 options: {
                                     labelContent: data.name,
-                                    labelClass: "labels"
+                                    labelClass: "labels",
+                                    animation: google.maps.Animation.DROP
                                 },
-                                click: function ()
+                                click: function( )
                                 {
                                     var index = $scope.selectedPlaces.indexOf( data.name );
 
