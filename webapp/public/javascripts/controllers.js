@@ -112,8 +112,8 @@ lunchrControllers.controller('HomePageController', ['$scope', '$http', '$state',
     }
 ]);
 
-lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'ngGPlacesAPI',
-    function ( $scope, $http, $state, ngGPlacesAPI )
+lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'ngGPlacesAPI', 'ngProgress',
+    function ( $scope, $http, $state, ngGPlacesAPI, ngProgress )
     {
         var defaultVals = {latitude: 49.8651559, longitude: -97.11077669999997, zoom: 14};
         $scope.map = { center: { latitude: defaultVals.latitude, longitude: defaultVals.longitude }, zoom: defaultVals.zoom };
@@ -147,6 +147,7 @@ lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'n
         
         function onSuccess( position )
         {
+            ngProgress.start( );
             $scope.map = { center: { latitude: position.coords.latitude, longitude: position.coords.longitude }, zoom: 14 };
             $scope.marker.push( {
                 id: 0,
@@ -179,7 +180,7 @@ lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'n
                     $scope.locationDetails = ngGPlacesAPI.placeDetails( {
                         reference: ( $scope.data )[ key ].reference
                     } ).then(
-                        function( data )
+                        function ( data )
                         {
                             $scope.marker.push( {
                                 id: key + 1,
@@ -191,15 +192,17 @@ lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'n
                                     labelContent: data.name,
                                     labelClass: "labels"
                                 },
-                                click: function( )
+                                click: function ()
                                 {
                                     var index = $scope.selectedPlaces.indexOf( data.name );
-                                    
-                                    if ( index > -1 ) {
+
+                                    if ( index > -1 )
+                                    {
                                         removeSelectedPlaceFromList( $scope.selectedPlaces[ index ] );
                                         $scope.selectedPlaces.splice( index, 1 );
                                     }
-                                    else {
+                                    else
+                                    {
                                         addSelectedPlaceToList( data.name );
                                         $scope.selectedPlaces.push( data.name );
                                     }
@@ -208,10 +211,12 @@ lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'n
                         }
                     );
                 }
+                ngProgress.complete( );
             }, 
             function( reason )
             {
                 alert( 'Failed: ' + reason );
+                ngProgress.reset( );
             },
             function( update )
             {

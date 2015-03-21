@@ -6,7 +6,8 @@ var lunchrApp = angular.module('lunchr', ['ui.router',
                                           'lunchrFactories',
                                           'lunchrServices',
                                           'uiGmapgoogle-maps',
-                                          'ngGPlaces']);
+                                          'ngGPlaces',
+                                          'ngProgress']);
 
 lunchrApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 'ngGPlacesAPIProvider',
     function ($stateProvider, $urlRouterProvider, $locationProvider, ngGPlacesAPIProvider) {
