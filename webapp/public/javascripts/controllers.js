@@ -208,6 +208,8 @@ lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'n
                                         addSelectedPlaceToList( data.name );
                                         $scope.selectedPlaces.push( data.name );
                                     }
+
+                                    console.log( $scope.selectedPlaces );
                                 }
                             } );
                         }
@@ -248,22 +250,59 @@ lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'n
         
         function addSelectedPlaceToList( place )
         {
+            //var placesList = document.getElementById( "selectedPlaces" );
+            //var placesListItem = document.createElement( "li" );
+            //
+            //placesListItem.appendChild( document.createTextNode( place ) );
+            //placesListItem.setAttribute( "class", "list-group-item" );
+            //placesList.appendChild( placesListItem );
+
             var placesList = document.getElementById( "selectedPlaces" );
-            var placesListItem = document.createElement( "li" );
             
-            placesListItem.appendChild( document.createTextNode( place ) );
-            placesListItem.setAttribute( "class", "list-group-item" );
-            placesList.appendChild( placesListItem );
+            var placesItemDiv = document.createElement( "div" );
+            placesItemDiv.setAttribute( "class", "alert alert-warning alert-dismissible placesItem" );
+            placesItemDiv.setAttribute( "role", "alert" );
+            
+            var placesItemButton = document.createElement( "button" );
+            placesItemButton.setAttribute( "type", "button" );
+            placesItemButton.setAttribute( "class", "close" );
+            placesItemButton.setAttribute( "data-dismiss", "alert" );
+            placesItemButton.setAttribute( "aria-label", "Close" );
+            
+            var placesItemSpan = document.createElement( "span" );
+            placesItemSpan.setAttribute( "aria-hidden", "true" );
+            
+            placesItemSpan.appendChild( document.createTextNode( "×" ) );
+            placesItemButton.appendChild( placesItemSpan );
+            placesItemDiv.appendChild( placesItemButton );
+            placesItemDiv.appendChild( document.createTextNode( place ) );
+            placesList.appendChild( placesItemDiv );
+
+            placesItemButton.addEventListener( "click", function( )
+            {
+                // Note: This does NOT remove the item from $scope.selectedPlaces
+                this.parentNode.remove( );
+            } );
         }
         
         function removeSelectedPlaceFromList( place )
         {
-            $( "li" ).filter
+            //$( "li" ).filter
+            //(
+            //    function( )
+            //    { 
+            //        return $.text( [this] ) === place;
+            //    }
+            //).remove( );
+
+            $( '.placesItem' ).filter
             (
                 function( )
-                { 
-                    return $.text( [this] ) === place;
-                }
+                {
+                    // filter function combines all child text nodes
+                    // this removes the × from the close button
+                    return $( this ).text( ).substr( 1 ) ==  place;
+                } 
             ).remove( );
         }
     }]);
