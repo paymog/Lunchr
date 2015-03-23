@@ -102,3 +102,7 @@ a {
     border: 1px solid #ddd;
     color: #555;
 }
+
+.alertMsg {
+    display: none;
+}

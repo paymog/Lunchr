@@ -139,7 +139,12 @@ lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'n
             }
             else
             {
-                $scope.warningMessages = "Your browser does not support geolocation. Using default values.";
+                var warningAlert = $( "#warning" );
+                
+                $scope.warningMessages = "<strong>Warning</strong> - Your browser does not support geolocation. Using default values.";
+                warningAlert.html( $scope.warningMessages );
+                warningAlert.toggleClass( "alertMsg" );
+                
                 $scope.postition = { coords: { latitude: defaultVals.latitude, longitude: defaultVals.longitude } };
                 onSuccess( $scope.position);
             }
@@ -229,18 +234,22 @@ lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'n
             switch( error.code )
             {
                 case error.PERMISSION_DENIED:
-                    $scope.errorMessages = "Geolocation is disabled for this site. This site requires Geolocation to work properly.";
+                    $scope.errorMessages = "<strong>Error</strong> - Geolocation is disabled for this site. This site requires Geolocation to work properly.";
                     break;
                 case error.POSITION_UNAVAILABLE:
-                    $scope.errorMessages = "Your location information is unavailable.";
+                    $scope.errorMessages = "<strong>Error</strong> - Your location information is unavailable.";
                     break;
                 case error.TIMEOUT:
-                    $scope.errorMessages = "The request to get user location timed out.";
+                    $scope.errorMessages = "<strong>Error</strong> - The request to get user location timed out.";
                     break;
                 default:
-                    $scope.errorMessages = "An unknown error has occurred.";
+                    $scope.errorMessages = "<strong>Error</strong> - An unknown error has occurred.";
                     break;
             }
+            
+            var errorAlert = $( "#error" );
+            errorAlert.html( $scope.errorMessages );
+            errorAlert.toggleClass( "alertMsg" );
         }
         $scope.getUserLocation( onSuccess, onError );
         

@@ -2,11 +2,9 @@ div(class='container')
     h1 Restaurants Near You
 
     //This is the map div, its properties are in the style.css file
-    div( ng-show='errorMessages', class='alert alert-danger text-center' )
-        p <strong>Error</strong> - {{errorMessages}}
+    div( id='error',  class='alert alert-danger text-center alertMsg' )
     
-    div( ng-show='warningMessages', class='alert alert-warning text-center' )
-        p <strong>Warning</strong> - {{warningMessages}}
+    div( id='warning', class='alert alert-warning text-center alertMsg' )
         
     ui-gmap-google-map( center='map.center', zoom='map.zoom' )
         ui-gmap-marker( ng-repeat='m in markers', idKey="'m.id'", coords="m.coords", icon="m.icon", options="m.options", click="m.click" )
