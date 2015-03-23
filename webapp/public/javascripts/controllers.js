@@ -1,6 +1,17 @@
 'use strict';
 
 var lunchrControllers = angular.module('lunchrControllers', []);
+var checkUser = function (user) {
+    if(user)
+        return true;
+    return false;
+};
+var DefineNavigation = function ($scope, $state, authService) {
+    $scope.logout = function () {
+        authService.removeUser();
+        $state.go('mainPage');
+    };
+};
 
 lunchrControllers.controller('MainPageController', ['$scope', '$http', '$state', 'authService',
     function ($scope, $http, $state, authService) {
@@ -27,23 +38,24 @@ lunchrControllers.controller('MainPageController', ['$scope', '$http', '$state',
         }
     }]);
 
-lunchrControllers.controller('UserController', ['$scope', '$http', '$state', 'authService', 'socket',
-    function ($scope, $http, $state, authService, socket) {
-        $scope.currentUser = authService.currentUser().firstname;
-
-        $http.get('/api/users')
-            .success(function (data, status, headers, config) {
-                $scope.users = data;
-            });
-
-        $scope.match = function () {
-
-            $state.go('users.matching');
+lunchrControllers.controller('UserController', ['$scope', '$http', '$state', 'authService',
+    function ($scope, $http, $state, authService) {
+        $scope.currentUser = authService.currentUser();
+        $scope.init = function () {
+            return checkUser($scope.currentUser);
         };
+
+        if($scope.currentUser) {
+            DefineNavigation($scope, $state, authService);
+
+            $http.get('/api/users')
+                .success(function (data) {
+                    $scope.users = data;
+                });
+        }
     }]);
 
 lunchrControllers.controller('RegisterController', ['$scope', '$http', '$state', 'authService',
-
     function ($scope, $http, $state, authService) {
 
         $scope.register = function () {
@@ -74,7 +86,6 @@ lunchrControllers.controller('RegisterController', ['$scope', '$http', '$state',
 
 lunchrControllers.controller('HomeMatchingController', ['$state', 'socket', 'authService',
     function ($state, socket, authService) {
-
         var currentUser = authService.currentUser();
         socket.emit('match', {userEmail: currentUser.email});
 
@@ -100,20 +111,27 @@ lunchrControllers.controller('HomeMatchedController', ['$scope', 'authService',
 lunchrControllers.controller('HomePageController', ['$scope', '$http', '$state', 'authService',
     function ($scope, $http, $state, authService) {
         var currentUser = authService.currentUser();
-        if(currentUser.matchedWith){
-            $state.go('home.matched');
-        }
-        if(currentUser.wantsToBeMatched){
-            $state.go('home.matching');
-        }
-
-        $scope.name = (currentUser.firstname + " " + currentUser.lastname);
-        $scope.match = function () {
-            $state.go('home.matching');
+        $scope.init = function () {
+            return checkUser(currentUser);
         };
 
-        $scope.editInfo = function () {
-            ;
-        };
+        if(currentUser) {
+            DefineNavigation($scope, $state, authService);
+
+            if (currentUser.matchedWith) {
+                $state.go('home.matched');
+            }
+            if (currentUser.wantsToBeMatched) {
+                $state.go('home.matching');
+            }
+
+            $scope.name = (currentUser.firstname + " " + currentUser.lastname);
+            $scope.match = function () {
+                $state.go('home.matching');
+            };
+
+            $scope.editInfo = function () {
+            };
+        }
     }
 ]);
