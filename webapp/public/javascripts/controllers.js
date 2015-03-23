@@ -294,6 +294,7 @@ lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'n
             // Create text node for place website
             var placeWebsite = document.createElement( "a" );
             placeWebsite.setAttribute( "href", website );
+            placeWebsite.setAttribute( "target", "_blank" );
             placeWebsite.appendChild( document.createTextNode( "Website" ) );
             
             // Insert formatted place information into info div
