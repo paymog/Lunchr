@@ -194,22 +194,18 @@ lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'n
                                     labelClass: "labels",
                                     animation: google.maps.Animation.DROP
                                 },
-                                click: function( )
+                                click: function( e )
                                 {
-                                    var index = $scope.selectedPlaces.indexOf( data.name );
+                                    var index = $scope.selectedPlaces.indexOf( e.$id );
 
                                     if ( index > -1 )
                                     {
-                                        removeSelectedPlaceFromList( $scope.selectedPlaces[ index ] );
-                                        $scope.selectedPlaces.splice( index, 1 );
+                                        removeSelectedPlaceFromList( e.$id );
                                     }
                                     else
                                     {
-                                        addSelectedPlaceToList( data.name );
-                                        $scope.selectedPlaces.push( data.name );
+                                        addSelectedPlaceToList( e.$id, data.name, data.formatted_address, data.formatted_phone_number, data.website );
                                     }
-
-                                    console.log( $scope.selectedPlaces );
                                 }
                             } );
                         }
@@ -248,61 +244,90 @@ lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'n
         }
         $scope.getUserLocation( onSuccess, onError );
         
-        function addSelectedPlaceToList( place )
+        function addSelectedPlaceToList( id, name, address, phone, website )
         {
-            //var placesList = document.getElementById( "selectedPlaces" );
-            //var placesListItem = document.createElement( "li" );
-            //
-            //placesListItem.appendChild( document.createTextNode( place ) );
-            //placesListItem.setAttribute( "class", "list-group-item" );
-            //placesList.appendChild( placesListItem );
-
+            // Add the id to the places array
+            $scope.selectedPlaces.push( id );
+            
+            // Get the places container div
             var placesList = document.getElementById( "selectedPlaces" );
             
-            var placesItemDiv = document.createElement( "div" );
-            placesItemDiv.setAttribute( "class", "alert alert-warning alert-dismissible placesItem" );
-            placesItemDiv.setAttribute( "role", "alert" );
+            // Create div to hold place info + button
+            var placeItemDiv = document.createElement( "div" );
+            placeItemDiv.setAttribute( "id", id.toString( ) );
+            placeItemDiv.setAttribute( "class", "alert alert-warning alert-dismissible placesItem" );
+            placeItemDiv.setAttribute( "role", "alert" );
             
-            var placesItemButton = document.createElement( "button" );
-            placesItemButton.setAttribute( "type", "button" );
-            placesItemButton.setAttribute( "class", "close" );
-            placesItemButton.setAttribute( "data-dismiss", "alert" );
-            placesItemButton.setAttribute( "aria-label", "Close" );
+            // Create close button for place
+            var placeItemButton = document.createElement( "button" );
+            placeItemButton.setAttribute( "type", "button" );
+            placeItemButton.setAttribute( "class", "close" );
+            placeItemButton.setAttribute( "data-dismiss", "alert" );
+            placeItemButton.setAttribute( "aria-label", "Close" );
             
-            var placesItemSpan = document.createElement( "span" );
-            placesItemSpan.setAttribute( "aria-hidden", "true" );
+            // Create span to style close button
+            var placeItemSpan = document.createElement( "span" );
+            placeItemSpan.setAttribute( "aria-hidden", "true" );
             
-            placesItemSpan.appendChild( document.createTextNode( "×" ) );
-            placesItemButton.appendChild( placesItemSpan );
-            placesItemDiv.appendChild( placesItemButton );
-            placesItemDiv.appendChild( document.createTextNode( place ) );
-            placesList.appendChild( placesItemDiv );
+            // Create div for place info
+            var placeItemInfo = document.createElement( "div" );
+            var placeTitle = document.createElement( "strong" );
+            placeTitle.appendChild( document.createTextNode( name ) );
 
-            placesItemButton.addEventListener( "click", function( )
+            // Create text nodes for place street address and location
+            var addressTokens = address.split( "," );
+            var placeAddress = document.createTextNode( addressTokens[ 0 ] );
+            var placeLocation = document.createTextNode( addressTokens[ 1 ] + "," + addressTokens[ 2 ] + "," + addressTokens[ 3 ] );
+            
+            // Create text node for place phone number
+            var placePhone = document.createTextNode( phone );
+
+            // Create text node for place website
+            var placeWebsite = document.createElement( "a" );
+            placeWebsite.setAttribute( "href", website );
+            placeWebsite.appendChild( document.createTextNode( "Website" ) );
+            
+            // Insert formatted place information into info div
+            placeItemInfo.appendChild( placeTitle );
+            placeItemInfo.appendChild( document.createElement( "br" ) );
+            placeItemInfo.appendChild( placeAddress );
+            placeItemInfo.appendChild( document.createElement( "br" ) );
+            placeItemInfo.appendChild( placeLocation );
+            placeItemInfo.appendChild( document.createElement( "br" ) );
+            placeItemInfo.appendChild( placePhone );
+            placeItemInfo.appendChild( document.createElement( "br" ) );
+            placeItemInfo.appendChild( placeWebsite );
+            
+            // Insert formatted × into close button
+            placeItemSpan.appendChild( document.createTextNode( "×" ) );
+            placeItemButton.appendChild( placeItemSpan );
+            
+            // Insert formatted text and × into places div
+            placeItemDiv.appendChild( placeItemButton );
+            placeItemDiv.appendChild( placeItemInfo );
+            
+            // Insert the new item into the places list
+            placesList.appendChild( placeItemDiv );
+
+            // Add a listener to the info section for this place item
+            placeItemInfo.addEventListener( "click", function( )
             {
-                // Note: This does NOT remove the item from $scope.selectedPlaces
-                this.parentNode.remove( );
+            } );
+            
+            // Add listener to close button for this place item
+            placeItemButton.addEventListener( "click", function( )
+            {
+                removeSelectedPlaceFromList( this.parentNode.id );
             } );
         }
         
-        function removeSelectedPlaceFromList( place )
+        function removeSelectedPlaceFromList( id )
         {
-            //$( "li" ).filter
-            //(
-            //    function( )
-            //    { 
-            //        return $.text( [this] ) === place;
-            //    }
-            //).remove( );
-
-            $( '.placesItem' ).filter
-            (
-                function( )
-                {
-                    // filter function combines all child text nodes
-                    // this removes the × from the close button
-                    return $( this ).text( ).substr( 1 ) ==  place;
-                } 
-            ).remove( );
+            // Remove the id from the places array
+            var index = $scope.selectedPlaces.indexOf( parseInt( id ) );
+            $scope.selectedPlaces.splice( index, 1 );
+            
+            // Remove the item from the places list
+            document.getElementById( id ).remove( );
         }
     }]);
