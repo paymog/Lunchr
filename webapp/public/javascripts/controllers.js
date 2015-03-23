@@ -117,7 +117,7 @@ lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'n
     {
         var defaultVals = {latitude: 49.8651559, longitude: -97.11077669999997, zoom: 14};
         $scope.map = { center: { latitude: defaultVals.latitude, longitude: defaultVals.longitude }, zoom: defaultVals.zoom };
-        $scope.marker = [ ];
+        $scope.markers = [ ];
         $scope.selectedPlaces = [ ];
 
         $scope.getUserLocation = function ( onSuccess, onError )
@@ -149,7 +149,7 @@ lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'n
         {
             ngProgress.start( );
             $scope.map = { center: { latitude: position.coords.latitude, longitude: position.coords.longitude }, zoom: 14 };
-            $scope.marker.push( {
+            $scope.markers.push( {
                 id: 0,
                 coords: {
                     latitude: position.coords.latitude,
@@ -182,7 +182,7 @@ lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'n
                     } ).then(
                         function( data )
                         {
-                            $scope.marker.push( {
+                            $scope.markers.push( {
                                 id: key + 1,
                                 coords: {
                                     latitude: data.geometry.location.k,
@@ -308,11 +308,6 @@ lunchrControllers.controller( 'MapController', [ '$scope', '$http', '$state', 'n
             
             // Insert the new item into the places list
             placesList.appendChild( placeItemDiv );
-
-            // Add a listener to the info section for this place item
-            placeItemInfo.addEventListener( "click", function( )
-            {
-            } );
             
             // Add listener to close button for this place item
             placeItemButton.addEventListener( "click", function( )

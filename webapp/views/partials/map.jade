@@ -9,6 +9,6 @@ div(class='container')
         p <strong>Warning</strong> - {{warningMessages}}
         
     ui-gmap-google-map( center='map.center', zoom='map.zoom' )
-        ui-gmap-marker( ng-repeat='m in marker', idKey="'m.id'", coords="m.coords", icon="m.icon", options="m.options", click="m.click" )
+        ui-gmap-marker( ng-repeat='m in markers', idKey="'m.id'", coords="m.coords", icon="m.icon", options="m.options", click="m.click" )
 
     div( id="selectedPlaces" class="list-group" )
