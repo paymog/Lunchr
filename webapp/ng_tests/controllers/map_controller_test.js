@@ -4,11 +4,13 @@ describe( 'MapController', function( )
 {
     beforeEach( module( 'lunchr' ) );
 
+    var DEFAULT = 'name';
+
     var $controller, $httpBackend, $rootScope;
 
-    function createController( )
+    function createController(authService)
     {
-        return $controller( 'MapController' , { '$scope': $rootScope } );
+        return $controller( 'MapController' , { '$scope': $rootScope, 'authService': authService } );
     }
 
     beforeEach( inject ( function( $injector )
@@ -27,7 +29,9 @@ describe( 'MapController', function( )
     {
         it ( "Ensure map exists" , function( )
         {
-            createController( );
+            var authService = jasmine.createSpyObj('authService', ['currentUser']);
+            authService.currentUser.and.returnValue({firstname: DEFAULT});
+            createController(authService);
             expect( $rootScope.map ).toBeTruthy( );
         } );
     } );
@@ -36,7 +40,9 @@ describe( 'MapController', function( )
     {
         beforeEach( function( )
         {
-            createController( );
+            var authService = jasmine.createSpyObj('authService', ['currentUser']);
+            authService.currentUser.and.returnValue({firstname: DEFAULT});
+            createController(authService);
         } );
         
         it ( "executes the function onSuccess with valid data", function( )
