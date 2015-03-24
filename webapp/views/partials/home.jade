@@ -1,10 +1,10 @@
-div(class='container')
+div(class='container', ng-if='init()')
+    include ./includes/banner.jade
     h1 {{name}}
 
     div(class='div-center-circleBtn')
         button(type='button', class='btn-circle', ng-click='match()') Find a Match
 
-    div(class='div-center')
-        button(type='button', class='btn btn-block btn-primary', ng-click='editInfo()') Edit my Information
-
     ui-view
+div(class='container', ng-if='init() == false')
+    include ./includes/invalid.jade
