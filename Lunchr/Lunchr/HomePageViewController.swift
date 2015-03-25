@@ -8,16 +8,65 @@
 
 import UIKit
 import SwiftyJSON
+import Socket_IO_Client_Swift
 
 class HomePageViewController: UIViewController {
 
+    @IBOutlet weak var matchedStatusLabel: UILabel!
     
+    required init(coder aDecoder: NSCoder) {
+        socket = SocketIOClient(socketURL: "http://localhost:3000")
+        socket.connect()
+        super.init(coder: aDecoder);
+    }
+
+    private var socket: SocketIOClient
+    private let MATCHING = "Hold on while we match you with another hungry soul"
+    private let MATCHED = "You've been matched with "
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
 
         // Do any additional setup after loading the view.
 
+        
+        // set up socketio handling
+        socket.on("hasBeenMatched", callback: {data, ack in
+            println("hasbeenmatched")
+            CurrentUser.currentUser = JSON(data!)[0]["user"].dictionaryValue
+            
+            let user = CurrentUser.currentUser!
+            // hack because socket messages may not come in order
+            if let matchedWith = user["matchedWith"]?.stringValue {
+                if matchedWith.isEmpty{
+                    self.setMatchingLabelToMatching()
+                }
+            }else{
+                self.setMatchingLabelToMatching()
+            }
+            
+        })
+        
+        
+        let user = CurrentUser.currentUser!
+        let email = (user["email"]?.stringValue)!
+        socket.on("matched" + email, {data, ack in
+            CurrentUser.currentUser = JSON(data!)[0]["user"].dictionaryValue
+            self.setMatchingLabelToMatched()
+        })
+        
+        // navigate to partial state
+        if let wantsToBeMatched = user["wantsToBeMatched"]?.boolValue {
+            if wantsToBeMatched {
+                self.setMatchingLabelToMatching()
+            }
+        }
+        if let matchedWith = user["matchedWith"]?.stringValue {
+            if !matchedWith.isEmpty{
+                self.setMatchingLabelToMatched()
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,7 +80,27 @@ class HomePageViewController: UIViewController {
         self.presentViewController(welcome, animated: true, completion: nil)
     }
     
+    @IBAction func MatchButtonPressed(sender: AnyObject) {
+        let user = CurrentUser.currentUser!
+//        println(user)
+        let email = (user["email"]?.stringValue)!
 
+        socket.emit("match", ["userEmail":email])
+    }
+    
+    private func setMatchingLabelToMatching() {
+
+
+
+            self.matchedStatusLabel.text = self.MATCHING
+
+    }
+    
+    private func setMatchingLabelToMatched(){
+        let user = CurrentUser.currentUser!
+        self.matchedStatusLabel.text = self.MATCHED + (user["matchedWith"]?.stringValue)!
+    }
+    
     /*
     // MARK: - Navigation
 

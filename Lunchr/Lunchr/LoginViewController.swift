@@ -51,7 +51,8 @@ class LoginViewController: UIViewController {
                 if let json: AnyObject = NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments, error: &serializationError) {
 
                     let trueJSON = JSON(json)
-                    CurrentUser.currentUser = trueJSON[0].dictionaryValue
+                    println(JSON(json).dictionaryValue["email"]!)
+                    CurrentUser.currentUser = trueJSON.dictionaryValue
                     let welcome = self?.storyboard?.instantiateViewControllerWithIdentifier("login") as UINavigationController
                     self?.presentViewController(welcome, animated: true, completion: nil)
                     
