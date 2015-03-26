@@ -17,7 +17,7 @@ class HomePageViewController: UIViewController {
     @IBOutlet weak var finishedButton: UIButton!
     
     required init(coder aDecoder: NSCoder) {
-        socket = SocketIOClient(socketURL: "http://54.69.119.123:3000")
+        socket = SocketIOClient(socketURL: "http://54.200.225.219")
         socket.connect()
         super.init(coder: aDecoder);
     }

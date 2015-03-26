@@ -78,7 +78,7 @@ class LoginViewController: UIViewController {
         
         let params: [String: AnyObject] = ["email": emailField.text, "password": passwordField.text]
         
-        let request = Alamofire.request(.POST, "http://54.69.119.123:3000/api/users/authenticate", parameters: params)
+        let request = Alamofire.request(.POST, "http://54.200.225.219/api/users/authenticate", parameters: params)
         request.validate()
         request.response { [weak self] request, response, data, error in
             if let strongSelf = self {

@@ -106,7 +106,7 @@ class RegisterViewController: UIViewController {
         
         let params: [String: AnyObject] = ["email": emailField.text, "password": passwordField.text, "firstname": firstNameField.text, "lastname": lastNameField.text, "age":ageField.text.toInt()!, "radius":radiusField.text.toInt()!]
         
-        let request = Alamofire.request(.POST, "http://54.69.119.123:3000/api/users/register", parameters: params)
+        let request = Alamofire.request(.POST, "http://54.200.225.219/api/users/register", parameters: params)
         request.validate()
         request.response { [weak self] request, response, data, error in
             if let strongSelf = self {
