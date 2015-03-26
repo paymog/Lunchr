@@ -87,7 +87,7 @@ lunchrControllers.controller('RegisterController', ['$scope', '$http', '$state',
 lunchrControllers.controller('HomeMatchingController', ['$state', 'socket', 'authService',
     function ($state, socket, authService) {
         var currentUser = authService.currentUser();
-        socket.emit('match', {userEmail: currentUser.email});
+        socket.emit('match', {userEmail: currentUser.email, restaurants: [1,2,3,4,5]});
 
         socket.on('hasBeenMatched', function(data){
             var userObject = angular.fromJson(data.user);
@@ -214,7 +214,7 @@ lunchrControllers.controller(
                                 reference: ( $scope.data )[key].reference
                             }).then(
                                 function (data) {
-                                    $scope.markers.push({
+                                    var marker = new google.maps.Marker({
                                         id: key + 1,
                                         coords: {
                                             latitude: data.geometry.location.k,
@@ -226,17 +226,20 @@ lunchrControllers.controller(
                                             labelClass: "labels",
                                             animation: google.maps.Animation.DROP
                                         },
-                                        click: function (e) {
-                                            var index = $scope.selectedPlaces.indexOf(e.$id);
+                                        click: function( ) {
+                                            var id = data.name + ":" + data.formatted_address;
+                                            var index = $scope.selectedPlaces.indexOf(id);
 
                                             if (index > -1) {
-                                                removeSelectedPlaceFromList(e.$id);
+                                                removeSelectedPlaceFromList(id);
                                             }
                                             else {
-                                                addSelectedPlaceToList(e.$id, data.name, data.formatted_address, data.formatted_phone_number, data.website);
+                                                addSelectedPlaceToList(id, data.name, data.formatted_address, data.formatted_phone_number, data.website);
                                             }
                                         }
                                     });
+                                    
+                                    $scope.markers.push( marker );
                                 }
                             );
                         }
@@ -249,7 +252,7 @@ lunchrControllers.controller(
                     function (update) {
                         alert('Got notification: ' + update);
                     });
-            }
+            };
 
             var onError = function (error) {
                 switch (error.code) {
@@ -270,7 +273,7 @@ lunchrControllers.controller(
                 var errorAlert = $("#error");
                 errorAlert.html($scope.errorMessages);
                 errorAlert.toggleClass("alertMsg");
-            }
+            };
 
             $scope.getUserLocation(onSuccess, onError);
 
@@ -343,7 +346,7 @@ lunchrControllers.controller(
                 placeItemButton.addEventListener("click", function () {
                     removeSelectedPlaceFromList(this.parentNode.id);
                 });
-            }
+            };
 
             var removeSelectedPlaceFromList = function(id) {
                 // Remove the id from the places array
