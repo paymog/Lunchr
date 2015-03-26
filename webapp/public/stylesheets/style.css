@@ -72,6 +72,21 @@ a {
     background: #fff;
 }
 
+.margin-top-big {
+    margin-top: 150px;
+}
+.no-margin-left {
+    margin-left: -15px;
+}
+
+.float-right {
+    float: right;
+}
+
+.float-left {
+    float: left;
+}
+
 .angular-google-map-container {
     height: 450px;
     width: 800px;
