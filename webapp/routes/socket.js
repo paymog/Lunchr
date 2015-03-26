@@ -25,7 +25,7 @@ module.exports = function(socket) {
                 }
                 var password = currentUser.password;
                 currentUser.password = null;
-                socket.emit('hasBeenMatched', {user: JSON.stringify(currentUser)});
+                socket.emit('hasBeenMatched', {user: currentUser});
                 currentUser.password = password;
             });
 
@@ -63,8 +63,8 @@ module.exports = function(socket) {
             var currPassword = currentUser.password;
             userToMatch.password = null;
             currentUser.password = null;
-            socket.broadcast.emit('matched' + userToMatch.email, {user: JSON.stringify(userToMatch)});
-            socket.emit('matched' + currentUser.email, {user: JSON.stringify(currentUser)});
+            socket.broadcast.emit('matched' + userToMatch.email, {user: userToMatch});
+            socket.emit('matched' + currentUser.email, {user: currentUser});
             userToMatch.password = matchPassword;
             currentUser.password = currPassword;
 
