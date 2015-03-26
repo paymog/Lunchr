@@ -6,9 +6,9 @@ describe( 'MapController', function( )
 
     var DEFAULT = 'name';
 
-    var $controller, $httpBackend, $rootScope;
+    var $controller, $httpBackend, $rootScope, authService;
 
-    function createController(authService)
+    function createController()
     {
         return $controller( 'MapController' , { '$scope': $rootScope, 'authService': authService } );
     }
@@ -23,15 +23,17 @@ describe( 'MapController', function( )
 
         // The $controller service is used to create instances of controllers
         $controller = $injector.get( '$controller' );
+
+        //create authService
+        authService = jasmine.createSpyObj('authService', ['currentUser']);
+        authService.currentUser.and.returnValue({firstname: DEFAULT});
     } ) );
     
     describe( "$scope.map", function( )
     {
         it ( "Ensure map exists" , function( )
         {
-            var authService = jasmine.createSpyObj('authService', ['currentUser']);
-            authService.currentUser.and.returnValue({firstname: DEFAULT});
-            createController(authService);
+            createController();
             expect( $rootScope.map ).toBeTruthy( );
         } );
     } );
@@ -40,9 +42,7 @@ describe( 'MapController', function( )
     {
         beforeEach( function( )
         {
-            var authService = jasmine.createSpyObj('authService', ['currentUser']);
-            authService.currentUser.and.returnValue({firstname: DEFAULT});
-            createController(authService);
+            createController();
         } );
         
         it ( "executes the function onSuccess with valid data", function( )
