@@ -88,9 +88,8 @@ module.exports = function(socket) {
                     console.log("Could not save user " + user);
                     console.log(err);
                 }
+                socket.emit("updated", {user: user})
             });
-
-
         });
     });
 };
