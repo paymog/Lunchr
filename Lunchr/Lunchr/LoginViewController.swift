@@ -27,22 +27,70 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func setBorderError(textField: UITextField){
+        let redBorder = UIColor(red: 1, green: 0, blue: 0, alpha: 1).CGColor
+        textField.layer.borderColor = redBorder
+        textField.layer.borderWidth = 1.0
+        textField.layer.cornerRadius = 3.0
+    }
+    
+    func clearBorder(textField: UITextField){
+        textField.layer.borderWidth = 0.0
+    }
+    
+    func validateFields() -> Bool{
+        var isValid = true
+        
+        clearBorder(emailField)
+        if(!emailField.hasText() || emailField.text.rangeOfString("@") == nil){
+            println(emailField.text.rangeOfString("@"))
+            isValid = false
+            setBorderError(emailField)
+        }
+        println(emailField.text.rangeOfString("@"))
+        
+        clearBorder(passwordField)
+        if(!passwordField.hasText()){
+            isValid = false
+            setBorderError(passwordField);
+        }
+        
+        return isValid
+    }
+    
+    private func setErrorLabel(text: String){
+        errorLabel.hidden = false
+        errorLabel.text = text
+    }
+    
+    private func clearErrorLabel(){
+        errorLabel.hidden = true
+        errorLabel.text = ""
+    }
+    
     @IBAction func LoginPressed(sender: AnyObject) {
+        clearErrorLabel()
+        
+        if !validateFields() {
+            setErrorLabel("Please correct the highlighted text boxes.")
+            return
+        }
+        
         let params: [String: AnyObject] = ["email": emailField.text, "password": passwordField.text]
         
-        let request = Alamofire.request(.POST, "http://localhost:3000/api/users/authenticate", parameters: params)
+        let request = Alamofire.request(.POST, "http://54.69.119.123:3000/api/users/authenticate", parameters: params)
         request.validate()
         request.response { [weak self] request, response, data, error in
             if let strongSelf = self {
                 let data = data as? NSData
                 
                 if data == nil {
-                    strongSelf.errorLabel.text = "Server didn't respond. Please try again."
+                    strongSelf.setErrorLabel("Server didn't respond. Please try again.")
                     return
                 }
                 else if error != nil {
                     let resultText = NSString(data: data!, encoding: NSUTF8StringEncoding)
-                    strongSelf.errorLabel.text = resultText
+                    strongSelf.setErrorLabel(resultText!)
                     return
                 }
                 
@@ -58,7 +106,7 @@ class LoginViewController: UIViewController {
                     
                 } else {
                     
-                    strongSelf.errorLabel.text = "There was a problem with the server response. Please try again"
+                    strongSelf.setErrorLabel("There was a problem with the server response. Please try again")
                     return
                 }
             }

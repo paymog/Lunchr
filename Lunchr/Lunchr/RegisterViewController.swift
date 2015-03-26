@@ -47,7 +47,7 @@ class RegisterViewController: UIViewController {
         var isValid = true
         
         clearBorder(emailField)
-        if(!emailField.hasText()){
+        if(!emailField.hasText() || emailField.text.rangeOfString("@") == nil){
             isValid = false
             setBorderError(emailField)
         }
@@ -85,28 +85,40 @@ class RegisterViewController: UIViewController {
         return isValid
     }
     
+    private func setErrorLabel(text: String){
+        errorLabel.hidden = false
+        errorLabel.text = text
+    }
+    
+    private func clearErrorLabel(){
+        errorLabel.hidden = true
+        errorLabel.text = ""
+    }
+    
     
     @IBAction func RegisterButtonPressed(sender: AnyObject) {
+        clearErrorLabel()
         
         if(!validateFields()){
+            setErrorLabel("Please correct the highlighted text boxes.")
             return
         }
         
         let params: [String: AnyObject] = ["email": emailField.text, "password": passwordField.text, "firstname": firstNameField.text, "lastname": lastNameField.text, "age":ageField.text.toInt()!, "radius":radiusField.text.toInt()!]
         
-        let request = Alamofire.request(.POST, "http://localhost:3000/api/users/register", parameters: params)
+        let request = Alamofire.request(.POST, "http://54.69.119.123:3000/api/users/register", parameters: params)
         request.validate()
         request.response { [weak self] request, response, data, error in
             if let strongSelf = self {
                 let data = data as? NSData
                 
                 if data == nil {
-                    strongSelf.errorLabel.text = "Server didn't respond. Please try again."
+                    strongSelf.setErrorLabel("Server didn't respond. Please try again.")
                     return
                 }
                 else if error != nil {
                     let resultText = NSString(data: data!, encoding: NSUTF8StringEncoding)
-                    strongSelf.errorLabel.text = resultText
+                    strongSelf.setErrorLabel( resultText!)
                     return
                 }
                 
@@ -122,7 +134,7 @@ class RegisterViewController: UIViewController {
                     
                 } else {
                     
-                    strongSelf.errorLabel.text = "There was a problem with the server response. Please try again"
+                    strongSelf.setErrorLabel("There was a problem with the server response. Please try again.")
                     return
                 }
             }

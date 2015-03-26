@@ -13,9 +13,11 @@ import Socket_IO_Client_Swift
 class HomePageViewController: UIViewController {
 
     @IBOutlet weak var matchedStatusLabel: UILabel!
+    @IBOutlet weak var matchButton: UIButton!
+    @IBOutlet weak var finishedButton: UIButton!
     
     required init(coder aDecoder: NSCoder) {
-        socket = SocketIOClient(socketURL: "http://localhost:3000")
+        socket = SocketIOClient(socketURL: "http://54.69.119.123:3000")
         socket.connect()
         super.init(coder: aDecoder);
     }
@@ -40,10 +42,10 @@ class HomePageViewController: UIViewController {
             // hack because socket messages may not come in order
             if let matchedWith = user["matchedWith"]?.stringValue {
                 if matchedWith.isEmpty{
-                    self.setMatchingLabelToMatching()
+                    self.setMatchingLabel(self.MATCHING)
                 }
             }else{
-                self.setMatchingLabelToMatching()
+                self.setMatchingLabel(self.MATCHING)
             }
             
         })
@@ -53,18 +55,18 @@ class HomePageViewController: UIViewController {
         let email = (user["email"]?.stringValue)!
         socket.on("matched" + email, {data, ack in
             CurrentUser.currentUser = JSON(data!)[0]["user"].dictionaryValue
-            self.setMatchingLabelToMatched()
+            self.setMatchingLabel(self.MATCHED + email)
         })
         
         // navigate to partial state
         if let wantsToBeMatched = user["wantsToBeMatched"]?.boolValue {
             if wantsToBeMatched {
-                self.setMatchingLabelToMatching()
+                self.setMatchingLabel(self.MATCHING)
             }
         }
         if let matchedWith = user["matchedWith"]?.stringValue {
             if !matchedWith.isEmpty{
-                self.setMatchingLabelToMatched()
+                self.setMatchingLabel(self.MATCHED + email)
             }
         }
     }
@@ -82,23 +84,24 @@ class HomePageViewController: UIViewController {
     
     @IBAction func MatchButtonPressed(sender: AnyObject) {
         let user = CurrentUser.currentUser!
-//        println(user)
         let email = (user["email"]?.stringValue)!
 
         socket.emit("match", ["userEmail":email])
     }
     
-    private func setMatchingLabelToMatching() {
-
-
-
-            self.matchedStatusLabel.text = self.MATCHING
-
+    
+    private func clearMatchingLabel(){
+        self.matchedStatusLabel.hidden = true
+        self.matchedStatusLabel.text = ""
+        finishedButton.hidden = true
+        matchButton.hidden = false
     }
     
-    private func setMatchingLabelToMatched(){
-        let user = CurrentUser.currentUser!
-        self.matchedStatusLabel.text = self.MATCHED + (user["matchedWith"]?.stringValue)!
+    private func setMatchingLabel(text: String){
+        self.matchedStatusLabel.text = text
+        self.matchedStatusLabel.hidden = false
+        finishedButton.hidden = false
+        matchButton.hidden = true
     }
     
     /*
