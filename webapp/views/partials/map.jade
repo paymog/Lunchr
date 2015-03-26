@@ -3,13 +3,16 @@ div(class='container', ng-if='init()')
     h1 Restaurants Near You
 
     //This is the map div, its properties are in the style.css file
-    div( id='error',  class='alert alert-danger text-center alertMsg' )
+    div( id='error', class='alert alert-danger text-center alertMsg' )
     
     div( id='warning', class='alert alert-warning text-center alertMsg' )
         
     ui-gmap-google-map( center='map.center', zoom='map.zoom' )
         ui-gmap-marker( ng-repeat='m in markers', idKey="'m.id'", coords="m.coords", icon="m.icon", options="m.options", click="m.click" )
 
-    div( id="selectedPlaces" class="list-group" )
+    div( id="selectedPlaces", class="list-group" )
+
+    div(class='div-center-circleBtn')
+        button(type='button', class='btn-circle', ng-click='match()') Find a Match
 div(class='container', ng-if='init() == false')
     include ./includes/invalid.jade

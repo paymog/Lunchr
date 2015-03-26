@@ -69,5 +69,28 @@ module.exports = function(socket) {
             currentUser.password = currPassword;
 
         });
-    })
+    });
+
+    socket.on('finished', function(data) {
+        User.findOne({email: data.userEmail}, function(error, user) {
+            if(error)
+                return;
+
+            if(!user) {
+                console.log("Could not find user with email" + data.userEmail);
+                return;
+            }
+
+            user.wantsToBeMatched = false;
+            user.matchedWith = "";
+            user.save(function(err) {
+                if(err) {
+                    console.log("Could not save user " + user);
+                    console.log(err);
+                }
+            });
+
+
+        });
+    });
 };

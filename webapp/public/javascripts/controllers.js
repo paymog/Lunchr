@@ -108,8 +108,8 @@ lunchrControllers.controller('HomeMatchedController', ['$scope', 'authService',
         $scope.name = user.matchedWith;
     }]);
 
-lunchrControllers.controller('HomePageController', ['$scope', '$http', '$state', 'authService',
-    function ($scope, $http, $state, authService) {
+lunchrControllers.controller('HomePageController', ['$scope', '$http', '$state', 'authService', 'socket',
+    function ($scope, $http, $state, authService, socket) {
         var currentUser = authService.currentUser();
         $scope.init = function () {
             return checkUser(currentUser);
@@ -126,8 +126,15 @@ lunchrControllers.controller('HomePageController', ['$scope', '$http', '$state',
             }
 
             $scope.name = (currentUser.firstname + " " + currentUser.lastname);
-            $scope.match = function () {
-                $state.go('home.matching');
+            $scope.startMatch = function () {
+                $state.go('map');
+            };
+            $scope.finishEating = function () {
+                currentUser.matchedWith = "";
+                currentUser.wantsToBeMatched = false;
+                authService.setUser(currentUser);
+                socket.emit('finished', {userEmail: currentUser.email});
+                $state.go('home');
             };
         }
     }
@@ -145,6 +152,9 @@ lunchrControllers.controller(
         if($scope.currentUser)
         {
             DefineNavigation($scope, $state, authService);
+            $scope.match = function () {
+                $state.go('home.matching');
+            };
             var defaultVals = {latitude: 49.8651559, longitude: -97.11077669999997, zoom: 14};
             $scope.map = {
                 center: {latitude: defaultVals.latitude, longitude: defaultVals.longitude},
