@@ -41,7 +41,10 @@ class HomePageViewController: UIViewController {
             let user = CurrentUser.currentUser!
             // hack because socket messages may not come in order
             if let matchedWith = user["matchedWith"]?.stringValue {
-                if matchedWith.isEmpty{
+                if !matchedWith.isEmpty{
+                    self.setMatchingLabel(self.MATCHED + matchedWith)
+                }else
+                {
                     self.setMatchingLabel(self.MATCHING)
                 }
             }else{
@@ -50,12 +53,19 @@ class HomePageViewController: UIViewController {
             
         })
         
+        socket.on("updated", {data, ack in
+            println(JSON(data!))
+            CurrentUser.currentUser = JSON(data!)[0]["user"].dictionaryValue
+        })
+        
         
         let user = CurrentUser.currentUser!
         let email = (user["email"]?.stringValue)!
         socket.on("matched" + email, {data, ack in
             CurrentUser.currentUser = JSON(data!)[0]["user"].dictionaryValue
-            self.setMatchingLabel(self.MATCHED + email)
+            let user = CurrentUser.currentUser!
+            let matchedWith = (user["matchedwith"]?.stringValue)!
+            self.setMatchingLabel(self.MATCHED + matchedWith)
         })
         
         // navigate to partial state
@@ -66,7 +76,7 @@ class HomePageViewController: UIViewController {
         }
         if let matchedWith = user["matchedWith"]?.stringValue {
             if !matchedWith.isEmpty{
-                self.setMatchingLabel(self.MATCHED + email)
+                self.setMatchingLabel(self.MATCHED + matchedWith)
             }
         }
     }
@@ -82,6 +92,14 @@ class HomePageViewController: UIViewController {
         self.presentViewController(welcome, animated: true, completion: nil)
     }
     
+    @IBAction func FinishedEatingButtonPressed(sender: AnyObject) {
+        let user = CurrentUser.currentUser!
+        let email = (user["email"]?.stringValue)!
+        
+        socket.emit("finished", ["userEmail": email])
+        clearMatchingLabel()
+        
+    }
     @IBAction func MatchButtonPressed(sender: AnyObject) {
         let user = CurrentUser.currentUser!
         let email = (user["email"]?.stringValue)!
