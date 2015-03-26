@@ -8,6 +8,7 @@ mongoose.model('User', {
     age: Number,
     radius: String,
     wantsToBeMatched: Boolean,
-    matchedWith: String
+    matchedWith: String,
+    restaurants: Array
 });
 mongoose.connect('mongodb://localhost:27017/lunchr');

@@ -38,6 +38,19 @@ module.exports = function(socket) {
             }
 
             var userToMatch = users[0];
+            var restaurantMatch = false;
+            var pos = 0;
+            
+            while ( restaurantMatch == false && pos < currentUser.restaurants.length )
+            {            
+                if ( currentUser.indexOf( userToMatch[ pos ] ) )
+                {
+                    restaurantMatch = true;
+                    console.log( userToMatch[ pos ] );
+                }
+                
+                pos++;
+            }
 
             userToMatch.wantsToBeMatched = false;
             currentUser.wantsToBeMatched = false;
