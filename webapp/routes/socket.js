@@ -39,25 +39,18 @@ module.exports = function(socket) {
             }
 
             var userToMatch = users[0];
-            
-            console.log( "CU: " + currentUser.restaurants );
-            console.log( "UM: " + userToMatch.restaurants );
-            
             if ( currentUser.restaurants != null && userToMatch.restaurants != null )
             {
                 var restaurantMatch = false;
 
                 for(var pos=0; restaurantMatch == false && pos < currentUser.restaurants.length; pos++ )
                 {
-                    //console.log( currentUser.restaurants[ pos ] );
-                    //console.log( userToMatch.restaurants );
-                    
                     var index = userToMatch.restaurants.indexOf( currentUser.restaurants[ pos ] );
                     
                     if ( index > -1 )
                     {
                         restaurantMatch = true;
-                        console.log( currentUser.restaurants[ pos ] );
+                        console.log( "Matched restaurant is " + currentUser.restaurants[ pos ] );
                     }
                 }
             }

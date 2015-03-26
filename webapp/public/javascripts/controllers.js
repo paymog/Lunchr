@@ -87,8 +87,7 @@ lunchrControllers.controller('RegisterController', ['$scope', '$http', '$state',
 lunchrControllers.controller('HomeMatchingController', ['$state', 'socket', 'authService',
     function ($state, socket, authService) {
         var currentUser = authService.currentUser();
-        alert(currentUser);
-        socket.emit('match', {userEmail: currentUser.email, restaurants: currentUser.selectedPlaces});
+        socket.emit('match', {userEmail: currentUser.email, restaurants: currentUser.restaurants});
 
         socket.on('hasBeenMatched', function(data){
             authService.setUser(data.user);
@@ -154,7 +153,6 @@ lunchrControllers.controller(
             $scope.match = function () {
                 $scope.currentUser.restaurants = $scope.selectedPlaces;
                 authService.setUser($scope.currentUser);
-                console.log($scope.currentUser);
                 $state.go('home.matching');
             };
             var defaultVals = {latitude: 49.8651559, longitude: -97.11077669999997, zoom: 14};
