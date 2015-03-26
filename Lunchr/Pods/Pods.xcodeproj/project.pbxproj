@@ -737,6 +737,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0510;
+				TargetAttributes = {
+					608597661351E0FCC167055F = {
+						DevelopmentTeam = 98CS97VCGJ;
+					};
+					9C6021747F87B60FCD92F080 = {
+						DevelopmentTeam = 98CS97VCGJ;
+					};
+					A699068A5B7504FF6A4B07CC = {
+						DevelopmentTeam = 98CS97VCGJ;
+					};
+				};
 			};
 			buildConfigurationList = AA851AF392F4E128340F5E6B /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -903,7 +914,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-Lunchr-SwiftyJSON/Pods-Lunchr-SwiftyJSON-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Pods-Lunchr-SwiftyJSON/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Pods-Lunchr-SwiftyJSON/Pods-Lunchr-SwiftyJSON.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -930,7 +941,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-Lunchr-SocketRocket/Pods-Lunchr-SocketRocket-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Pods-Lunchr-SocketRocket/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Pods-Lunchr-SocketRocket/Pods-Lunchr-SocketRocket.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -956,7 +967,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-Lunchr/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Pods-Lunchr/Pods-Lunchr.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1056,7 +1067,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-Lunchr-Alamofire/Pods-Lunchr-Alamofire-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Pods-Lunchr-Alamofire/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Pods-Lunchr-Alamofire/Pods-Lunchr-Alamofire.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -1082,7 +1093,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-Lunchr/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Pods-Lunchr/Pods-Lunchr.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -1141,7 +1152,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-Lunchr-SwiftHTTP/Pods-Lunchr-SwiftHTTP-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Pods-Lunchr-SwiftHTTP/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Pods-Lunchr-SwiftHTTP/Pods-Lunchr-SwiftHTTP.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -1168,7 +1179,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-Lunchr-SwiftyJSON/Pods-Lunchr-SwiftyJSON-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Pods-Lunchr-SwiftyJSON/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Pods-Lunchr-SwiftyJSON/Pods-Lunchr-SwiftyJSON.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1223,7 +1234,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-Lunchr-Alamofire/Pods-Lunchr-Alamofire-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Pods-Lunchr-Alamofire/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Pods-Lunchr-Alamofire/Pods-Lunchr-Alamofire.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1279,7 +1290,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-Lunchr-SwiftHTTP/Pods-Lunchr-SwiftHTTP-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Pods-Lunchr-SwiftHTTP/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Pods-Lunchr-SwiftHTTP/Pods-Lunchr-SwiftHTTP.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1341,7 +1352,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-Lunchr-SocketRocket/Pods-Lunchr-SocketRocket-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Pods-Lunchr-SocketRocket/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Pods-Lunchr-SocketRocket/Pods-Lunchr-SocketRocket.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1368,7 +1379,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-Lunchr-Socket.IO-Client-Swift/Pods-Lunchr-Socket.IO-Client-Swift-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Pods-Lunchr-Socket.IO-Client-Swift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Pods-Lunchr-Socket.IO-Client-Swift/Pods-Lunchr-Socket.IO-Client-Swift.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1396,7 +1407,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-Lunchr-Socket.IO-Client-Swift/Pods-Lunchr-Socket.IO-Client-Swift-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Pods-Lunchr-Socket.IO-Client-Swift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Pods-Lunchr-Socket.IO-Client-Swift/Pods-Lunchr-Socket.IO-Client-Swift.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
