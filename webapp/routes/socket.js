@@ -17,6 +17,7 @@ module.exports = function(socket) {
 
             currentUser = user;
             currentUser.wantsToBeMatched = true;
+            currentUser.restaurants = data.restaurants;
             currentUser.save(function(err){
                 if(err) {
                     console.log('Could not save user: ' + currentUser);
@@ -38,18 +39,27 @@ module.exports = function(socket) {
             }
 
             var userToMatch = users[0];
-            var restaurantMatch = false;
-            var pos = 0;
             
-            while ( restaurantMatch == false && pos < currentUser.restaurants.length )
-            {            
-                if ( currentUser.indexOf( userToMatch[ pos ] ) )
+            console.log( "CU: " + currentUser.restaurants );
+            console.log( "UM: " + userToMatch.restaurants );
+            
+            if ( currentUser.restaurants != null && userToMatch.restaurants != null )
+            {
+                var restaurantMatch = false;
+
+                for(var pos=0; restaurantMatch == false && pos < currentUser.restaurants.length; pos++ )
                 {
-                    restaurantMatch = true;
-                    console.log( userToMatch[ pos ] );
+                    //console.log( currentUser.restaurants[ pos ] );
+                    //console.log( userToMatch.restaurants );
+                    
+                    var index = userToMatch.restaurants.indexOf( currentUser.restaurants[ pos ] );
+                    
+                    if ( index > -1 )
+                    {
+                        restaurantMatch = true;
+                        console.log( currentUser.restaurants[ pos ] );
+                    }
                 }
-                
-                pos++;
             }
 
             userToMatch.wantsToBeMatched = false;

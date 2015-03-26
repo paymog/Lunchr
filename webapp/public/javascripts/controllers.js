@@ -87,7 +87,8 @@ lunchrControllers.controller('RegisterController', ['$scope', '$http', '$state',
 lunchrControllers.controller('HomeMatchingController', ['$state', 'socket', 'authService',
     function ($state, socket, authService) {
         var currentUser = authService.currentUser();
-        socket.emit('match', {userEmail: currentUser.email, restaurants: [1,2,3,4,5]});
+        alert(currentUser);
+        socket.emit('match', {userEmail: currentUser.email, restaurants: currentUser.selectedPlaces});
 
         socket.on('hasBeenMatched', function(data){
             authService.setUser(data.user);
@@ -151,6 +152,9 @@ lunchrControllers.controller(
         {
             DefineNavigation($scope, $state, authService);
             $scope.match = function () {
+                $scope.currentUser.restaurants = $scope.selectedPlaces;
+                authService.setUser($scope.currentUser);
+                console.log($scope.currentUser);
                 $state.go('home.matching');
             };
             var defaultVals = {latitude: 49.8651559, longitude: -97.11077669999997, zoom: 14};
@@ -208,7 +212,6 @@ lunchrControllers.controller(
                 });
 
                 $scope.data = "empty";
-                var key = -1;
 
                 var promise = ngGPlacesAPI.nearbySearch({
                     latitude: position.coords.latitude,
@@ -216,14 +219,13 @@ lunchrControllers.controller(
                 });
 
                 promise.then(function (data) {
-                        $scope.data = data;
-                        for (key in data) {
+                        for (var i=0; i<data.length; i++) {
                             $scope.locationDetails = ngGPlacesAPI.placeDetails({
-                                reference: ( $scope.data )[key].reference
+                                reference: data[i].reference
                             }).then(
                                 function (data) {
-                                    var marker = new google.maps.Marker({
-                                        id: key + 1,
+                                    $scope.markers.push({
+                                        id: i+1, //has to be +1, home marker is 0
                                         coords: {
                                             latitude: data.geometry.location.k,
                                             longitude: data.geometry.location.D
@@ -235,7 +237,7 @@ lunchrControllers.controller(
                                             animation: google.maps.Animation.DROP
                                         },
                                         click: function( ) {
-                                            var id = data.name + ":" + data.formatted_address;
+                                            var id = data.name + " located at " + data.formatted_address;
                                             var index = $scope.selectedPlaces.indexOf(id);
 
                                             if (index > -1) {
@@ -246,8 +248,6 @@ lunchrControllers.controller(
                                             }
                                         }
                                     });
-                                    
-                                    $scope.markers.push( marker );
                                 }
                             );
                         }
