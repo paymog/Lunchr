@@ -15,6 +15,8 @@
 <tr><td><a href="matchUsers.html">matchUsers</a></td></tr>
 <tr><td><a href="testLoginSuccessAfterMatch.html">testLoginSuccessAfterMatch</a></td></tr>
 <tr><td><a href="testMatchUserLogIn.html">testMatchUserLogIn</a></td></tr>
+<tr><td><a href="accessControl.html">accessControl</a></td></tr>
+<tr><td><a href="testGoogleMaps.html">testGoogleMaps</a></td></tr>
 </tbody></table>
 </body>
 </html>
