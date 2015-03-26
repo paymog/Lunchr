@@ -90,14 +90,12 @@ lunchrControllers.controller('HomeMatchingController', ['$state', 'socket', 'aut
         socket.emit('match', {userEmail: currentUser.email});
 
         socket.on('hasBeenMatched', function(data){
-            var userObject = angular.fromJson(data.user);
-            authService.setUser(userObject);
+            authService.setUser(data.user);
         });
 
 
         socket.on('matched' + currentUser.email, function (data) {
-            var userObject = angular.fromJson(data.user);
-            authService.setUser(userObject);
+            authService.setUser(data.user);
             $state.go('home.matched');
         });
     }]);
