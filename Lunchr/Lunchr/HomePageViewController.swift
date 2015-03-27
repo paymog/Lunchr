@@ -10,13 +10,13 @@ import UIKit
 import SwiftyJSON
 import Socket_IO_Client_Swift
 
-class HomePageViewController: UIViewController {
+public class HomePageViewController: UIViewController {
 
-    @IBOutlet weak var matchedStatusLabel: UILabel!
-    @IBOutlet weak var matchButton: UIButton!
-    @IBOutlet weak var finishedButton: UIButton!
+    @IBOutlet public weak var matchedStatusLabel: UILabel!
+    @IBOutlet public weak var matchButton: UIButton!
+    @IBOutlet public weak var finishedButton: UIButton!
     
-    required init(coder aDecoder: NSCoder) {
+    required public init(coder aDecoder: NSCoder) {
         socket = SocketIOClient(socketURL: "http://54.200.225.219")
         socket.connect()
         super.init(coder: aDecoder);
@@ -26,7 +26,7 @@ class HomePageViewController: UIViewController {
     private let MATCHING = "Hold on while we match you with another hungry soul"
     private let MATCHED = "You've been matched with "
 
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         
 
@@ -81,7 +81,7 @@ class HomePageViewController: UIViewController {
         }
     }
 
-    override func didReceiveMemoryWarning() {
+    override public func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }

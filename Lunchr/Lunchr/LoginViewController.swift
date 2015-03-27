@@ -10,26 +10,27 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class LoginViewController: UIViewController {
+public class LoginViewController: UIViewController {
     
-    @IBOutlet weak var emailField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet public weak var emailField: UITextField!
+    @IBOutlet public weak var passwordField: UITextField!
+    @IBOutlet public weak var errorLabel: UILabel!
     
-    override func viewDidLoad() {
+    public let RED_COLOUR = UIColor(red: 1, green: 0, blue: 0, alpha: 1).CGColor
+    
+    override public func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
     }
     
-    override func didReceiveMemoryWarning() {
+    override public func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func setBorderError(textField: UITextField){
-        let redBorder = UIColor(red: 1, green: 0, blue: 0, alpha: 1).CGColor
-        textField.layer.borderColor = redBorder
+        textField.layer.borderColor = RED_COLOUR
         textField.layer.borderWidth = 1.0
         textField.layer.cornerRadius = 3.0
     }
@@ -38,7 +39,7 @@ class LoginViewController: UIViewController {
         textField.layer.borderWidth = 0.0
     }
     
-    func validateFields() -> Bool{
+    public func validateFields() -> Bool{
         var isValid = true
         
         clearBorder(emailField)
@@ -68,7 +69,7 @@ class LoginViewController: UIViewController {
         errorLabel.text = ""
     }
     
-    @IBAction func LoginPressed(sender: AnyObject) {
+    @IBAction public func LoginPressed(sender: AnyObject) {
         clearErrorLabel()
         
         if !validateFields() {

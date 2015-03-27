@@ -11,23 +11,24 @@ import Alamofire
 import SwiftyJSON
 
 
-class RegisterViewController: UIViewController {
+public class RegisterViewController: UIViewController {
 
-    @IBOutlet weak var emailField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var firstNameField: UITextField!
-    @IBOutlet weak var lastNameField: UITextField!
-    @IBOutlet weak var errorLabel: UILabel!
-    @IBOutlet weak var ageField: UITextField!
-    @IBOutlet weak var radiusField: UITextField!
-    override func viewDidLoad() {
+    @IBOutlet public weak var emailField: UITextField!
+    @IBOutlet public weak var passwordField: UITextField!
+    @IBOutlet public weak var firstNameField: UITextField!
+    @IBOutlet public weak var lastNameField: UITextField!
+    @IBOutlet public weak var errorLabel: UILabel!
+    @IBOutlet public weak var ageField: UITextField!
+    @IBOutlet public weak var radiusField: UITextField!
+    
+    override public func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
 
-    override func didReceiveMemoryWarning() {
+    override public func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -43,7 +44,7 @@ class RegisterViewController: UIViewController {
         textField.layer.borderWidth = 0.0
     }
     
-    func validateFields() -> Bool{
+    public func validateFields() -> Bool{
         var isValid = true
         
         clearBorder(emailField)
