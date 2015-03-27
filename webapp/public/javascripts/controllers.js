@@ -150,6 +150,9 @@ lunchrControllers.controller(
 
         if($scope.currentUser)
         {
+            ngProgress.color('royalblue');
+            ngProgress.start();
+
             DefineNavigation($scope, $state, authService);
             $scope.match = function () {
                 $scope.currentUser.restaurants = $scope.selectedPlaces;
@@ -190,7 +193,6 @@ lunchrControllers.controller(
             };
 
             var onSuccess = function (position) {
-                ngProgress.start();
                 $scope.map = {
                     center: {latitude: position.coords.latitude, longitude: position.coords.longitude},
                     zoom: 14
@@ -280,6 +282,7 @@ lunchrControllers.controller(
                 var errorAlert = $("#error");
                 errorAlert.html($scope.errorMessages);
                 errorAlert.toggleClass("alertMsg");
+                ngProgress.complete();
             };
 
             $scope.getUserLocation(onSuccess, onError);
