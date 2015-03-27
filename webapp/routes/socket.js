@@ -41,6 +41,18 @@ module.exports = function(socket) {
             var userToMatch = null;
             var restaurantMatch = false;
             for(var i=0; i<users.length && !restaurantMatch; i++) {
+                if(currentUser.restaurants.length==0 && users[i].restaurants.length != 0)
+                {
+                    //if user requesting match has no restaurant selected -> any match
+                    userToMatch = users[i];
+                    restaurantMatch = setMatch(currentUser,userToMatch,0);
+                }
+                if(currentUser.restaurants.length!=0 && users[i].restaurants.length ==0)
+                {
+                    //if user found has no restaruant selected -> they are a match
+                    userToMatch = users[i];
+                    restaurantMatch = setMatch(userToMatch, currentUser, 0);
+                }
                 if (currentUser.restaurants != null && users[i].restaurants != null) {
 
                     for (var pos = 0; !restaurantMatch && pos < currentUser.restaurants.length; pos++) {
@@ -48,10 +60,7 @@ module.exports = function(socket) {
 
                         if (index > -1) {
                             userToMatch = users[i];
-                            userToMatch.meetingPlace = currentUser.restaurants[pos];
-                            currentUser.meetingPlace = userToMatch.meetingPlace;
-                            restaurantMatch = true;
-                            console.log("Matched restaurant is " + currentUser.meetingPlace);
+                            restaurantMatch = setMatch(userToMatch, currentUser, pos);
                         }
                     }
                 }
@@ -115,3 +124,10 @@ module.exports = function(socket) {
         });
     });
 };
+
+function setMatch(currentUser, userToMatch, index) {
+    userToMatch.meetingPlace = userToMatch.restaurants[index];
+    currentUser.meetingPlace = userToMatch.meetingPlace;
+    console.log("Matched restaurant is " + currentUser.meetingPlace);
+    return true;
+}

@@ -152,7 +152,7 @@ lunchrControllers.controller(
 
         if($scope.currentUser)
         {
-            ngProgress.color('royalblue');
+            ngProgress.color('#00E64D');
             ngProgress.start();
 
             DefineNavigation($scope, $state, authService);
