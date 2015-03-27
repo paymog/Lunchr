@@ -130,6 +130,7 @@ lunchrControllers.controller('HomePageController', ['$scope', '$http', '$state',
             $scope.finishEating = function () {
                 currentUser.matchedWith = "";
                 currentUser.wantsToBeMatched = false;
+                currentUser.restaurants = [];
                 authService.setUser(currentUser);
                 socket.emit('finished', {userEmail: currentUser.email});
                 $state.go('home');

@@ -99,6 +99,7 @@ module.exports = function(socket) {
 
             user.wantsToBeMatched = false;
             user.matchedWith = "";
+            user.restaurants = [];
             user.save(function(err) {
                 if(err) {
                     console.log("Could not save user " + user);
