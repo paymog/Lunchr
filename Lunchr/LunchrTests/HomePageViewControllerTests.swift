@@ -17,15 +17,11 @@ class HomePageViewControllerTests: XCTestCase {
     private var matchedStatusLabel = UILabel()
     private var matchButton = UIButton()
     private var finishedButton = UIButton()
-    private let viewController = HomePageViewController(coder: NSCoder())
-
+    
     override func setUp() {
     
         // Set mocked UI elements
-        viewController.matchedStatusLabel = matchedStatusLabel
-        viewController.matchButton = matchButton
-        viewController.finishedButton = finishedButton
-        
+
         super.setUp()
     }
     
