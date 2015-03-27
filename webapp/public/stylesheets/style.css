@@ -14,8 +14,13 @@ h3 {
   margin: 20px;
 }
 
+h4 {
+    font-size: 25px;
+    text-align: center;
+}
+
 input {
-  margin: 10px 0px;
+  margin: 10px 0;
 }
 
 a {
@@ -34,16 +39,6 @@ a {
 
 .regButton {
     clear: both;
-}
-
-.radiusButtonDiv {
-    float: right;
-}
-
-
-.radiusButton {
-    width: 100px;
-    text-align: left;
 }
 
 .div-center-circleBtn {
@@ -75,4 +70,68 @@ a {
 .btn-circle:hover {
     color: #4060A5;
     background: #fff;
+}
+
+.margin-top-big {
+    margin-top: 150px;
+}
+
+.margin-top-very-small {
+    margin-top: 10px;
+}
+
+.no-margin-left {
+    margin-left: -15px;
+}
+
+.float-right {
+    float: right;
+}
+
+.float-left {
+    float: left;
+}
+
+.angular-google-map-container {
+    height: 450px;
+    width: 800px;
+    float: left;
+}
+
+.labels {
+    background: #eee;
+    border: 2px solid #777;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px;
+}
+
+.label-user-pos {
+    background: #8ffb8f;
+    border: 2px solid #5cb85c;
+}
+
+#selectedPlaces {
+    width: 300px;
+    height: 450px;
+    float: right;
+    border: 1px solid #ddd;
+    background: #eee;
+    border-radius: 4px;
+    overflow-y: auto;
+}
+
+.placesItem {
+    margin-bottom: 0;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    color: #555;
+}
+
+.alertMsg {
+    display: none;
+}
+
+.btn-logout {
+    float: right;
 }
