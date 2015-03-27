@@ -221,9 +221,9 @@ lunchrControllers.controller(
                             $scope.locationDetails = ngGPlacesAPI.placeDetails({
                                 reference: data[i].reference
                             }).then(
-                                function (data) {
+                                (function (inner) { return function (data) {
                                     $scope.markers.push({
-                                        id: i+1, //has to be +1, home marker is 0
+                                        id: inner+1, //has to be +1, home marker is 0
                                         coords: {
                                             latitude: data.geometry.location.k,
                                             longitude: data.geometry.location.D
@@ -246,7 +246,7 @@ lunchrControllers.controller(
                                             }
                                         }
                                     });
-                                }
+                                };}(i))
                             );
                         }
                         ngProgress.complete();
