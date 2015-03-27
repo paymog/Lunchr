@@ -104,6 +104,7 @@ lunchrControllers.controller('HomeMatchedController', ['$scope', 'authService',
     function ($scope, authService) {
         var user = authService.currentUser();
         $scope.name = user.matchedWith;
+        $scope.restaurant = user.meetingPlace;
     }]);
 
 lunchrControllers.controller('HomePageController', ['$scope', '$http', '$state', 'authService', 'socket',
@@ -131,6 +132,7 @@ lunchrControllers.controller('HomePageController', ['$scope', '$http', '$state',
                 currentUser.matchedWith = "";
                 currentUser.wantsToBeMatched = false;
                 currentUser.restaurants = [];
+                currentUser.meetingPlace = "";
                 authService.setUser(currentUser);
                 socket.emit('finished', {userEmail: currentUser.email});
                 $state.go('home');
@@ -245,8 +247,8 @@ lunchrControllers.controller(
                                             animation: google.maps.Animation.DROP
                                         },
                                         click: function( ) {
-                                            if($('#error').html()) {
-                                                var errorAlert = $('#error');
+                                            var errorAlert = $('#error');
+                                            if(errorAlert.html()){
                                                 errorAlert.html("");
                                                 errorAlert.toggleClass('alertMsg');
                                             }

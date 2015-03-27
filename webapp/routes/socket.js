@@ -38,22 +38,26 @@ module.exports = function(socket) {
                 return;
             }
 
-            var userToMatch = users[0];
-            if ( currentUser.restaurants != null && userToMatch.restaurants != null )
-            {
-                var restaurantMatch = false;
+            var userToMatch = null;
+            var restaurantMatch = false;
+            for(var i=0; i<users.length && !restaurantMatch; i++) {
+                if (currentUser.restaurants != null && users[i].restaurants != null) {
 
-                for(var pos=0; restaurantMatch == false && pos < currentUser.restaurants.length; pos++ )
-                {
-                    var index = userToMatch.restaurants.indexOf( currentUser.restaurants[ pos ] );
-                    
-                    if ( index > -1 )
-                    {
-                        restaurantMatch = true;
-                        console.log( "Matched restaurant is " + currentUser.restaurants[ pos ] );
+                    for (var pos = 0; !restaurantMatch && pos < currentUser.restaurants.length; pos++) {
+                        var index = users[i].restaurants.indexOf(currentUser.restaurants[pos]);
+
+                        if (index > -1) {
+                            userToMatch = users[i];
+                            userToMatch.meetingPlace = currentUser.restaurants[pos];
+                            currentUser.meetingPlace = userToMatch.meetingPlace;
+                            restaurantMatch = true;
+                            console.log("Matched restaurant is " + currentUser.meetingPlace);
+                        }
                     }
                 }
             }
+            if(!restaurantMatch)
+                return;
 
             userToMatch.wantsToBeMatched = false;
             currentUser.wantsToBeMatched = false;
@@ -100,6 +104,7 @@ module.exports = function(socket) {
             user.wantsToBeMatched = false;
             user.matchedWith = "";
             user.restaurants = [];
+            user.meetingPlace = "";
             user.save(function(err) {
                 if(err) {
                     console.log("Could not save user " + user);
