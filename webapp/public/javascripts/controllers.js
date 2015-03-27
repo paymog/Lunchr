@@ -155,9 +155,16 @@ lunchrControllers.controller(
 
             DefineNavigation($scope, $state, authService);
             $scope.match = function () {
-                $scope.currentUser.restaurants = $scope.selectedPlaces;
-                authService.setUser($scope.currentUser);
-                $state.go('home.matching');
+                if($scope.selectedPlaces.length !=0) {
+                    $scope.currentUser.restaurants = $scope.selectedPlaces;
+                    authService.setUser($scope.currentUser);
+                    $state.go('home.matching');
+                }
+                else {
+                    var errorAlert = $("#error");
+                    errorAlert.html("<strong>Error</strong> - You must pick at least 1 restuarant to proceed.");
+                    errorAlert.toggleClass("alertMsg");
+                }
             };
             var defaultVals = {latitude: 49.8651559, longitude: -97.11077669999997, zoom: 14};
             $scope.map = {
@@ -238,6 +245,11 @@ lunchrControllers.controller(
                                             animation: google.maps.Animation.DROP
                                         },
                                         click: function( ) {
+                                            if($('#error').html()) {
+                                                var errorAlert = $('#error');
+                                                errorAlert.html("");
+                                                errorAlert.toggleClass('alertMsg');
+                                            }
                                             var id = data.name + " located at " + data.formatted_address;
                                             var index = $scope.selectedPlaces.indexOf(id);
 
@@ -360,7 +372,7 @@ lunchrControllers.controller(
 
             var removeSelectedPlaceFromList = function(id) {
                 // Remove the id from the places array
-                var index = $scope.selectedPlaces.indexOf(parseInt(id));
+                var index = $scope.selectedPlaces.indexOf(id);
                 $scope.selectedPlaces.splice(index, 1);
 
                 // Remove the item from the places list
