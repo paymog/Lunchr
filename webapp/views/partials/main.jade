@@ -6,10 +6,14 @@ div(class='container')
     div(class='text-center')
         div(ng-show='errorMessages', class='alert alert-danger')
             p {{errorMessages}}
+        form(novalidate, name='mainForm')
+            span(ng-show='mainForm.email.$invalid && mainForm.email.$dirty', style='color:red;')
+                p Invalid Email Address (lower-case only)
+            span(ng-show='mainForm.password.$invalid && mainForm.password.$dirty', style='color:red;')
+                p Password is required
 
-        form
-            input(type='text', id='inputEmail', class='form-control', placeholder="Enter your email", ng-model='email', required, autofocus)
-            input(type='password', class='form-control', placeholder="What's your password", ng-model='password', required)
+            input(type='text', name = 'email', id='inputEmail', class='form-control', placeholder="Enter your email", ng-model='email', ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/", required, autofocus, text-lowercase)
+            input(type='password', name = 'password', class='form-control', placeholder="What's your password", ng-model='password', required)
 
-            button(type='submit', class='btn btn-default btn-block btn-primary', ng-click='logIn()') Log in
+            button(type='submit', ng-disabled='mainForm.$invalid', class='btn btn-default btn-block btn-primary', ng-click='logIn()') Log in
             button(type='button', class='btn btn-default btn-block btn-primary', ng-click='createAccount()') Create Account

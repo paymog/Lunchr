@@ -6,16 +6,28 @@ div(class='container')
     div(class='text-center')
         div(ng-show='errorMessages', class='alert alert-danger')
             p {{errorMessages}}
-  
-        form
+
+        form(novalidate, name = 'registerForm')
+            span(ng-show='registerForm.email.$invalid && registerForm.email.$dirty', style='color:red;')
+                p Invalid Email Address (lower-case only)
+            span(ng-show='registerForm.fName.$invalid && registerForm.fName.$dirty', style='color:red;')
+                p First Name is required
+            span(ng-show='registerForm.lName.$invalid &&registerForm.lName.$dirty', style='color:red;')
+                p Last Name is required
+            span(ng-show='registerForm.password.$invalid && registerForm.password.$dirty', style='color:red;')
+                p Password is required
+            span(ng-show='registerForm.age.$invalid && registerForm.age.$dirty', style='color:red;')
+                p Age is required (numeric characters only)
+            span(ng-show='registerForm.radius.$invalid && registerForm.radius.$dirty', style='color:red;')
+                p Radius is required (numeric characters only)
             div(class='regboxLeft')
-                input(type='text', id='inputEmail', class='form-control', placeholder="Enter your email", ng-model='email', required, autofocus)
-                input(type='text', id='firstName', class='form-control', placeholder="Enter your first name", ng-model='firstname', required)
-                input(type='text', id='lastName', class='form-control', placeholder="Enter your last name", ng-model='lastname', required)
-                input(type='password', class='form-control', placeholder="Enter a password", ng-model='password', required)
+                input(type='email', name='email', id='inputEmail', class='form-control', placeholder="Enter your email", ng-model='email', ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/", required, autofocus, text-lowercase)
+                input(type='text', name ='fName', id='firstName', class='form-control', placeholder="Enter your first name", ng-model='firstname', required)
+                input(type='text', name='lName', id='lastName', class='form-control', placeholder="Enter your last name", ng-model='lastname', required)
+                input(type='password', name='password', class='form-control', placeholder="Enter a password", ng-model='password', required)
                 
             div(class='regboxRight')
-                input(type='text', id='userAge', class='form-control', placeholder="Enter your age", ng-model='age', required)
-                input(type='text', id='radius', class='form-control', placeholder="Enter a radius (km)", ng-model='radius', required)
+                input(type='number', name = 'age', id='userAge', class='form-control', placeholder="Enter your age", ng-model='age', required)
+                input(type='number', name = 'radius', id='radius', class='form-control', placeholder="Enter a radius (km)", ng-model='radius', required)
                 
-            button(type='submit', class='btn btn-default btn-block btn-primary regButton', ng-click='register()') Register
+            button(type='submit', ng-disabled='registerForm.$invalid', class='btn btn-default btn-block btn-primary regButton', ng-click='register()') Register
