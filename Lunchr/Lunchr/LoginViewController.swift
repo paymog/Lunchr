@@ -43,12 +43,10 @@ class LoginViewController: UIViewController {
         
         clearBorder(emailField)
         if(!emailField.hasText() || emailField.text.rangeOfString("@") == nil){
-            println(emailField.text.rangeOfString("@"))
             isValid = false
             setBorderError(emailField)
         }
-        println(emailField.text.rangeOfString("@"))
-        
+
         clearBorder(passwordField)
         if(!passwordField.hasText()){
             isValid = false
@@ -99,7 +97,7 @@ class LoginViewController: UIViewController {
                 if let json: AnyObject = NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments, error: &serializationError) {
 
                     let trueJSON = JSON(json)
-                    println(JSON(json).dictionaryValue["email"]!)
+
                     CurrentUser.currentUser = trueJSON.dictionaryValue
                     let welcome = self?.storyboard?.instantiateViewControllerWithIdentifier("login") as UINavigationController
                     self?.presentViewController(welcome, animated: true, completion: nil)

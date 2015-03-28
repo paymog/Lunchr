@@ -35,7 +35,6 @@ class HomePageViewController: UIViewController {
         
         // set up socketio handling
         socket.on("hasBeenMatched", callback: {data, ack in
-            println("hasbeenmatched")
             CurrentUser.currentUser = JSON(data!)[0]["user"].dictionaryValue
             
             let user = CurrentUser.currentUser!
@@ -54,7 +53,6 @@ class HomePageViewController: UIViewController {
         })
         
         socket.on("updated", {data, ack in
-            println(JSON(data!))
             CurrentUser.currentUser = JSON(data!)[0]["user"].dictionaryValue
         })
         
