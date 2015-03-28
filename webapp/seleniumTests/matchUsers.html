@@ -22,18 +22,8 @@
 	<td>matchWindow</td>
 </tr>
 <tr>
-	<td>waitForFrameToLoad</td>
-	<td>css=body</td>
-	<td></td>
-</tr>
-<tr>
 	<td>selectWindow</td>
-	<td>name=matchWindow</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//button[@type='button']</td>
+	<td>matchWindow</td>
 	<td></td>
 </tr>
 <tr>
@@ -43,33 +33,8 @@
 </tr>
 <tr>
 	<td>type</td>
-	<td>id=firstName</td>
-	<td>Test</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=lastName</td>
-	<td>Match</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=firstName</td>
-	<td>TestMatch</td>
-</tr>
-<tr>
-	<td>type</td>
 	<td>//input[@type='password']</td>
 	<td>123</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=userAge</td>
-	<td>18</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=radius</td>
-	<td>15</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -77,8 +42,118 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
+	<td>click</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//div[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[3]/div[3]/div[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[3]/div[10]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[3]/div[7]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[3]/div[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//img[contains(@src,'http://maps.google.com/mapfiles/ms/icons/red-dot.png')])[12]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[3]/div[9]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//img[contains(@src,'http://maps.google.com/mapfiles/ms/icons/red-dot.png')])[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
 	<td>css=button.btn-circle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=inputEmail</td>
+	<td>Test1234</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//input[@type='password']</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>//div[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[3]/div[3]/div[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[3]/div[3]/div[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[3]/div[10]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[3]/div[8]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[3]/div[9]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//img[contains(@src,'http://maps.google.com/mapfiles/ms/icons/red-dot.png')])[15]</td>
 	<td></td>
 </tr>
 <tr>
@@ -88,17 +163,42 @@
 </tr>
 <tr>
 	<td>assertText</td>
-	<td>css=p.ng-binding</td>
+	<td>css=p</td>
+	<td>Looks like you'll be enjoying the company of TestMatch Match today!</td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>//p[2]/b</td>
+	<td>restaurant</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=matchWindow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=p</td>
 	<td>Looks like you'll be enjoying the company of test User today!</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//p[2]/b</td>
+	<td>${restaurant}</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=matchWindow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='submit'])[2]</td>
+	<td></td>
 </tr>
 <tr>
 	<td>click</td>
 	<td>xpath=(//button[@type='button'])[2]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>assertLocation</td>
-	<td>http://localhost:3000/</td>
 	<td></td>
 </tr>
 <tr>
@@ -112,18 +212,13 @@
 	<td></td>
 </tr>
 <tr>
-	<td>assertText</td>
-	<td>css=p.ng-binding</td>
-	<td>Looks like you'll be enjoying the company of TestMatch Match today!</td>
+	<td>click</td>
+	<td>xpath=(//button[@type='submit'])[2]</td>
+	<td></td>
 </tr>
 <tr>
 	<td>click</td>
 	<td>xpath=(//button[@type='button'])[2]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>assertLocation</td>
-	<td>http://localhost:3000/</td>
 	<td></td>
 </tr>
 </tbody></table>

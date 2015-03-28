@@ -12,11 +12,11 @@
 <tr><td><a href="testUserNotFound.html">testUserNotFound</a></td></tr>
 <tr><td><a href="testRegister.html">testRegister</a></td></tr>
 <tr><td><a href="testLoginSuccess.html">testLoginSuccess</a></td></tr>
+<tr><td><a href="testRegisterMatchUser.html">testRegisterMatchUser</a></td></tr>
 <tr><td><a href="matchUsers.html">matchUsers</a></td></tr>
 <tr><td><a href="testLoginSuccessAfterMatch.html">testLoginSuccessAfterMatch</a></td></tr>
 <tr><td><a href="testMatchUserLogIn.html">testMatchUserLogIn</a></td></tr>
 <tr><td><a href="accessControl.html">accessControl</a></td></tr>
-<tr><td><a href="testGoogleMaps.html">testGoogleMaps</a></td></tr>
 </tbody></table>
 </body>
 </html>

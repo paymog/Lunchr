@@ -4,12 +4,12 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="http://localhost:3000/" />
-<title>testLoginSuccess</title>
+<title>testRegisterMatchUser</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">testLoginSuccess</td></tr>
+<tr><td rowspan="1" colspan="3">testRegisterMatchUser</td></tr>
 </thead><tbody>
 <tr>
 	<td>setSpeed</td>
@@ -22,9 +22,34 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForFrameToLoad</td>
+	<td>css=body</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@type='button']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>type</td>
 	<td>id=inputEmail</td>
-	<td>Test1234</td>
+	<td>MatchTest</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=firstName</td>
+	<td>Test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=lastName</td>
+	<td>Match</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=firstName</td>
+	<td>TestMatch</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -32,23 +57,18 @@
 	<td>123</td>
 </tr>
 <tr>
+	<td>type</td>
+	<td>id=userAge</td>
+	<td>18</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=radius</td>
+	<td>15</td>
+</tr>
+<tr>
 	<td>click</td>
 	<td>//button[@type='submit']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>css=h1.ng-binding</td>
-	<td></td>
-</tr>
-<tr>
-	<td>assertText</td>
-	<td>css=h1.ng-binding</td>
-	<td>test User</td>
-</tr>
-<tr>
-	<td>assertLocation</td>
-	<td>http://localhost:3000/home</td>
 	<td></td>
 </tr>
 <tr>
@@ -61,6 +81,7 @@
 	<td>http://localhost:3000/</td>
 	<td></td>
 </tr>
+
 </tbody></table>
 </body>
 </html>
