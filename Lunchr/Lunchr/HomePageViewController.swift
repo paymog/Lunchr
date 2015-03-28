@@ -64,7 +64,7 @@ class HomePageViewController: UIViewController {
         socket.on("matched" + email, {data, ack in
             CurrentUser.currentUser = JSON(data!)[0]["user"].dictionaryValue
             let user = CurrentUser.currentUser!
-            let matchedWith = (user["matchedwith"]?.stringValue)!
+            let matchedWith = (user["matchedWith"]?.stringValue)!
             self.setMatchingLabel(self.MATCHED + matchedWith)
         })
         
