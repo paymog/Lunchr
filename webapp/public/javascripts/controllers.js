@@ -72,8 +72,14 @@ lunchrControllers.controller('RegisterController', ['$scope', '$http', '$state',
                 return;
             }
 
+            if(/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/.test($scope.email) == false)
+            {
+                $scope.errorMessages = "Incorrect Email";
+                return;
+            }
+
             $http.post('/api/users/register', {
-                email: $scope.email,
+                email: $scope.email.toLowerCase(),
                 password: $scope.password,
                 firstname: $scope.firstname,
                 lastname: $scope.lastname,
