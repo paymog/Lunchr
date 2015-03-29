@@ -8,15 +8,15 @@
 <body>
 <table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
 <tr><td><b>Test Suite</b></td></tr>
-<tr><td><a href="testEmptyFields.html">testEmptyFields</a></td></tr>
+<tr><td><a href="testMatchUsers.html">testEmptyFields</a></td></tr>
 <tr><td><a href="testUserNotFound.html">testUserNotFound</a></td></tr>
 <tr><td><a href="testRegister.html">testRegister</a></td></tr>
 <tr><td><a href="testLoginSuccess.html">testLoginSuccess</a></td></tr>
 <tr><td><a href="testRegisterMatchUser.html">testRegisterMatchUser</a></td></tr>
-<tr><td><a href="matchUsers.html">matchUsers</a></td></tr>
+<tr><td><a href="testMatchUsers.html">testMatchUsers</a></td></tr>
 <tr><td><a href="testLoginSuccessAfterMatch.html">testLoginSuccessAfterMatch</a></td></tr>
+<tr><td><a href="testAccessControl.html">testAccessControl</a></td></tr>
 <tr><td><a href="testMatchUserLogIn.html">testMatchUserLogIn</a></td></tr>
-<tr><td><a href="accessControl.html">accessControl</a></td></tr>
 </tbody></table>
 </body>
 </html>

@@ -4,22 +4,27 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="http://localhost:3000/" />
-<title>test1</title>
+<title>testEmptyFields</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">test1</td></tr>
+<tr><td rowspan="1" colspan="3">testEmptyFields</td></tr>
 </thead><tbody>
 <tr>
-	<td>type</td>
-	<td>id=inputEmail</td>
-	<td>Test123</td>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>650</td>
+	<td></td>
 </tr>
 <tr>
 	<td>type</td>
-	<td>//input[@type='password']</td>
-	<td>123</td>
+	<td>id=inputEmail</td>
+	<td>blah</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -27,36 +32,45 @@
 	<td></td>
 </tr>
 <tr>
-	<td>verifyLocation</td>
-	<td>http://localhost:3000/home</td>
+	<td>assertLocation</td>
+	<td>http://localhost:3000/</td>
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>css=h1.ng-binding</td>
+	<td>type</td>
+	<td>id=inputEmail</td>
 	<td></td>
 </tr>
 <tr>
-	<td>assertText</td>
-	<td>css=h1.ng-binding</td>
-	<td>TestUser User</td>
+	<td>type</td>
+	<td>//input[@type='password']</td>
+	<td>asd</td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>css=button.btn-circle</td>
+	<td>//button[@type='submit']</td>
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>css=p</td>
+	<td>assertLocation</td>
+	<td>http://localhost:3000/</td>
 	<td></td>
 </tr>
 <tr>
-	<td>assertText</td>
-	<td>css=p</td>
-	<td>Hold on while we match you with another hungry soul</td>
+	<td>type</td>
+	<td>//input[@type='password']</td>
+	<td></td>
 </tr>
-
+<tr>
+	<td>click</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertLocation</td>
+	<td>http://localhost:3000/</td>
+	<td></td>
+</tr>
 </tbody></table>
 </body>
 </html>
