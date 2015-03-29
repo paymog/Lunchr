@@ -7,7 +7,7 @@ div(class='container')
         div(ng-show='errorMessages', class='alert alert-danger')
             p {{errorMessages}}
 
-        form
+        form(class='main-form')
             input(type='email', id='inputEmail', class='form-control', placeholder="Enter your email", ng-model='email', required, autofocus)
             input(type='password', class='form-control', placeholder="What's your password", ng-model='password', required)
 
