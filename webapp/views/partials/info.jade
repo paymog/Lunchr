@@ -6,10 +6,15 @@ div(class='container', ng-if='init()')
     div(ng-repeat='user in users')
         p Username: {{user.email}}
         p Password: {{user.password}}
-        p Firstname: {{user.firstname}} Lastname: {{user.lastname}}
-        p Age: {{user.age}} Radius: {{user.radius}}
-        p Wants to be matched: {{user.wantsToBeMatched}}
-        p Restaurants: {{user.restaurants}}
+        p Firstname: {{user.firstname}}
+        p Lastname: {{user.lastname}}
+        p Age: {{user.age}}
+        p Radius: {{user.radius}}
+        p Looking for lunch: {{user.wantsToBeMatched}}
+        p Desired restaurants:
+        ul
+            li(ng-repeat='restaurant in user.restaurants') {{restaurant}}
+
 
 div(class='container', ng-if='init() == false')
     include ./includes/invalid.jade
