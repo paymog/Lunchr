@@ -1,3 +1,13 @@
+#Final Project Notes
+
+*Selenium Notes
+	*The base url for the selenium tests point to localhost if you want to test it without running locally change the base url to http://54.200.225.219/ 
+	*Check the readMe.txt in /webapp/seleniumTests for more information.
+*iOS Acceptance testing
+	*We couldn't get the acceptance testing working with our iOS app but still wrote the tests that we would have wanted to run if it did work.
+	*Check the readMe.txt in /Lunchr/Frank for more information.
+
+
 # Developer Notes
 * Webapp
 	* When installing a new package with `npm` use the `--save` flag so it's added to the dependency list in `package.json`
