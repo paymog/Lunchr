@@ -92,6 +92,10 @@ a {
     float: left;
 }
 
+.text-right {
+    text-align: right;
+}
+
 .angular-google-map-container {
     height: 450px;
     width: 800px;

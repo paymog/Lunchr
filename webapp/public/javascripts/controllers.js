@@ -87,7 +87,7 @@ lunchrControllers.controller('RegisterController', ['$scope', '$http', '$state',
 lunchrControllers.controller('HomeMatchingController', ['$state', 'socket', 'authService',
     function ($state, socket, authService) {
         var currentUser = authService.currentUser();
-        socket.emit('match', {userEmail: currentUser.email});
+        socket.emit('match', {userEmail: currentUser.email, restaurants: currentUser.restaurants});
 
         socket.on('hasBeenMatched', function(data){
             authService.setUser(data.user);
@@ -104,6 +104,7 @@ lunchrControllers.controller('HomeMatchedController', ['$scope', 'authService',
     function ($scope, authService) {
         var user = authService.currentUser();
         $scope.name = user.matchedWith;
+        $scope.restaurant = user.meetingPlace;
     }]);
 
 lunchrControllers.controller('HomePageController', ['$scope', '$http', '$state', 'authService', 'socket',
@@ -130,6 +131,8 @@ lunchrControllers.controller('HomePageController', ['$scope', '$http', '$state',
             $scope.finishEating = function () {
                 currentUser.matchedWith = "";
                 currentUser.wantsToBeMatched = false;
+                currentUser.restaurants = [];
+                currentUser.meetingPlace = "";
                 authService.setUser(currentUser);
                 socket.emit('finished', {userEmail: currentUser.email});
                 $state.go('home');
@@ -149,9 +152,21 @@ lunchrControllers.controller(
 
         if($scope.currentUser)
         {
+            ngProgress.color('#00E64D');
+            ngProgress.start();
+
             DefineNavigation($scope, $state, authService);
             $scope.match = function () {
-                $state.go('home.matching');
+                if($scope.selectedPlaces.length !=0) {
+                    $scope.currentUser.restaurants = $scope.selectedPlaces;
+                    authService.setUser($scope.currentUser);
+                    $state.go('home.matching');
+                }
+                else {
+                    var errorAlert = $("#error");
+                    errorAlert.html("<strong>Error</strong> - You must pick at least 1 restuarant to proceed.");
+                    errorAlert.toggleClass("alertMsg");
+                }
             };
             var defaultVals = {latitude: 49.8651559, longitude: -97.11077669999997, zoom: 14};
             $scope.map = {
@@ -187,7 +202,6 @@ lunchrControllers.controller(
             };
 
             var onSuccess = function (position) {
-                ngProgress.start();
                 $scope.map = {
                     center: {latitude: position.coords.latitude, longitude: position.coords.longitude},
                     zoom: 14
@@ -208,7 +222,6 @@ lunchrControllers.controller(
                 });
 
                 $scope.data = "empty";
-                var key = -1;
 
                 var promise = ngGPlacesAPI.nearbySearch({
                     latitude: position.coords.latitude,
@@ -216,14 +229,13 @@ lunchrControllers.controller(
                 });
 
                 promise.then(function (data) {
-                        $scope.data = data;
-                        for (key in data) {
+                        for (var i=0; i<data.length; i++) {
                             $scope.locationDetails = ngGPlacesAPI.placeDetails({
-                                reference: ( $scope.data )[key].reference
+                                reference: data[i].reference
                             }).then(
-                                function (data) {
+                                (function (inner) { return function (data) {
                                     $scope.markers.push({
-                                        id: key + 1,
+                                        id: inner+1, //has to be +1, home marker is 0
                                         coords: {
                                             latitude: data.geometry.location.k,
                                             longitude: data.geometry.location.D
@@ -234,18 +246,24 @@ lunchrControllers.controller(
                                             labelClass: "labels",
                                             animation: google.maps.Animation.DROP
                                         },
-                                        click: function (e) {
-                                            var index = $scope.selectedPlaces.indexOf(e.$id);
+                                        click: function( ) {
+                                            var errorAlert = $('#error');
+                                            if(errorAlert.html()){
+                                                errorAlert.html("");
+                                                errorAlert.toggleClass('alertMsg');
+                                            }
+                                            var id = data.name + " located at " + data.formatted_address;
+                                            var index = $scope.selectedPlaces.indexOf(id);
 
                                             if (index > -1) {
-                                                removeSelectedPlaceFromList(e.$id);
+                                                removeSelectedPlaceFromList(id);
                                             }
                                             else {
-                                                addSelectedPlaceToList(e.$id, data.name, data.formatted_address, data.formatted_phone_number, data.website);
+                                                addSelectedPlaceToList(id, data.name, data.formatted_address, data.formatted_phone_number, data.website);
                                             }
                                         }
                                     });
-                                }
+                                };}(i))
                             );
                         }
                         ngProgress.complete();
@@ -257,7 +275,7 @@ lunchrControllers.controller(
                     function (update) {
                         alert('Got notification: ' + update);
                     });
-            }
+            };
 
             var onError = function (error) {
                 switch (error.code) {
@@ -278,7 +296,8 @@ lunchrControllers.controller(
                 var errorAlert = $("#error");
                 errorAlert.html($scope.errorMessages);
                 errorAlert.toggleClass("alertMsg");
-            }
+                ngProgress.complete();
+            };
 
             $scope.getUserLocation(onSuccess, onError);
 
@@ -351,11 +370,11 @@ lunchrControllers.controller(
                 placeItemButton.addEventListener("click", function () {
                     removeSelectedPlaceFromList(this.parentNode.id);
                 });
-            }
+            };
 
             var removeSelectedPlaceFromList = function(id) {
                 // Remove the id from the places array
-                var index = $scope.selectedPlaces.indexOf(parseInt(id));
+                var index = $scope.selectedPlaces.indexOf(id);
                 $scope.selectedPlaces.splice(index, 1);
 
                 // Remove the item from the places list

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+  <title>Test Suite</title>
+</head>
+<body>
+<table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
+<tr><td><b>Test Suite</b></td></tr>
+<tr><td><a href="testMatchUsers.html">testEmptyFields</a></td></tr>
+<tr><td><a href="testUserNotFound.html">testUserNotFound</a></td></tr>
+<tr><td><a href="testRegister.html">testRegister</a></td></tr>
+<tr><td><a href="testLoginSuccess.html">testLoginSuccess</a></td></tr>
+<tr><td><a href="testRegisterMatchUser.html">testRegisterMatchUser</a></td></tr>
+<tr><td><a href="testMatchUsers.html">testMatchUsers</a></td></tr>
+<tr><td><a href="testLoginSuccessAfterMatch.html">testLoginSuccessAfterMatch</a></td></tr>
+<tr><td><a href="testAccessControl.html">testAccessControl</a></td></tr>
+<tr><td><a href="testMatchUserLogIn.html">testMatchUserLogIn</a></td></tr>
+</tbody></table>
+</body>
+</html>

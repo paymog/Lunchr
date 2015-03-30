@@ -1,4 +1,5 @@
 div(class='container', ng-if='init()')
+    -var selected = 'Users';
     include ./includes/banner.jade
     h1 Welcome {{currentUser.firstname}}
 
@@ -7,6 +8,7 @@ div(class='container', ng-if='init()')
         Firstname: {{user.firstname}} Lastname: {{user.lastname}}
         Age: {{user.age}} Radius: {{user.radius}}
         Wants to be matched: {{user.wantsToBeMatched}}
+        Restaurants: {{user.restaurants}}
 
 div(class='container', ng-if='init() == false')
     include ./includes/invalid.jade

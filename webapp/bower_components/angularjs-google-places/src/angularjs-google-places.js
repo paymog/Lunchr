@@ -57,11 +57,11 @@ provider('ngGPlacesAPI', function () {
 
             function callback(results, status) {
                 if (status == gPlaces.PlacesServiceStatus.OK) {
-                    $rootScope.$evalAsync(function () {
+                    $rootScope.$apply(function () {
                         return deferred.resolve(req._parser(results));
                     });
                 } else {
-                    $rootScope.$evalAsync(function () {
+                    $rootScope.$apply(function () {
                         deferred.reject(req._errorMsg);
                     });
                 }
