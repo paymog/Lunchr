@@ -17,6 +17,7 @@ module.exports = function(socket) {
 
             currentUser = user;
             currentUser.wantsToBeMatched = true;
+            currentUser.restaurants = data.restaurants;
             currentUser.save(function(err){
                 if(err) {
                     console.log('Could not save user: ' + currentUser);
@@ -37,7 +38,36 @@ module.exports = function(socket) {
                 return;
             }
 
-            var userToMatch = users[0];
+            var userToMatch = null;
+            var restaurantMatch = false;
+            for(var i=0; i<users.length && !restaurantMatch; i++) {
+                if(checkNoRestaurants(currentUser) && checkHasRestaurants(users[i]))
+                {
+                    //if user requesting match has no restaurant selected -> any match
+                    userToMatch = users[i];
+                    restaurantMatch = setMatch(currentUser,userToMatch,0);
+                }
+                else if(checkHasRestaurants(currentUser) && checkNoRestaurants(users[i]))
+                {
+                    //if user found has no restaruant selected -> they are a match
+                    userToMatch = users[i];
+                    restaurantMatch = setMatch(userToMatch, currentUser, 0);
+                }
+                else if (checkHasRestaurants(currentUser) && checkHasRestaurants(users[i]))
+                {
+                    for (var pos = 0; !restaurantMatch && pos < currentUser.restaurants.length; pos++) {
+                        var index = users[i].restaurants.indexOf(currentUser.restaurants[pos]);
+
+                        if (index > -1) {
+                            userToMatch = users[i];
+                            restaurantMatch = setMatch(userToMatch, currentUser, pos);
+                        }
+                    }
+                }
+
+            }
+            if(!restaurantMatch)
+                return;
 
             userToMatch.wantsToBeMatched = false;
             currentUser.wantsToBeMatched = false;
@@ -83,6 +113,8 @@ module.exports = function(socket) {
 
             user.wantsToBeMatched = false;
             user.matchedWith = "";
+            user.restaurants = [];
+            user.meetingPlace = "";
             user.save(function(err) {
                 if(err) {
                     console.log("Could not save user " + user);
@@ -93,3 +125,18 @@ module.exports = function(socket) {
         });
     });
 };
+
+function setMatch(currentUser, userToMatch, index) {
+    userToMatch.meetingPlace = userToMatch.restaurants[index];
+    currentUser.meetingPlace = userToMatch.meetingPlace;
+    console.log("Matched restaurant is " + currentUser.meetingPlace);
+    return true;
+}
+
+function checkNoRestaurants(user) {
+    return (!user.restaurants || user.restaurants.length ==0);
+}
+
+function checkHasRestaurants(user){
+    return user.restaurants && user.restaurants.length > 0;
+}

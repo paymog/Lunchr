@@ -6,6 +6,7 @@ describe('HomeMatchingController', function () {
 
     var CURRENT_USER = 'bob@gmail.com';
     var MATCHED_USER = 'evan@gmail.com';
+    var RESTAURANTS = ['rest1', 'rest2'];
 
     var $controller, $rootScope, $state, socket, authService;
 
@@ -22,7 +23,7 @@ describe('HomeMatchingController', function () {
         socket = new socketMock($rootScope);
 
         authService = jasmine.createSpyObj('authService', ['currentUser', 'setUser']);
-        authService.currentUser.and.returnValue({email: CURRENT_USER });
+        authService.currentUser.and.returnValue({email: CURRENT_USER, restaurants: RESTAURANTS });
     }));
 
     afterEach(function () {
@@ -42,7 +43,7 @@ describe('HomeMatchingController', function () {
 
             createController();
 
-            expect(socket.emits['match'][0][0]).toEqual({userEmail: CURRENT_USER});
+            expect(socket.emits['match'][0][0]).toEqual({userEmail: CURRENT_USER, restaurants: RESTAURANTS});
             expect(authService.currentUser).toHaveBeenCalled();
         });
 

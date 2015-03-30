@@ -1,0 +1,20 @@
+div(class='container', ng-if='init()')
+    -var selected = 'Info';
+    include ./includes/banner.jade
+    h1 Welcome {{currentUser.firstname}}
+
+    div(ng-repeat='user in users')
+        p Username: {{user.email}}
+        p Password: {{user.password}}
+        p Firstname: {{user.firstname}}
+        p Lastname: {{user.lastname}}
+        p Age: {{user.age}}
+        p Radius: {{user.radius}}
+        p Looking for lunch: {{user.wantsToBeMatched}}
+        p Desired restaurants:
+        ul
+            li(ng-repeat='restaurant in user.restaurants') {{restaurant}}
+
+
+div(class='container', ng-if='init() == false')
+    include ./includes/invalid.jade

@@ -26,7 +26,7 @@ router.get('/users', function (req, res, next) {
 
 
 router.post('/users/register', function (req, res, next) {
-    User.find({email: req.body.email}, function (error, users) {
+    User.find({email: req.body.email.toLowerCase()}, function (error, users) {
         if (error) {
             return next(error)
         }
@@ -36,7 +36,7 @@ router.post('/users/register', function (req, res, next) {
 
         // create and save the user
         var user = new User({
-            email: req.body.email,
+            email: req.body.email.toLowerCase(),
             password: req.body.password,
             firstname: req.body.firstname,
             lastname: req.body.lastname,
@@ -55,7 +55,7 @@ router.post('/users/register', function (req, res, next) {
 });
 
 router.post('/users/authenticate', function (req, res, next) {
-    User.findOne({email: req.body.email, password: req.body.password}, function (error, user) {
+    User.findOne({email: req.body.email.toLowerCase()}, function (error, user) {
         if (error) {
             return next(error);
         }
@@ -63,9 +63,16 @@ router.post('/users/authenticate', function (req, res, next) {
         if (!user) {
             return next(new Error("User not found"));
         }
+
+        if(user.password != req.body.password) {
+            return next(new Error("Incorrect Password"));
+        }
+
+        var password = user.password;
         user.password = null;
         res.json(user);
-    })
+        user.password = password;
+    });
 });
 
 module.exports = router;

@@ -33,6 +33,7 @@ describe( 'MapController', function( )
     {
         it ( "Ensure map exists" , function( )
         {
+            $httpBackend.expectGET('/partials/main.jade').respond(200);
             createController();
             expect( $rootScope.map ).toBeTruthy( );
         } );
@@ -40,10 +41,10 @@ describe( 'MapController', function( )
 
     describe( "Test HTML5 Geolocation", function( )
     {
-        beforeEach( function( )
-        {
+        beforeEach(function () {
+            $httpBackend.expectGET('/partials/main.jade').respond(200);
             createController();
-        } );
+        });
         
         it ( "executes the function onSuccess with valid data", function( )
         {
