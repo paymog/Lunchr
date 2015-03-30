@@ -41,20 +41,20 @@ module.exports = function(socket) {
             var userToMatch = null;
             var restaurantMatch = false;
             for(var i=0; i<users.length && !restaurantMatch; i++) {
-                if(currentUser.restaurants.length==0 && users[i].restaurants.length != 0)
+                if(checkNoRestaurants(currentUser) && checkHasRestaurants(users[i]))
                 {
                     //if user requesting match has no restaurant selected -> any match
                     userToMatch = users[i];
                     restaurantMatch = setMatch(currentUser,userToMatch,0);
                 }
-                if(currentUser.restaurants.length!=0 && users[i].restaurants.length ==0)
+                else if(checkHasRestaurants(currentUser) && checkNoRestaurants(users[i]))
                 {
                     //if user found has no restaruant selected -> they are a match
                     userToMatch = users[i];
                     restaurantMatch = setMatch(userToMatch, currentUser, 0);
                 }
-                if (currentUser.restaurants != null && users[i].restaurants != null) {
-
+                else if (checkHasRestaurants(currentUser) && checkHasRestaurants(users[i]))
+                {
                     for (var pos = 0; !restaurantMatch && pos < currentUser.restaurants.length; pos++) {
                         var index = users[i].restaurants.indexOf(currentUser.restaurants[pos]);
 
@@ -64,6 +64,7 @@ module.exports = function(socket) {
                         }
                     }
                 }
+
             }
             if(!restaurantMatch)
                 return;
@@ -130,4 +131,12 @@ function setMatch(currentUser, userToMatch, index) {
     currentUser.meetingPlace = userToMatch.meetingPlace;
     console.log("Matched restaurant is " + currentUser.meetingPlace);
     return true;
+}
+
+function checkNoRestaurants(user) {
+    return (!user.restaurants || user.restaurants.length ==0);
+}
+
+function checkHasRestaurants(user){
+    return user.restaurants && user.restaurants.length > 0;
 }
