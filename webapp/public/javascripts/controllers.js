@@ -6,9 +6,10 @@ var checkUser = function (user) {
         return true;
     return false;
 };
-var DefineNavigation = function ($scope, $state, authService) {
+var DefineNavigation = function ($scope, $state, authService, socket) {
     $scope.logout = function () {
         authService.removeUser();
+        socket.removeAllListeners();
         $state.go('mainPage');
     };
 };
@@ -38,15 +39,15 @@ lunchrControllers.controller('MainPageController', ['$scope', '$http', '$state',
         }
     }]);
 
-lunchrControllers.controller('UserController', ['$scope', '$http', '$state', 'authService',
-    function ($scope, $http, $state, authService) {
+lunchrControllers.controller('UserController', ['$scope', '$http', '$state', 'authService', 'socket',
+    function ($scope, $http, $state, authService, socket) {
         $scope.currentUser = authService.currentUser();
         $scope.init = function () {
             return checkUser($scope.currentUser);
         };
 
         if($scope.currentUser) {
-            DefineNavigation($scope, $state, authService);
+            DefineNavigation($scope, $state, authService, socket);
 
             $http.get('/api/users')
                 .success(function (data) {
@@ -115,7 +116,7 @@ lunchrControllers.controller('HomePageController', ['$scope', '$http', '$state',
         };
 
         if(currentUser) {
-            DefineNavigation($scope, $state, authService);
+            DefineNavigation($scope, $state, authService, socket);
 
             if (currentUser.matchedWith) {
                 $state.go('home.matched');
@@ -142,8 +143,8 @@ lunchrControllers.controller('HomePageController', ['$scope', '$http', '$state',
 ]);
 
 lunchrControllers.controller(
-    'MapController', [ '$scope', '$http', '$state', 'ngGPlacesAPI', 'ngProgress', 'authService',
-    function ( $scope, $http, $state, ngGPlacesAPI, ngProgress, authService )
+    'MapController', [ '$scope', '$http', '$state', 'ngGPlacesAPI', 'ngProgress', 'authService', 'socket',
+    function ( $scope, $http, $state, ngGPlacesAPI, ngProgress, authService, socket)
     {
         $scope.currentUser = authService.currentUser();
         $scope.init = function () {
@@ -155,7 +156,7 @@ lunchrControllers.controller(
             ngProgress.color('#00E64D');
             ngProgress.start();
 
-            DefineNavigation($scope, $state, authService);
+            DefineNavigation($scope, $state, authService, socket);
             $scope.match = function () {
                 if($scope.selectedPlaces.length !=0) {
                     $scope.currentUser.restaurants = $scope.selectedPlaces;
