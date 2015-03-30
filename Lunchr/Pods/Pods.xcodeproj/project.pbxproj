@@ -1,0 +1,1510 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0F2A189AB782477322C98E70 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C37CD53640BCFCDED03561C4 /* Foundation.framework */; };
+		140542A3B233422ED4681FA1 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB7B82E3A8F7191FE0655F4 /* Alamofire.swift */; };
+		16B6A8772E3D2E82D32DEB0F /* Pods-LunchrTests-SwiftHTTP-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F22797406EF106C4AE5462 /* Pods-LunchrTests-SwiftHTTP-dummy.m */; };
+		1983750C19314CBC81B6E446 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA246273FF3BB239864F90 /* HTTPTask.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		19F2AD779A85E21389FA05D0 /* HTTPUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BAA036DF3B61937A4470B6 /* HTTPUpload.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2CFE3FA27A2C89447FB29310 /* base64.h in Headers */ = {isa = PBXBuildFile; fileRef = C6D02E87F69F012E87CCDAB1 /* base64.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		316B2378D09B55A20EB3EF9E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C37CD53640BCFCDED03561C4 /* Foundation.framework */; };
+		3252259727771C3A2EB984A1 /* Pods-Lunchr-Socket.IO-Client-Swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CE6D710CDFD0304E81957363 /* Pods-Lunchr-Socket.IO-Client-Swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3CE45C0E84219FAE2CD62989 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E3DBBB11E4F5FA8F11219F /* SwiftyJSON.swift */; };
+		3EB5B5968C76ED7050E23524 /* SocketEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75E7FE81A2857B705C144A6 /* SocketEventHandler.swift */; };
+		42A084C76B58035D50EA47FA /* HTTPRequestSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124113081AA665620BB6D964 /* HTTPRequestSerializer.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		451C0F5F6327D4E9E5942180 /* SocketEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE79971A2BAA70B2EE77CF4 /* SocketEvent.swift */; };
+		476E3073CC2AA1C5485DA0FC /* NSData+SRB64Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 916729A84246980E91CBAE84 /* NSData+SRB64Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		49129E865347C5D52661DDE6 /* Pods-LunchrTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F47B541F35C92107F5BECBF /* Pods-LunchrTests-dummy.m */; };
+		4C3A2B5DEF7D1F1511E2034A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C37CD53640BCFCDED03561C4 /* Foundation.framework */; };
+		5362CA5D90F4D775BD36F452 /* Pods-Lunchr-Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BF40355A02C99AF829ABA951 /* Pods-Lunchr-Alamofire-dummy.m */; };
+		5488759E6F74ED9C60E1DF3C /* Pods-Lunchr-SwiftyJSON-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DCDE946CB1E5685E40B9DACA /* Pods-Lunchr-SwiftyJSON-dummy.m */; };
+		553239C9A6ACE5E95CA8B10B /* Pods-Lunchr-SocketRocket-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 48FD89A4A4C9B17B071FE48C /* Pods-Lunchr-SocketRocket-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		596381B5A18ED0C61F0F5807 /* NSData+SRB64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A06829F4CAEBA350529653B /* NSData+SRB64Additions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		619FC420EF5DC04EBE8F66EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C37CD53640BCFCDED03561C4 /* Foundation.framework */; };
+		630C0BE7445B84777F61A328 /* HTTPResponseSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6A9794250A5171C1A89E6A /* HTTPResponseSerializer.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		760130550412662684490AAA /* HTTPRequestSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124113081AA665620BB6D964 /* HTTPRequestSerializer.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		762EFAA565BC474E445E6EF5 /* Pods-Lunchr-Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 549E74E84430D1D7CEBF09CD /* Pods-Lunchr-Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		76C39C54818042D723CF0281 /* HTTPResponseSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6A9794250A5171C1A89E6A /* HTTPResponseSerializer.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7BD15F67A0F3E522EFCC4C12 /* Pods-Lunchr-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AE71D432C8F843930CF1E734 /* Pods-Lunchr-dummy.m */; };
+		832FCFDB42C3945DB4BECB52 /* Pods-Lunchr-SwiftyJSON-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D14BF42EB4543866A774C9AA /* Pods-Lunchr-SwiftyJSON-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		835E3CE8B0BCD6BE2AA638C7 /* SocketIOClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7D690CCA5A3117C0C1DBAB /* SocketIOClient.swift */; };
+		88516B5B0B6DF2BF2D680E8B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C37CD53640BCFCDED03561C4 /* Foundation.framework */; };
+		8DA670A4C84AA5EEC2C4C6EB /* SRWebSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = DD547F12D4A6AFF53297AE95 /* SRWebSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		920B1B36502B08C24A6C607B /* Pods-LunchrTests-SwiftHTTP-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3073FB40CB1CADE2C47C0C51 /* Pods-LunchrTests-SwiftHTTP-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		971A56E14A487BA6AFB7EC52 /* Pods-Lunchr-SocketRocket-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 641A5D93122F5010475FDC62 /* Pods-Lunchr-SocketRocket-dummy.m */; };
+		994E80DB873BBE4204A6C759 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C37CD53640BCFCDED03561C4 /* Foundation.framework */; };
+		99A5BC2D8CAA15C7C746DB32 /* Pods-Lunchr-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 70D869DF099FAB156E93FD76 /* Pods-Lunchr-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9B6A2A3AC928DA6032527F71 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC842C1E7DAECA51DE2F964 /* WebSocket.swift */; };
+		A6929D477C0B10ACD000AFCC /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = EC54FFFD297F332143CB32C9 /* base64.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		A76B2809FF1A104B0E295A10 /* SocketAckHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EAF7CF8B4AF33BFF31CA94 /* SocketAckHandler.swift */; };
+		B5A73D4E45C2478E39D07D59 /* Pods-Lunchr-SwiftHTTP-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E960072A644DDF124CFF821 /* Pods-Lunchr-SwiftHTTP-dummy.m */; };
+		BBCF090BCBFE7E6C923EBD63 /* Pods-Lunchr-SwiftHTTP-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F7785A3B404D3C9A4A9083A4 /* Pods-Lunchr-SwiftHTTP-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BF30DDD915DF2202D7530F9C /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 176F0D340976BB0A7A5695C9 /* SRWebSocket.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		C24026F5C965ACCFAA58A9FD /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C50E391CFBDB1413AC532D12 /* Security.framework */; };
+		C84F04892CED174212D9414B /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F21CDE87AA614ED44BFBE8 /* SwiftRegex.swift */; };
+		D39F45F8FB980486E36D3C5B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C37CD53640BCFCDED03561C4 /* Foundation.framework */; };
+		D7440FD3FA69997DDC46F8FC /* Pods-LunchrTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 897083DA60E8CF1BDF363F7E /* Pods-LunchrTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCAAE1DD5E79E3D5B3674ADB /* SocketEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14BE148596E36351F910810 /* SocketEngine.swift */; };
+		E0D5E18F81CFB2AD77170716 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DBAACE622D671BF5B46A477 /* CFNetwork.framework */; };
+		ECFCFED3957E2F9BF1E5EFFF /* Pods-Lunchr-Socket.IO-Client-Swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D856127B50C55B0D0DED200C /* Pods-Lunchr-Socket.IO-Client-Swift-dummy.m */; };
+		EE19B548EBF3F85742C2212F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C37CD53640BCFCDED03561C4 /* Foundation.framework */; };
+		F1237302B9250491AE00FE2F /* HTTPUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BAA036DF3B61937A4470B6 /* HTTPUpload.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FA244DDD154CCEE1D79DFE4E /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA246273FF3BB239864F90 /* HTTPTask.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7F402240CFA6CD221CC94026 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA41BCF685368A956107585A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C6021747F87B60FCD92F080;
+			remoteInfo = "Pods-Lunchr-Alamofire";
+		};
+		95EEA40A6B4F0969B3F72A75 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA41BCF685368A956107585A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A0BC4EDC509D8ECBCA182D6B;
+			remoteInfo = "Pods-Lunchr-SwiftHTTP";
+		};
+		9FB10F1463CDCA98BD09D250 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA41BCF685368A956107585A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 608597661351E0FCC167055F;
+			remoteInfo = "Pods-Lunchr-Socket.IO-Client-Swift";
+		};
+		E48BFEC4AE928B891C6CFCA9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA41BCF685368A956107585A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A699068A5B7504FF6A4B07CC;
+			remoteInfo = "Pods-Lunchr-SocketRocket";
+		};
+		F16C3D3848ED5450A365BB5B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA41BCF685368A956107585A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DFE2E9328AAAF2DC2141F942;
+			remoteInfo = "Pods-Lunchr-SwiftyJSON";
+		};
+		F6B62C812AFE3FAB438BB1D5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA41BCF685368A956107585A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5312212106D459570447BC18;
+			remoteInfo = "Pods-LunchrTests-SwiftHTTP";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00E33ECEF1892EB189707BEE /* Pods-Lunchr-SocketRocket.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Lunchr-SocketRocket.modulemap"; sourceTree = "<group>"; };
+		0844F2E7EE4C11E3B9642EE0 /* Pods-Lunchr-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Lunchr-acknowledgements.markdown"; sourceTree = "<group>"; };
+		0992E9CB2B85A348C1055331 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A6071028B2D0E7E0270F289 /* Pods-Lunchr-SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Lunchr-SwiftyJSON.modulemap"; sourceTree = "<group>"; };
+		0AC842C1E7DAECA51DE2F964 /* WebSocket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WebSocket.swift; path = SwiftIO/WebSocket.swift; sourceTree = "<group>"; };
+		0F7D690CCA5A3117C0C1DBAB /* SocketIOClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SocketIOClient.swift; path = SwiftIO/SocketIOClient.swift; sourceTree = "<group>"; };
+		124113081AA665620BB6D964 /* HTTPRequestSerializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HTTPRequestSerializer.swift; sourceTree = "<group>"; };
+		136F2D9F4EE5AE3EA904C4EA /* Pods-Lunchr-Socket.IO-Client-Swift-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Lunchr-Socket.IO-Client-Swift-Private.xcconfig"; sourceTree = "<group>"; };
+		16437E98721D2F442AAEBFBD /* Pods-Lunchr.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Lunchr.modulemap"; sourceTree = "<group>"; };
+		176F0D340976BB0A7A5695C9 /* SRWebSocket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRWebSocket.m; path = SocketRocket/SRWebSocket.m; sourceTree = "<group>"; };
+		1A06829F4CAEBA350529653B /* NSData+SRB64Additions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+SRB64Additions.m"; path = "SocketRocket/NSData+SRB64Additions.m"; sourceTree = "<group>"; };
+		1D6D86749B174402EF7A1A3B /* Pods-LunchrTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LunchrTests-resources.sh"; sourceTree = "<group>"; };
+		1DEF10A88716C7A6E7A98A36 /* Pods-LunchrTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LunchrTests-frameworks.sh"; sourceTree = "<group>"; };
+		1E410F65074C9724EF3F5E94 /* Pods-Lunchr-Socket.IO-Client-Swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Lunchr-Socket.IO-Client-Swift.modulemap"; sourceTree = "<group>"; };
+		1FA165EA743169EFAA490CFF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21DF64569A1F2B0C0430B664 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		242A6060E22DF2F9059F05FA /* SwiftHTTP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftHTTP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		24C7E362F2186C057C022A42 /* Pods-LunchrTests-SwiftHTTP-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-LunchrTests-SwiftHTTP-prefix.pch"; path = "../Pods-LunchrTests-SwiftHTTP/Pods-LunchrTests-SwiftHTTP-prefix.pch"; sourceTree = "<group>"; };
+		25207B3BEFD6FD254068CB43 /* Pods_Lunchr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lunchr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E37C84C92F94ABAE0D5D0E1 /* Pods-Lunchr-SwiftyJSON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Lunchr-SwiftyJSON-prefix.pch"; sourceTree = "<group>"; };
+		2E960072A644DDF124CFF821 /* Pods-Lunchr-SwiftHTTP-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Lunchr-SwiftHTTP-dummy.m"; sourceTree = "<group>"; };
+		3073FB40CB1CADE2C47C0C51 /* Pods-LunchrTests-SwiftHTTP-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-LunchrTests-SwiftHTTP-umbrella.h"; path = "../Pods-LunchrTests-SwiftHTTP/Pods-LunchrTests-SwiftHTTP-umbrella.h"; sourceTree = "<group>"; };
+		36BFB6A5DBFB4878801CDB3C /* Pods-Lunchr-SwiftHTTP.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Lunchr-SwiftHTTP.xcconfig"; sourceTree = "<group>"; };
+		3EFBA68C2662596829747232 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		4766AA1B85624DBD529E497D /* Pods-LunchrTests-SwiftHTTP.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchrTests-SwiftHTTP.xcconfig"; path = "../Pods-LunchrTests-SwiftHTTP/Pods-LunchrTests-SwiftHTTP.xcconfig"; sourceTree = "<group>"; };
+		48FD89A4A4C9B17B071FE48C /* Pods-Lunchr-SocketRocket-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Lunchr-SocketRocket-umbrella.h"; sourceTree = "<group>"; };
+		4EEBA10105D41D1AE3356160 /* Pods-Lunchr-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Lunchr-frameworks.sh"; sourceTree = "<group>"; };
+		50EAF7CF8B4AF33BFF31CA94 /* SocketAckHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SocketAckHandler.swift; path = SwiftIO/SocketAckHandler.swift; sourceTree = "<group>"; };
+		532A3BDE6C9FE35D94ADDFD9 /* Pods-LunchrTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LunchrTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		549E74E84430D1D7CEBF09CD /* Pods-Lunchr-Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Lunchr-Alamofire-umbrella.h"; sourceTree = "<group>"; };
+		56C52837A5DFEBD17DB9600B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = "../Pods-LunchrTests-SwiftHTTP/Info.plist"; sourceTree = "<group>"; };
+		5BE6B432105C3A649CFE2651 /* Pods-Lunchr-Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Lunchr-Alamofire-prefix.pch"; sourceTree = "<group>"; };
+		5CE6ABC5CDF76DF1BB7971D5 /* Pods-Lunchr-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Lunchr-environment.h"; sourceTree = "<group>"; };
+		5EEA246273FF3BB239864F90 /* HTTPTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
+		60E072110243F794F5189C38 /* Pods-Lunchr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Lunchr.release.xcconfig"; sourceTree = "<group>"; };
+		641A5D93122F5010475FDC62 /* Pods-Lunchr-SocketRocket-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Lunchr-SocketRocket-dummy.m"; sourceTree = "<group>"; };
+		664F35BA29C902E5D9FC97FA /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		66620D7AC067C7EDF170DB38 /* Pods-LunchrTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LunchrTests.release.xcconfig"; sourceTree = "<group>"; };
+		69606043DEDCB1B4BCFD9A06 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A2219B2C50559F99823A766 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		70D869DF099FAB156E93FD76 /* Pods-Lunchr-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Lunchr-umbrella.h"; sourceTree = "<group>"; };
+		72778CC3EB2879B317DAA324 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7397B8E64C5F2E95C10B1656 /* Pods-Lunchr-SwiftHTTP.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Lunchr-SwiftHTTP.modulemap"; sourceTree = "<group>"; };
+		74F21CDE87AA614ED44BFBE8 /* SwiftRegex.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftRegex.swift; path = SwiftIO/SwiftRegex.swift; sourceTree = "<group>"; };
+		7DBAACE622D671BF5B46A477 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		7F47B541F35C92107F5BECBF /* Pods-LunchrTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LunchrTests-dummy.m"; sourceTree = "<group>"; };
+		897083DA60E8CF1BDF363F7E /* Pods-LunchrTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LunchrTests-umbrella.h"; sourceTree = "<group>"; };
+		8D8380312F140E3479FF0F44 /* Pods-Lunchr-Alamofire-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Lunchr-Alamofire-Private.xcconfig"; sourceTree = "<group>"; };
+		8FB7B82E3A8F7191FE0655F4 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
+		916729A84246980E91CBAE84 /* NSData+SRB64Additions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+SRB64Additions.h"; path = "SocketRocket/NSData+SRB64Additions.h"; sourceTree = "<group>"; };
+		9252BE026F0727222660E351 /* Pods-LunchrTests-SwiftHTTP.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; name = "Pods-LunchrTests-SwiftHTTP.modulemap"; path = "../Pods-LunchrTests-SwiftHTTP/Pods-LunchrTests-SwiftHTTP.modulemap"; sourceTree = "<group>"; };
+		99B17A49128BF7077C61C38B /* Pods-Lunchr-Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Lunchr-Alamofire.modulemap"; sourceTree = "<group>"; };
+		99E49B318A8E9C521C3BD73F /* Pods-Lunchr-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Lunchr-acknowledgements.plist"; sourceTree = "<group>"; };
+		9B6A9794250A5171C1A89E6A /* HTTPResponseSerializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HTTPResponseSerializer.swift; sourceTree = "<group>"; };
+		A2BAA036DF3B61937A4470B6 /* HTTPUpload.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HTTPUpload.swift; sourceTree = "<group>"; };
+		A362BB722CB042A4098758ED /* Pods-LunchrTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-LunchrTests.modulemap"; sourceTree = "<group>"; };
+		A60DB9B795B4F147BC7F97B0 /* Pods_LunchrTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LunchrTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A614C92D30DFC51C42EBD60C /* Pods-Lunchr-Socket.IO-Client-Swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Lunchr-Socket.IO-Client-Swift-prefix.pch"; sourceTree = "<group>"; };
+		A65C988D6B25D2B7C9A89EC8 /* Socket_IO_Client_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Socket_IO_Client_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A911E516EDCC24B2AA32F3FD /* Pods-Lunchr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Lunchr.debug.xcconfig"; sourceTree = "<group>"; };
+		A9BAA399D0162A904E3008BF /* Pods-Lunchr-SocketRocket-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Lunchr-SocketRocket-prefix.pch"; sourceTree = "<group>"; };
+		AC3F92EE19AFFD95182CE4DE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE71D432C8F843930CF1E734 /* Pods-Lunchr-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Lunchr-dummy.m"; sourceTree = "<group>"; };
+		B14BE148596E36351F910810 /* SocketEngine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SocketEngine.swift; path = SwiftIO/SocketEngine.swift; sourceTree = "<group>"; };
+		B5C849D5B6F7F5F08B147398 /* Pods-LunchrTests-SwiftHTTP-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchrTests-SwiftHTTP-Private.xcconfig"; path = "../Pods-LunchrTests-SwiftHTTP/Pods-LunchrTests-SwiftHTTP-Private.xcconfig"; sourceTree = "<group>"; };
+		B944AF9559B448E9D31FF76F /* Pods-Lunchr-SocketRocket.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Lunchr-SocketRocket.xcconfig"; sourceTree = "<group>"; };
+		BF40355A02C99AF829ABA951 /* Pods-Lunchr-Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Lunchr-Alamofire-dummy.m"; sourceTree = "<group>"; };
+		C379122A6896CC5555BECCBC /* Pods-Lunchr-SwiftyJSON-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Lunchr-SwiftyJSON-Private.xcconfig"; sourceTree = "<group>"; };
+		C37CD53640BCFCDED03561C4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		C50E391CFBDB1413AC532D12 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		C6D02E87F69F012E87CCDAB1 /* base64.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = base64.h; path = SocketRocket/base64.h; sourceTree = "<group>"; };
+		C6E3DBBB11E4F5FA8F11219F /* SwiftyJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Source/SwiftyJSON.swift; sourceTree = "<group>"; };
+		CA618237702B18E48632B480 /* Pods-Lunchr-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Lunchr-resources.sh"; sourceTree = "<group>"; };
+		CE6D710CDFD0304E81957363 /* Pods-Lunchr-Socket.IO-Client-Swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Lunchr-Socket.IO-Client-Swift-umbrella.h"; sourceTree = "<group>"; };
+		D14BF42EB4543866A774C9AA /* Pods-Lunchr-SwiftyJSON-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Lunchr-SwiftyJSON-umbrella.h"; sourceTree = "<group>"; };
+		D5F1FB380176F38C1DAF1379 /* SwiftHTTP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftHTTP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D75E7FE81A2857B705C144A6 /* SocketEventHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SocketEventHandler.swift; path = SwiftIO/SocketEventHandler.swift; sourceTree = "<group>"; };
+		D839ACF86216CB12D64D9FDE /* Pods-LunchrTests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LunchrTests-environment.h"; sourceTree = "<group>"; };
+		D856127B50C55B0D0DED200C /* Pods-Lunchr-Socket.IO-Client-Swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Lunchr-Socket.IO-Client-Swift-dummy.m"; sourceTree = "<group>"; };
+		DCDE946CB1E5685E40B9DACA /* Pods-Lunchr-SwiftyJSON-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Lunchr-SwiftyJSON-dummy.m"; sourceTree = "<group>"; };
+		DD547F12D4A6AFF53297AE95 /* SRWebSocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SRWebSocket.h; path = SocketRocket/SRWebSocket.h; sourceTree = "<group>"; };
+		E5AD1B2D81E9788EDC6B6845 /* Pods-LunchrTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LunchrTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E925060D11E02D23066045AE /* Pods-LunchrTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LunchrTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		EC54FFFD297F332143CB32C9 /* base64.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = base64.c; path = SocketRocket/base64.c; sourceTree = "<group>"; };
+		F3610A485C7ECC9E263E7A10 /* Pods-Lunchr-SwiftyJSON.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Lunchr-SwiftyJSON.xcconfig"; sourceTree = "<group>"; };
+		F3F22797406EF106C4AE5462 /* Pods-LunchrTests-SwiftHTTP-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-LunchrTests-SwiftHTTP-dummy.m"; path = "../Pods-LunchrTests-SwiftHTTP/Pods-LunchrTests-SwiftHTTP-dummy.m"; sourceTree = "<group>"; };
+		F723553C4179AE6E531238FF /* Pods-Lunchr-SwiftHTTP-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Lunchr-SwiftHTTP-Private.xcconfig"; sourceTree = "<group>"; };
+		F7785A3B404D3C9A4A9083A4 /* Pods-Lunchr-SwiftHTTP-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Lunchr-SwiftHTTP-umbrella.h"; sourceTree = "<group>"; };
+		F9D27A0B9E6B1AF71DD3DFFE /* Pods-Lunchr-Socket.IO-Client-Swift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Lunchr-Socket.IO-Client-Swift.xcconfig"; sourceTree = "<group>"; };
+		FA43280E8A40CD26C9684737 /* SocketRocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SocketRocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBC4EC8AC715D50BDA518A9B /* Pods-Lunchr-SwiftHTTP-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Lunchr-SwiftHTTP-prefix.pch"; sourceTree = "<group>"; };
+		FCE79971A2BAA70B2EE77CF4 /* SocketEvent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SocketEvent.swift; path = SwiftIO/SocketEvent.swift; sourceTree = "<group>"; };
+		FDD0DA1297425A612D2F77B6 /* Pods-Lunchr-SocketRocket-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Lunchr-SocketRocket-Private.xcconfig"; sourceTree = "<group>"; };
+		FE2FB820FD22E66065ECDC83 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FEE04D8E959507CD8CE09D7E /* Pods-Lunchr-Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Lunchr-Alamofire.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		203A97A46E1D0E4D17C6396D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C3A2B5DEF7D1F1511E2034A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2662E6BBA6F03D21F0060DC2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88516B5B0B6DF2BF2D680E8B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26D560553BD711D20FE246C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0F2A189AB782477322C98E70 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		466FF992787CAC1FEAD2D91F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				316B2378D09B55A20EB3EF9E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E4E4A8F836F62D1DC77617C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				994E80DB873BBE4204A6C759 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2B76B2D7DA3BBD59891BCC9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D39F45F8FB980486E36D3C5B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F96E448FC32D2D48D5016F8C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				619FC420EF5DC04EBE8F66EE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD7A56A50090FD18938A9E03 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0D5E18F81CFB2AD77170716 /* CFNetwork.framework in Frameworks */,
+				EE19B548EBF3F85742C2212F /* Foundation.framework in Frameworks */,
+				C24026F5C965ACCFAA58A9FD /* Security.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0DAE70609000254665DCBEF1 /* SwiftyJSON */ = {
+			isa = PBXGroup;
+			children = (
+				C6E3DBBB11E4F5FA8F11219F /* SwiftyJSON.swift */,
+				C7996BB36E4E806949D186E0 /* Support Files */,
+			);
+			path = SwiftyJSON;
+			sourceTree = "<group>";
+		};
+		1E8B840B4CD364C1644FFF3A /* Socket.IO-Client-Swift */ = {
+			isa = PBXGroup;
+			children = (
+				50EAF7CF8B4AF33BFF31CA94 /* SocketAckHandler.swift */,
+				B14BE148596E36351F910810 /* SocketEngine.swift */,
+				FCE79971A2BAA70B2EE77CF4 /* SocketEvent.swift */,
+				D75E7FE81A2857B705C144A6 /* SocketEventHandler.swift */,
+				0F7D690CCA5A3117C0C1DBAB /* SocketIOClient.swift */,
+				74F21CDE87AA614ED44BFBE8 /* SwiftRegex.swift */,
+				0AC842C1E7DAECA51DE2F964 /* WebSocket.swift */,
+				56A53DB3B30E1BBC9C2803B2 /* Support Files */,
+			);
+			path = "Socket.IO-Client-Swift";
+			sourceTree = "<group>";
+		};
+		2DD1D708E222DC98E45E3DC8 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E9A6D89D86C8EBED8C0F559B /* Pods-Lunchr */,
+				E9F8DAE0DEA3B7573F8856E1 /* Pods-LunchrTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		30783B755734FBC876535E2C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6A2219B2C50559F99823A766 /* Alamofire.framework */,
+				25207B3BEFD6FD254068CB43 /* Pods_Lunchr.framework */,
+				A60DB9B795B4F147BC7F97B0 /* Pods_LunchrTests.framework */,
+				FA43280E8A40CD26C9684737 /* SocketRocket.framework */,
+				A65C988D6B25D2B7C9A89EC8 /* Socket_IO_Client_Swift.framework */,
+				242A6060E22DF2F9059F05FA /* SwiftHTTP.framework */,
+				D5F1FB380176F38C1DAF1379 /* SwiftHTTP.framework */,
+				664F35BA29C902E5D9FC97FA /* SwiftyJSON.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3B10DB47F6610FA878233380 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				21DF64569A1F2B0C0430B664 /* Info.plist */,
+				56C52837A5DFEBD17DB9600B /* Info.plist */,
+				7397B8E64C5F2E95C10B1656 /* Pods-Lunchr-SwiftHTTP.modulemap */,
+				36BFB6A5DBFB4878801CDB3C /* Pods-Lunchr-SwiftHTTP.xcconfig */,
+				F723553C4179AE6E531238FF /* Pods-Lunchr-SwiftHTTP-Private.xcconfig */,
+				2E960072A644DDF124CFF821 /* Pods-Lunchr-SwiftHTTP-dummy.m */,
+				FBC4EC8AC715D50BDA518A9B /* Pods-Lunchr-SwiftHTTP-prefix.pch */,
+				F7785A3B404D3C9A4A9083A4 /* Pods-Lunchr-SwiftHTTP-umbrella.h */,
+				9252BE026F0727222660E351 /* Pods-LunchrTests-SwiftHTTP.modulemap */,
+				4766AA1B85624DBD529E497D /* Pods-LunchrTests-SwiftHTTP.xcconfig */,
+				B5C849D5B6F7F5F08B147398 /* Pods-LunchrTests-SwiftHTTP-Private.xcconfig */,
+				F3F22797406EF106C4AE5462 /* Pods-LunchrTests-SwiftHTTP-dummy.m */,
+				24C7E362F2186C057C022A42 /* Pods-LunchrTests-SwiftHTTP-prefix.pch */,
+				3073FB40CB1CADE2C47C0C51 /* Pods-LunchrTests-SwiftHTTP-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-Lunchr-SwiftHTTP";
+			sourceTree = "<group>";
+		};
+		3FE067CB71F9A1257D3EAC5A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4E1D94DE6613D71D7A77E09E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4E1D94DE6613D71D7A77E09E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				7DBAACE622D671BF5B46A477 /* CFNetwork.framework */,
+				C37CD53640BCFCDED03561C4 /* Foundation.framework */,
+				C50E391CFBDB1413AC532D12 /* Security.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		56A53DB3B30E1BBC9C2803B2 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1FA165EA743169EFAA490CFF /* Info.plist */,
+				1E410F65074C9724EF3F5E94 /* Pods-Lunchr-Socket.IO-Client-Swift.modulemap */,
+				F9D27A0B9E6B1AF71DD3DFFE /* Pods-Lunchr-Socket.IO-Client-Swift.xcconfig */,
+				136F2D9F4EE5AE3EA904C4EA /* Pods-Lunchr-Socket.IO-Client-Swift-Private.xcconfig */,
+				D856127B50C55B0D0DED200C /* Pods-Lunchr-Socket.IO-Client-Swift-dummy.m */,
+				A614C92D30DFC51C42EBD60C /* Pods-Lunchr-Socket.IO-Client-Swift-prefix.pch */,
+				CE6D710CDFD0304E81957363 /* Pods-Lunchr-Socket.IO-Client-Swift-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-Lunchr-Socket.IO-Client-Swift";
+			sourceTree = "<group>";
+		};
+		749355AC1113881E065E8DD2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D883D4635B36C2BE49BDB318 /* Alamofire */,
+				1E8B840B4CD364C1644FFF3A /* Socket.IO-Client-Swift */,
+				AA13AE042495C91AA39AEA72 /* SocketRocket */,
+				8D30415CFEECAE8DFAD59533 /* SwiftHTTP */,
+				0DAE70609000254665DCBEF1 /* SwiftyJSON */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7F057F714B5BD24529021485 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				AC3F92EE19AFFD95182CE4DE /* Info.plist */,
+				99B17A49128BF7077C61C38B /* Pods-Lunchr-Alamofire.modulemap */,
+				FEE04D8E959507CD8CE09D7E /* Pods-Lunchr-Alamofire.xcconfig */,
+				8D8380312F140E3479FF0F44 /* Pods-Lunchr-Alamofire-Private.xcconfig */,
+				BF40355A02C99AF829ABA951 /* Pods-Lunchr-Alamofire-dummy.m */,
+				5BE6B432105C3A649CFE2651 /* Pods-Lunchr-Alamofire-prefix.pch */,
+				549E74E84430D1D7CEBF09CD /* Pods-Lunchr-Alamofire-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-Lunchr-Alamofire";
+			sourceTree = "<group>";
+		};
+		8D30415CFEECAE8DFAD59533 /* SwiftHTTP */ = {
+			isa = PBXGroup;
+			children = (
+				124113081AA665620BB6D964 /* HTTPRequestSerializer.swift */,
+				9B6A9794250A5171C1A89E6A /* HTTPResponseSerializer.swift */,
+				5EEA246273FF3BB239864F90 /* HTTPTask.swift */,
+				A2BAA036DF3B61937A4470B6 /* HTTPUpload.swift */,
+				3B10DB47F6610FA878233380 /* Support Files */,
+			);
+			path = SwiftHTTP;
+			sourceTree = "<group>";
+		};
+		A93AB1DEFAB47251835C693E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				69606043DEDCB1B4BCFD9A06 /* Info.plist */,
+				00E33ECEF1892EB189707BEE /* Pods-Lunchr-SocketRocket.modulemap */,
+				B944AF9559B448E9D31FF76F /* Pods-Lunchr-SocketRocket.xcconfig */,
+				FDD0DA1297425A612D2F77B6 /* Pods-Lunchr-SocketRocket-Private.xcconfig */,
+				641A5D93122F5010475FDC62 /* Pods-Lunchr-SocketRocket-dummy.m */,
+				A9BAA399D0162A904E3008BF /* Pods-Lunchr-SocketRocket-prefix.pch */,
+				48FD89A4A4C9B17B071FE48C /* Pods-Lunchr-SocketRocket-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-Lunchr-SocketRocket";
+			sourceTree = "<group>";
+		};
+		AA13AE042495C91AA39AEA72 /* SocketRocket */ = {
+			isa = PBXGroup;
+			children = (
+				916729A84246980E91CBAE84 /* NSData+SRB64Additions.h */,
+				1A06829F4CAEBA350529653B /* NSData+SRB64Additions.m */,
+				DD547F12D4A6AFF53297AE95 /* SRWebSocket.h */,
+				176F0D340976BB0A7A5695C9 /* SRWebSocket.m */,
+				EC54FFFD297F332143CB32C9 /* base64.c */,
+				C6D02E87F69F012E87CCDAB1 /* base64.h */,
+				A93AB1DEFAB47251835C693E /* Support Files */,
+			);
+			path = SocketRocket;
+			sourceTree = "<group>";
+		};
+		B79B4382FE5F4066A840C82F = {
+			isa = PBXGroup;
+			children = (
+				3EFBA68C2662596829747232 /* Podfile */,
+				3FE067CB71F9A1257D3EAC5A /* Frameworks */,
+				749355AC1113881E065E8DD2 /* Pods */,
+				30783B755734FBC876535E2C /* Products */,
+				2DD1D708E222DC98E45E3DC8 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		C7996BB36E4E806949D186E0 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FE2FB820FD22E66065ECDC83 /* Info.plist */,
+				0A6071028B2D0E7E0270F289 /* Pods-Lunchr-SwiftyJSON.modulemap */,
+				F3610A485C7ECC9E263E7A10 /* Pods-Lunchr-SwiftyJSON.xcconfig */,
+				C379122A6896CC5555BECCBC /* Pods-Lunchr-SwiftyJSON-Private.xcconfig */,
+				DCDE946CB1E5685E40B9DACA /* Pods-Lunchr-SwiftyJSON-dummy.m */,
+				2E37C84C92F94ABAE0D5D0E1 /* Pods-Lunchr-SwiftyJSON-prefix.pch */,
+				D14BF42EB4543866A774C9AA /* Pods-Lunchr-SwiftyJSON-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-Lunchr-SwiftyJSON";
+			sourceTree = "<group>";
+		};
+		D883D4635B36C2BE49BDB318 /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				8FB7B82E3A8F7191FE0655F4 /* Alamofire.swift */,
+				7F057F714B5BD24529021485 /* Support Files */,
+			);
+			path = Alamofire;
+			sourceTree = "<group>";
+		};
+		E9A6D89D86C8EBED8C0F559B /* Pods-Lunchr */ = {
+			isa = PBXGroup;
+			children = (
+				72778CC3EB2879B317DAA324 /* Info.plist */,
+				16437E98721D2F442AAEBFBD /* Pods-Lunchr.modulemap */,
+				0844F2E7EE4C11E3B9642EE0 /* Pods-Lunchr-acknowledgements.markdown */,
+				99E49B318A8E9C521C3BD73F /* Pods-Lunchr-acknowledgements.plist */,
+				AE71D432C8F843930CF1E734 /* Pods-Lunchr-dummy.m */,
+				5CE6ABC5CDF76DF1BB7971D5 /* Pods-Lunchr-environment.h */,
+				4EEBA10105D41D1AE3356160 /* Pods-Lunchr-frameworks.sh */,
+				CA618237702B18E48632B480 /* Pods-Lunchr-resources.sh */,
+				70D869DF099FAB156E93FD76 /* Pods-Lunchr-umbrella.h */,
+				A911E516EDCC24B2AA32F3FD /* Pods-Lunchr.debug.xcconfig */,
+				60E072110243F794F5189C38 /* Pods-Lunchr.release.xcconfig */,
+			);
+			name = "Pods-Lunchr";
+			path = "Target Support Files/Pods-Lunchr";
+			sourceTree = "<group>";
+		};
+		E9F8DAE0DEA3B7573F8856E1 /* Pods-LunchrTests */ = {
+			isa = PBXGroup;
+			children = (
+				0992E9CB2B85A348C1055331 /* Info.plist */,
+				A362BB722CB042A4098758ED /* Pods-LunchrTests.modulemap */,
+				E925060D11E02D23066045AE /* Pods-LunchrTests-acknowledgements.markdown */,
+				532A3BDE6C9FE35D94ADDFD9 /* Pods-LunchrTests-acknowledgements.plist */,
+				7F47B541F35C92107F5BECBF /* Pods-LunchrTests-dummy.m */,
+				D839ACF86216CB12D64D9FDE /* Pods-LunchrTests-environment.h */,
+				1DEF10A88716C7A6E7A98A36 /* Pods-LunchrTests-frameworks.sh */,
+				1D6D86749B174402EF7A1A3B /* Pods-LunchrTests-resources.sh */,
+				897083DA60E8CF1BDF363F7E /* Pods-LunchrTests-umbrella.h */,
+				E5AD1B2D81E9788EDC6B6845 /* Pods-LunchrTests.debug.xcconfig */,
+				66620D7AC067C7EDF170DB38 /* Pods-LunchrTests.release.xcconfig */,
+			);
+			name = "Pods-LunchrTests";
+			path = "Target Support Files/Pods-LunchrTests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		086952BB9BE11B12778A2ADF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99A5BC2D8CAA15C7C746DB32 /* Pods-Lunchr-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1E989ABF144A15966B4E6EE1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				476E3073CC2AA1C5485DA0FC /* NSData+SRB64Additions.h in Headers */,
+				553239C9A6ACE5E95CA8B10B /* Pods-Lunchr-SocketRocket-umbrella.h in Headers */,
+				8DA670A4C84AA5EEC2C4C6EB /* SRWebSocket.h in Headers */,
+				2CFE3FA27A2C89447FB29310 /* base64.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DB20D3AFABAC3D9A670D696 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBCF090BCBFE7E6C923EBD63 /* Pods-Lunchr-SwiftHTTP-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8936F8F1E2E688CC31F018FB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				920B1B36502B08C24A6C607B /* Pods-LunchrTests-SwiftHTTP-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD938F861BCAF689D4AAAD13 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				832FCFDB42C3945DB4BECB52 /* Pods-Lunchr-SwiftyJSON-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE163E7B954857AD2B3555A6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				762EFAA565BC474E445E6EF5 /* Pods-Lunchr-Alamofire-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E92A67B57E6F4EBC04494048 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3252259727771C3A2EB984A1 /* Pods-Lunchr-Socket.IO-Client-Swift-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8B567915BD8DCE1B0BF7DA4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7440FD3FA69997DDC46F8FC /* Pods-LunchrTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5312212106D459570447BC18 /* Pods-LunchrTests-SwiftHTTP */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B463CDE1F1A49C4D9B464DD /* Build configuration list for PBXNativeTarget "Pods-LunchrTests-SwiftHTTP" */;
+			buildPhases = (
+				31DC215CAC485824631A071E /* Sources */,
+				F96E448FC32D2D48D5016F8C /* Frameworks */,
+				8936F8F1E2E688CC31F018FB /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-LunchrTests-SwiftHTTP";
+			productName = "Pods-LunchrTests-SwiftHTTP";
+			productReference = D5F1FB380176F38C1DAF1379 /* SwiftHTTP.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		608597661351E0FCC167055F /* Pods-Lunchr-Socket.IO-Client-Swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 164514FD68D647C0DC5F3CDE /* Build configuration list for PBXNativeTarget "Pods-Lunchr-Socket.IO-Client-Swift" */;
+			buildPhases = (
+				5794C21DFB82880935A895D6 /* Sources */,
+				2662E6BBA6F03D21F0060DC2 /* Frameworks */,
+				E92A67B57E6F4EBC04494048 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Lunchr-Socket.IO-Client-Swift";
+			productName = "Pods-Lunchr-Socket.IO-Client-Swift";
+			productReference = A65C988D6B25D2B7C9A89EC8 /* Socket_IO_Client_Swift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6E1981AB18AECDFC5362AD8D /* Pods-Lunchr */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 76417FCC6C4847018E0893DE /* Build configuration list for PBXNativeTarget "Pods-Lunchr" */;
+			buildPhases = (
+				B8C93172D8FA9FC61D579686 /* Sources */,
+				5E4E4A8F836F62D1DC77617C /* Frameworks */,
+				086952BB9BE11B12778A2ADF /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6105DEB8C59716A043D8E563 /* PBXTargetDependency */,
+				4EA7D45D517E34206FBE55E8 /* PBXTargetDependency */,
+				866CCEAF76E81D201C6AFD34 /* PBXTargetDependency */,
+				CDD07AAE384A605065217E5F /* PBXTargetDependency */,
+				F5BC8F43594BE056BD92C7CD /* PBXTargetDependency */,
+			);
+			name = "Pods-Lunchr";
+			productName = "Pods-Lunchr";
+			productReference = 25207B3BEFD6FD254068CB43 /* Pods_Lunchr.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7932D5388CE8847AEC3ED52F /* Pods-LunchrTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30EE721117974D77807D7721 /* Build configuration list for PBXNativeTarget "Pods-LunchrTests" */;
+			buildPhases = (
+				2E20EADB25E62F3C75DD2889 /* Sources */,
+				466FF992787CAC1FEAD2D91F /* Frameworks */,
+				F8B567915BD8DCE1B0BF7DA4 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7756AFF47E34DDB6E7A6D838 /* PBXTargetDependency */,
+			);
+			name = "Pods-LunchrTests";
+			productName = "Pods-LunchrTests";
+			productReference = A60DB9B795B4F147BC7F97B0 /* Pods_LunchrTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9C6021747F87B60FCD92F080 /* Pods-Lunchr-Alamofire */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E32875C6073693B7B6011E8 /* Build configuration list for PBXNativeTarget "Pods-Lunchr-Alamofire" */;
+			buildPhases = (
+				DC74F1B3A9AA27A6634C6ABB /* Sources */,
+				26D560553BD711D20FE246C3 /* Frameworks */,
+				DE163E7B954857AD2B3555A6 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Lunchr-Alamofire";
+			productName = "Pods-Lunchr-Alamofire";
+			productReference = 6A2219B2C50559F99823A766 /* Alamofire.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A0BC4EDC509D8ECBCA182D6B /* Pods-Lunchr-SwiftHTTP */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A711F9677E7B4BD7E400E72 /* Build configuration list for PBXNativeTarget "Pods-Lunchr-SwiftHTTP" */;
+			buildPhases = (
+				0A5F025BB26C63F5E1AB508E /* Sources */,
+				203A97A46E1D0E4D17C6396D /* Frameworks */,
+				4DB20D3AFABAC3D9A670D696 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Lunchr-SwiftHTTP";
+			productName = "Pods-Lunchr-SwiftHTTP";
+			productReference = 242A6060E22DF2F9059F05FA /* SwiftHTTP.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A699068A5B7504FF6A4B07CC /* Pods-Lunchr-SocketRocket */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F33F03BCF426B9B0BC11A913 /* Build configuration list for PBXNativeTarget "Pods-Lunchr-SocketRocket" */;
+			buildPhases = (
+				0A033F6960411237195E8598 /* Sources */,
+				FD7A56A50090FD18938A9E03 /* Frameworks */,
+				1E989ABF144A15966B4E6EE1 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Lunchr-SocketRocket";
+			productName = "Pods-Lunchr-SocketRocket";
+			productReference = FA43280E8A40CD26C9684737 /* SocketRocket.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DFE2E9328AAAF2DC2141F942 /* Pods-Lunchr-SwiftyJSON */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0FCCB11B836F06C1507F0E37 /* Build configuration list for PBXNativeTarget "Pods-Lunchr-SwiftyJSON" */;
+			buildPhases = (
+				4D883BB85A6A706BC2A550BD /* Sources */,
+				D2B76B2D7DA3BBD59891BCC9 /* Frameworks */,
+				AD938F861BCAF689D4AAAD13 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Lunchr-SwiftyJSON";
+			productName = "Pods-Lunchr-SwiftyJSON";
+			productReference = 664F35BA29C902E5D9FC97FA /* SwiftyJSON.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DA41BCF685368A956107585A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				TargetAttributes = {
+					608597661351E0FCC167055F = {
+						DevelopmentTeam = 98CS97VCGJ;
+					};
+					9C6021747F87B60FCD92F080 = {
+						DevelopmentTeam = 98CS97VCGJ;
+					};
+					A699068A5B7504FF6A4B07CC = {
+						DevelopmentTeam = 98CS97VCGJ;
+					};
+				};
+			};
+			buildConfigurationList = AA851AF392F4E128340F5E6B /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B79B4382FE5F4066A840C82F;
+			productRefGroup = 30783B755734FBC876535E2C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6E1981AB18AECDFC5362AD8D /* Pods-Lunchr */,
+				9C6021747F87B60FCD92F080 /* Pods-Lunchr-Alamofire */,
+				608597661351E0FCC167055F /* Pods-Lunchr-Socket.IO-Client-Swift */,
+				A699068A5B7504FF6A4B07CC /* Pods-Lunchr-SocketRocket */,
+				A0BC4EDC509D8ECBCA182D6B /* Pods-Lunchr-SwiftHTTP */,
+				DFE2E9328AAAF2DC2141F942 /* Pods-Lunchr-SwiftyJSON */,
+				7932D5388CE8847AEC3ED52F /* Pods-LunchrTests */,
+				5312212106D459570447BC18 /* Pods-LunchrTests-SwiftHTTP */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0A033F6960411237195E8598 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				596381B5A18ED0C61F0F5807 /* NSData+SRB64Additions.m in Sources */,
+				971A56E14A487BA6AFB7EC52 /* Pods-Lunchr-SocketRocket-dummy.m in Sources */,
+				BF30DDD915DF2202D7530F9C /* SRWebSocket.m in Sources */,
+				A6929D477C0B10ACD000AFCC /* base64.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0A5F025BB26C63F5E1AB508E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42A084C76B58035D50EA47FA /* HTTPRequestSerializer.swift in Sources */,
+				76C39C54818042D723CF0281 /* HTTPResponseSerializer.swift in Sources */,
+				FA244DDD154CCEE1D79DFE4E /* HTTPTask.swift in Sources */,
+				19F2AD779A85E21389FA05D0 /* HTTPUpload.swift in Sources */,
+				B5A73D4E45C2478E39D07D59 /* Pods-Lunchr-SwiftHTTP-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E20EADB25E62F3C75DD2889 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49129E865347C5D52661DDE6 /* Pods-LunchrTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		31DC215CAC485824631A071E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				760130550412662684490AAA /* HTTPRequestSerializer.swift in Sources */,
+				630C0BE7445B84777F61A328 /* HTTPResponseSerializer.swift in Sources */,
+				1983750C19314CBC81B6E446 /* HTTPTask.swift in Sources */,
+				F1237302B9250491AE00FE2F /* HTTPUpload.swift in Sources */,
+				16B6A8772E3D2E82D32DEB0F /* Pods-LunchrTests-SwiftHTTP-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D883BB85A6A706BC2A550BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5488759E6F74ED9C60E1DF3C /* Pods-Lunchr-SwiftyJSON-dummy.m in Sources */,
+				3CE45C0E84219FAE2CD62989 /* SwiftyJSON.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5794C21DFB82880935A895D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECFCFED3957E2F9BF1E5EFFF /* Pods-Lunchr-Socket.IO-Client-Swift-dummy.m in Sources */,
+				A76B2809FF1A104B0E295A10 /* SocketAckHandler.swift in Sources */,
+				DCAAE1DD5E79E3D5B3674ADB /* SocketEngine.swift in Sources */,
+				451C0F5F6327D4E9E5942180 /* SocketEvent.swift in Sources */,
+				3EB5B5968C76ED7050E23524 /* SocketEventHandler.swift in Sources */,
+				835E3CE8B0BCD6BE2AA638C7 /* SocketIOClient.swift in Sources */,
+				C84F04892CED174212D9414B /* SwiftRegex.swift in Sources */,
+				9B6A2A3AC928DA6032527F71 /* WebSocket.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8C93172D8FA9FC61D579686 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BD15F67A0F3E522EFCC4C12 /* Pods-Lunchr-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC74F1B3A9AA27A6634C6ABB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				140542A3B233422ED4681FA1 /* Alamofire.swift in Sources */,
+				5362CA5D90F4D775BD36F452 /* Pods-Lunchr-Alamofire-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4EA7D45D517E34206FBE55E8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Lunchr-Socket.IO-Client-Swift";
+			target = 608597661351E0FCC167055F /* Pods-Lunchr-Socket.IO-Client-Swift */;
+			targetProxy = 9FB10F1463CDCA98BD09D250 /* PBXContainerItemProxy */;
+		};
+		6105DEB8C59716A043D8E563 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Lunchr-Alamofire";
+			target = 9C6021747F87B60FCD92F080 /* Pods-Lunchr-Alamofire */;
+			targetProxy = 7F402240CFA6CD221CC94026 /* PBXContainerItemProxy */;
+		};
+		7756AFF47E34DDB6E7A6D838 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-LunchrTests-SwiftHTTP";
+			target = 5312212106D459570447BC18 /* Pods-LunchrTests-SwiftHTTP */;
+			targetProxy = F6B62C812AFE3FAB438BB1D5 /* PBXContainerItemProxy */;
+		};
+		866CCEAF76E81D201C6AFD34 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Lunchr-SocketRocket";
+			target = A699068A5B7504FF6A4B07CC /* Pods-Lunchr-SocketRocket */;
+			targetProxy = E48BFEC4AE928B891C6CFCA9 /* PBXContainerItemProxy */;
+		};
+		CDD07AAE384A605065217E5F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Lunchr-SwiftHTTP";
+			target = A0BC4EDC509D8ECBCA182D6B /* Pods-Lunchr-SwiftHTTP */;
+			targetProxy = 95EEA40A6B4F0969B3F72A75 /* PBXContainerItemProxy */;
+		};
+		F5BC8F43594BE056BD92C7CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Lunchr-SwiftyJSON";
+			target = DFE2E9328AAAF2DC2141F942 /* Pods-Lunchr-SwiftyJSON */;
+			targetProxy = F16C3D3848ED5450A365BB5B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		072957E0F372EF4A047B5467 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C379122A6896CC5555BECCBC /* Pods-Lunchr-SwiftyJSON-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Lunchr-SwiftyJSON/Pods-Lunchr-SwiftyJSON-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-Lunchr-SwiftyJSON/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-Lunchr-SwiftyJSON/Pods-Lunchr-SwiftyJSON.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SwiftyJSON;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		171689C00EBDD6E315D11C38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDD0DA1297425A612D2F77B6 /* Pods-Lunchr-SocketRocket-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Lunchr-SocketRocket/Pods-Lunchr-SocketRocket-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-Lunchr-SocketRocket/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-Lunchr-SocketRocket/Pods-Lunchr-SocketRocket.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SocketRocket;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		2664EEE010A21B3F1291D9C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A911E516EDCC24B2AA32F3FD /* Pods-Lunchr.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Lunchr/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-Lunchr/Pods-Lunchr.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_Lunchr;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		28CD404E42B860057CC2B530 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		4FBE06F870F68716941FF844 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5AD1B2D81E9788EDC6B6845 /* Pods-LunchrTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-LunchrTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-LunchrTests/Pods-LunchrTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_LunchrTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5191CAE6C227E96CCEF27572 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D8380312F140E3479FF0F44 /* Pods-Lunchr-Alamofire-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Lunchr-Alamofire/Pods-Lunchr-Alamofire-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-Lunchr-Alamofire/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-Lunchr-Alamofire/Pods-Lunchr-Alamofire.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Alamofire;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		58450052280A64B655A6818C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60E072110243F794F5189C38 /* Pods-Lunchr.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Lunchr/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-Lunchr/Pods-Lunchr.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_Lunchr;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7631BAEFFC1A02C79CAC23CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66620D7AC067C7EDF170DB38 /* Pods-LunchrTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-LunchrTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-LunchrTests/Pods-LunchrTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_LunchrTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7B7ECE06B6F28C7EF147760B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F723553C4179AE6E531238FF /* Pods-Lunchr-SwiftHTTP-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Lunchr-SwiftHTTP/Pods-Lunchr-SwiftHTTP-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-Lunchr-SwiftHTTP/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-Lunchr-SwiftHTTP/Pods-Lunchr-SwiftHTTP.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SwiftHTTP;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7EAF845AC8454D838FDB3CE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C379122A6896CC5555BECCBC /* Pods-Lunchr-SwiftyJSON-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Lunchr-SwiftyJSON/Pods-Lunchr-SwiftyJSON-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-Lunchr-SwiftyJSON/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-Lunchr-SwiftyJSON/Pods-Lunchr-SwiftyJSON.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SwiftyJSON;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		995501C8CE0D5E1304C1AFFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5C849D5B6F7F5F08B147398 /* Pods-LunchrTests-SwiftHTTP-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-LunchrTests-SwiftHTTP/Pods-LunchrTests-SwiftHTTP-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-LunchrTests-SwiftHTTP/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-LunchrTests-SwiftHTTP/Pods-LunchrTests-SwiftHTTP.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SwiftHTTP;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9A42AF84E608A76F3B3066C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D8380312F140E3479FF0F44 /* Pods-Lunchr-Alamofire-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Lunchr-Alamofire/Pods-Lunchr-Alamofire-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-Lunchr-Alamofire/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-Lunchr-Alamofire/Pods-Lunchr-Alamofire.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Alamofire;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		ACE1A831B4BAAB04D56A767A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5C849D5B6F7F5F08B147398 /* Pods-LunchrTests-SwiftHTTP-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-LunchrTests-SwiftHTTP/Pods-LunchrTests-SwiftHTTP-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-LunchrTests-SwiftHTTP/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-LunchrTests-SwiftHTTP/Pods-LunchrTests-SwiftHTTP.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SwiftHTTP;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C359BB91C2925E9A19C44AEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F723553C4179AE6E531238FF /* Pods-Lunchr-SwiftHTTP-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Lunchr-SwiftHTTP/Pods-Lunchr-SwiftHTTP-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-Lunchr-SwiftHTTP/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-Lunchr-SwiftHTTP/Pods-Lunchr-SwiftHTTP.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SwiftHTTP;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CE61E01042D1B2378FB60C9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DEAE69BB17D0AFADA5CCE7EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDD0DA1297425A612D2F77B6 /* Pods-Lunchr-SocketRocket-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Lunchr-SocketRocket/Pods-Lunchr-SocketRocket-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-Lunchr-SocketRocket/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-Lunchr-SocketRocket/Pods-Lunchr-SocketRocket.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SocketRocket;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F51E2D2F0DB82E365E53372B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 136F2D9F4EE5AE3EA904C4EA /* Pods-Lunchr-Socket.IO-Client-Swift-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Lunchr-Socket.IO-Client-Swift/Pods-Lunchr-Socket.IO-Client-Swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-Lunchr-Socket.IO-Client-Swift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-Lunchr-Socket.IO-Client-Swift/Pods-Lunchr-Socket.IO-Client-Swift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Socket_IO_Client_Swift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FB63AF6C2A84F2A9F563B0C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 136F2D9F4EE5AE3EA904C4EA /* Pods-Lunchr-Socket.IO-Client-Swift-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Lunchr-Socket.IO-Client-Swift/Pods-Lunchr-Socket.IO-Client-Swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-Lunchr-Socket.IO-Client-Swift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-Lunchr-Socket.IO-Client-Swift/Pods-Lunchr-Socket.IO-Client-Swift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Socket_IO_Client_Swift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0FCCB11B836F06C1507F0E37 /* Build configuration list for PBXNativeTarget "Pods-Lunchr-SwiftyJSON" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EAF845AC8454D838FDB3CE1 /* Debug */,
+				072957E0F372EF4A047B5467 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		164514FD68D647C0DC5F3CDE /* Build configuration list for PBXNativeTarget "Pods-Lunchr-Socket.IO-Client-Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F51E2D2F0DB82E365E53372B /* Debug */,
+				FB63AF6C2A84F2A9F563B0C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		30EE721117974D77807D7721 /* Build configuration list for PBXNativeTarget "Pods-LunchrTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FBE06F870F68716941FF844 /* Debug */,
+				7631BAEFFC1A02C79CAC23CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6E32875C6073693B7B6011E8 /* Build configuration list for PBXNativeTarget "Pods-Lunchr-Alamofire" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A42AF84E608A76F3B3066C2 /* Debug */,
+				5191CAE6C227E96CCEF27572 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		76417FCC6C4847018E0893DE /* Build configuration list for PBXNativeTarget "Pods-Lunchr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2664EEE010A21B3F1291D9C1 /* Debug */,
+				58450052280A64B655A6818C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8A711F9677E7B4BD7E400E72 /* Build configuration list for PBXNativeTarget "Pods-Lunchr-SwiftHTTP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C359BB91C2925E9A19C44AEA /* Debug */,
+				7B7ECE06B6F28C7EF147760B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9B463CDE1F1A49C4D9B464DD /* Build configuration list for PBXNativeTarget "Pods-LunchrTests-SwiftHTTP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACE1A831B4BAAB04D56A767A /* Debug */,
+				995501C8CE0D5E1304C1AFFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA851AF392F4E128340F5E6B /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28CD404E42B860057CC2B530 /* Debug */,
+				CE61E01042D1B2378FB60C9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F33F03BCF426B9B0BC11A913 /* Build configuration list for PBXNativeTarget "Pods-Lunchr-SocketRocket" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DEAE69BB17D0AFADA5CCE7EA /* Debug */,
+				171689C00EBDD6E315D11C38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DA41BCF685368A956107585A /* Project object */;
+}

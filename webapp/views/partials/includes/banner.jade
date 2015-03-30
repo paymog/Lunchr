@@ -1,3 +1,4 @@
+-var menu = {'Home': 'home', 'Info': 'info'};
 nav(class='navbar navbar-inverse navbar-fixed-top')
     div(class='container-fluid')
         div(class='navbar-header')
@@ -8,8 +9,12 @@ nav(class='navbar navbar-inverse navbar-fixed-top')
             a(class='navbar-brand')
         div(class='collapse navbar-collapse', id='header-bar')
             ul(class='nav navbar-nav')
-                li
-                    a(ui-sref="home") Home
-                li
-                    a(ui-sref='users') Users
+                each val, key in menu
+                    if selected == key
+                        li.active
+                            a(href='')= key
+                            //use href to get the pointer hand
+                    else
+                        li
+                            a(ui-sref=val)= key
             button(type='button', class='btn-logout btn btn-deafult navbar-btn', ng-click='logout()') Logout
