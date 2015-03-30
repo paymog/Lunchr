@@ -12,23 +12,23 @@
 <tr><td rowspan="1" colspan="3">testEmptyFields</td></tr>
 </thead><tbody>
 <tr>
-	<td>open</td>
-	<td>/</td>
-	<td></td>
-</tr>
-<tr>
 	<td>setSpeed</td>
 	<td>650</td>
 	<td></td>
 </tr>
 <tr>
-	<td>type</td>
-	<td>id=inputEmail</td>
-	<td>blah</td>
+	<td>open</td>
+	<td>/map</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=h4</td>
+	<td>You are not logged in, please log in through the main page</td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//button[@type='submit']</td>
+	<td>link=main page</td>
 	<td></td>
 </tr>
 <tr>
@@ -37,18 +37,18 @@
 	<td></td>
 </tr>
 <tr>
-	<td>type</td>
-	<td>id=inputEmail</td>
+	<td>open</td>
+	<td>/home</td>
 	<td></td>
 </tr>
 <tr>
-	<td>type</td>
-	<td>//input[@type='password']</td>
-	<td>asd</td>
+	<td>assertText</td>
+	<td>css=h4</td>
+	<td>You are not logged in, please log in through the main page</td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//button[@type='submit']</td>
+	<td>link=main page</td>
 	<td></td>
 </tr>
 <tr>
@@ -57,13 +57,18 @@
 	<td></td>
 </tr>
 <tr>
-	<td>type</td>
-	<td>//input[@type='password']</td>
+	<td>open</td>
+	<td>/info</td>
 	<td></td>
 </tr>
 <tr>
+	<td>assertText</td>
+	<td>css=h4</td>
+	<td>You are not logged in, please log in through the main page</td>
+</tr>
+<tr>
 	<td>click</td>
-	<td>//button[@type='submit']</td>
+	<td>link=main page</td>
 	<td></td>
 </tr>
 <tr>
