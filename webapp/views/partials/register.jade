@@ -15,8 +15,8 @@ div(class='container')
                 input(type='password', class='form-control', placeholder="Enter a password", ng-model='password', required)
 
             div(class='col-xs-6 float-right')
-                input(type='number', id='userAge', class='form-control', placeholder="Enter your age", ng-model='age', required)
-                input(type='number', id='radius', class='form-control', placeholder="Enter a radius (km)", ng-model='radius', required)
+                input(type='number', id='userAge', class='form-control', placeholder="Enter your age", ng-model='age', required, min="1")
+                input(type='number', id='radius', class='form-control', placeholder="Enter a radius (km)", ng-model='radius', required, min="1")
 
             //spacing
             div(class='col-xs-12')
