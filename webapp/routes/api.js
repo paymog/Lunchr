@@ -36,7 +36,7 @@ router.post('/users/register', function (req, res, next) {
 
         // create and save the user
         var user = new User({
-            email: req.body.email,
+            email: req.body.email.toLowerCase(),
             password: req.body.password,
             firstname: req.body.firstname,
             lastname: req.body.lastname,
@@ -55,33 +55,21 @@ router.post('/users/register', function (req, res, next) {
 });
 
 router.post('/users/authenticate', function (req, res, next) {
-    User.find({email: req.body.email}, function (error, users) {
+    User.findOne({email: req.body.email.toLowerCase()}, function (error, user) {
         if (error) {
             return next(error);
         }
 
-        if (users.length ==0) {
+        if (!user) {
             return next(new Error("User not found"));
         }
 
-        var found = false;
-        for (var i=0; i< users.length;i++)
-        {
-            console.log(users[i].password);
-            if(users[i].password == req.body.password)
-            {
-                console.log("finds match");
-                users[i].password = null;
-                res.json(users[i]);
-                //technically don't need these 2 lines, but here in case
-                found = true;
-                break;
-            }
-        }
-
-        if(found == false) {
+        if(user.password != req.body.password) {
             return next(new Error("Incorrect Password"));
         }
+
+        user.password = null;
+        res.json(user);
     });
 });
 

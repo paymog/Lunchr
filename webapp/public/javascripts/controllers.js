@@ -28,11 +28,11 @@ lunchrControllers.controller('MainPageController', ['$scope', '$http', '$state',
 
             if(/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/.test($scope.email) == false)
             {
-                $scope.errorMessages = "Incorrect Email";
+                $scope.errorMessages = "Invalid Email";
                 return;
             }
 
-            $http.post('/api/users/authenticate', {email: $scope.email.toLowerCase(), password: $scope.password})
+            $http.post('/api/users/authenticate', {email: $scope.email, password: $scope.password})
                 .success(function (data) {
                     authService.setUser(data);
                     $state.go('home');
@@ -79,7 +79,7 @@ lunchrControllers.controller('RegisterController', ['$scope', '$http', '$state',
             }
 
             $http.post('/api/users/register', {
-                email: $scope.email.toLowerCase(),
+                email: $scope.email,
                 password: $scope.password,
                 firstname: $scope.firstname,
                 lastname: $scope.lastname,
