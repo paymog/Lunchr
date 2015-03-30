@@ -54,7 +54,7 @@ lunchrControllers.controller('UserController', ['$scope', '$http', '$state', 'au
         if($scope.currentUser) {
             DefineNavigation($scope, $state, authService);
 
-            $http.get('/api/users')
+            $http.get('/api/users', {params: {email: $scope.currentUser.email}})
                 .success(function (data) {
                     $scope.users = data;
                 });

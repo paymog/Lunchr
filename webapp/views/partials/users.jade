@@ -3,12 +3,13 @@ div(class='container', ng-if='init()')
     include ./includes/banner.jade
     h1 Welcome {{currentUser.firstname}}
 
-    p(ng-repeat='user in users').
-        Username: {{user.email}} Password: {{user.password}}
-        Firstname: {{user.firstname}} Lastname: {{user.lastname}}
-        Age: {{user.age}} Radius: {{user.radius}}
-        Wants to be matched: {{user.wantsToBeMatched}}
-        Restaurants: {{user.restaurants}}
+    div(ng-repeat='user in users')
+        p Username: {{user.email}}
+        p Password: {{user.password}}
+        p Firstname: {{user.firstname}} Lastname: {{user.lastname}}
+        p Age: {{user.age}} Radius: {{user.radius}}
+        p Wants to be matched: {{user.wantsToBeMatched}}
+        p Restaurants: {{user.restaurants}}
 
 div(class='container', ng-if='init() == false')
     include ./includes/invalid.jade

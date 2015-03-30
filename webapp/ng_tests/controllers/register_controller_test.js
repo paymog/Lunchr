@@ -4,7 +4,7 @@ describe('RegisterController', function () {
     beforeEach(module('lunchr'));
     beforeEach(module('stateMock'));
 
-    var DEFAULT_EMAIL = 'email';
+    var DEFAULT_EMAIL = 'email@email.com';
     var DEFAULT_PASSWORD = 'password';
     var DEFAULT_FIRST_NAME = 'bob';
     var DEFAULT_LAST_NAME = 'johnson';
