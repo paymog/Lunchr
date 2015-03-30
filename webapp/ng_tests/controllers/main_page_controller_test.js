@@ -4,7 +4,7 @@ describe('MainPageController', function () {
     beforeEach(module('lunchr'));
     beforeEach(module('stateMock')); //mock the $state service of ui-router
 
-    var DEFAULT_EMAIL = 'user';
+    var DEFAULT_EMAIL = 'user@user.com';
     var DEFAULT_PASSWORD = 'password';
     var DEFAULT_FIRSTNAME = 'first';
     var DEFAULT_LASTNAME = 'last';
