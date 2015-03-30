@@ -26,7 +26,7 @@ router.get('/users', function (req, res, next) {
 
 
 router.post('/users/register', function (req, res, next) {
-    User.find({email: req.body.email}, function (error, users) {
+    User.find({email: req.body.email.toLowerCase()}, function (error, users) {
         if (error) {
             return next(error)
         }
@@ -68,8 +68,10 @@ router.post('/users/authenticate', function (req, res, next) {
             return next(new Error("Incorrect Password"));
         }
 
+        var password = user.password;
         user.password = null;
         res.json(user);
+        user.password = password;
     });
 });
 
